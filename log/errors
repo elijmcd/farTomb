@@ -1,0 +1,15 @@
+Aug 30 02:14:11 2021 :: SYSERR: Missed 10798 seconds worth of pulses.
+Aug 30 07:14:14 2021 :: SYSERR: Missed 17990 seconds worth of pulses.
+SYSERR: gethostbyaddr: Permission denied
+SYSERR: gethostbyaddr: Permission denied
+SYSERR: gethostbyaddr: Permission denied
+SYSERR: Write to socket: Connection reset by peer
+SYSERR: Write to socket: Connection reset by peer
+SYSERR: gethostbyaddr: Permission denied
+SYSERR: gethostbyaddr: Permission denied
+SYSERR: gethostbyaddr: Permission denied
+SYSERR: gethostbyaddr: Permission denied
+SYSERR: gethostbyaddr: Permission denied
+SYSERR: gethostbyaddr: Permission denied
+SYSERR: Write to socket: Connection reset by peer
+Aug 30 15:38:34 2021 :: SYSERR: XP tables not set up correctly in class.c!

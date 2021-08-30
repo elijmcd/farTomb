@@ -1,0 +1,30 @@
+Aug 30 16:19:57 2021 :: Resetting #346: God Hall Ext 346 for God Hall Cmplx (rooms 34600-34699).
+Aug 30 16:19:57 2021 :: Resetting #555: Ultima (rooms 55500-55599).
+Aug 30 16:19:57 2021 :: Resetting #556: Ultima II (rooms 55600-55699).
+Aug 30 16:19:57 2021 :: Resetting #653: Apartment (rooms 65300-65399).
+Aug 30 16:19:57 2021 :: Resetting #654: Subdivision (rooms 65400-65499).
+Aug 30 16:19:57 2021 :: Boot db -- DONE.
+Aug 30 16:19:57 2021 :: Signal trapping.
+Aug 30 16:19:57 2021 :: Entering game loop.
+Aug 30 16:19:57 2021 :: No connections.  Going to sleep.
+Aug 30 16:19:57 2021 :: New connection.  Waking up.
+Aug 30 16:20:13 2021 :: Kaja [hedgehugdilemma.mediacom.info] new player.
+Aug 30 16:20:17 2021 :: Kaja had no variable file
+Aug 30 16:20:17 2021 :: Kaja entering game with no equipment.
+Aug 30 16:24:57 2021 :: nusage: 1   sockets connected, 1   sockets playing
+Aug 30 16:29:57 2021 :: nusage: 1   sockets connected, 1   sockets playing
+Aug 30 16:33:45 2021 :: WARNING: EOF on socket read (connection broken by peer)
+Aug 30 16:33:45 2021 :: Closing link to: Kaja.
+Aug 30 16:33:45 2021 :: No connections.  Going to sleep.
+Aug 30 16:33:53 2021 :: New connection.  Waking up.
+Aug 30 16:33:59 2021 :: Hobble has connected.
+Aug 30 16:34:01 2021 :: Hobble had no variable file
+Aug 30 16:34:01 2021 :: Hobble retrieving crash-saved items and entering game.
+Aug 30 16:34:01 2021 :: Hobble (level 34) has 2 objects (max 30).
+Aug 30 16:34:03 2021 :: (GC) Shutdown by Hobble.
+Aug 30 16:34:03 2021 :: Closing all sockets.
+Aug 30 16:34:03 2021 :: Closing link to: Hobble.
+Aug 30 16:34:03 2021 :: Saving current MUD time.
+Aug 30 16:34:03 2021 :: Normal termination of game.
+Aug 30 16:34:03 2021 :: Clearing game world.
+autoscript terminated Mon Aug 30 16:34:04 CDT 2021
