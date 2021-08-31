@@ -30,6 +30,8 @@ const char *class_abbrevs[] = {
   "Ae",
   "Dr",
   "Ou",
+  "RM",
+  "DD",
   "\n"
 };
 
@@ -38,6 +40,8 @@ const char *pc_class_types[] = {
   "Aetherist",
   "Drifter",
   "Outrider",
+  "Wyrm",
+  "Undead",
   "\n"
 };
 
@@ -72,6 +76,9 @@ int parse_class(char arg)
   case '2': return CLASS_AETHERIST;
   case '3': return CLASS_DRIFTER;
   case '4': return CLASS_OUTRIDER;
+  case '5': return CLASS_WYRM;
+  case '6': return CLASS_UNDEAD;
+
   default:  return CLASS_UNDEFINED;
   }
 }
@@ -117,11 +124,12 @@ bitvector_t find_class_bitvector(const char *arg)
 /* #define PRAC_TYPE		3  should it say 'spell' or 'skill'?	*/
 
 int prac_params[4][NUM_CLASSES] = {
-  /* MOU	AET	DRI	OUT */
-  { 95,		95,	85,	80	},	/* learned level */
-  { 100, 100, 12, 12	},	/* max per practice */
-  { 25,		25,	0,	0	},	/* min per practice */
-  { SPELL,	SPELL,	SKILL,	SKILL	},	/* prac name */
+  /* MOU	AET	DRI	OUT WYR UND */
+  { 95,		95,	85,	80, 95, 80	},	/* learned level */
+  { 100, 100, 12, 12, 100, 12	},	/* max per practice */
+  { 25,		25,	0,	0,  25,  0	},	/* min per practice */
+  { SPELL,	SPELL,	SKILL,	SKILL, SPELL, SKILL	},	/* prac name */
+  /* MOU	  AET	    DRI	    OUT    WYR   UND */
 };
 
 /* The appropriate rooms for each guildmaster/guildguard; controls which types
@@ -1169,6 +1177,591 @@ byte saving_throws(int class_num, int type, int level)
       log("SYSERR: Invalid saving throw type.");
       break;
     }
+  
+  case CLASS_WYRM:
+    switch (type) {
+  case SAVING_PARA:	/* Paralyzation */
+    switch (level) {
+    case  0: return 90;
+    case  1: return 70;
+    case  2: return 68;
+    case  3: return 67;
+    case  4: return 65;
+    case  5: return 62;
+    case  6: return 58;
+    case  7: return 55;
+    case  8: return 53;
+    case  9: return 52;
+    case 10: return 50;
+    case 11: return 47;
+    case 12: return 43;
+    case 13: return 40;
+    case 14: return 38;
+    case 15: return 37;
+    case 16: return 35;
+    case 17: return 32;
+    case 18: return 28;
+    case 19: return 25;
+    case 20: return 24;
+    case 21: return 23;
+    case 22: return 22;
+    case 23: return 20;
+    case 24: return 19;
+    case 25: return 17;
+    case 26: return 16;
+    case 27: return 15;
+    case 28: return 14;
+    case 29: return 13;
+    case 30: return 12;
+    case 31: return 11;
+    case 32: return 10;
+    case 33: return  9;
+    case 34: return  8;
+    case 35: return  7;
+    case 36: return  6;
+    case 37: return  5;
+    case 38: return  4;
+    case 39: return  3;
+    case 40: return  2;
+    case 41: return  1;	/* Some mobiles. */
+    case 42: return  0;
+    case 43: return  0;
+    case 44: return  0;
+    case 45: return  0;
+    case 46: return  0;
+    case 47: return  0;
+    case 48: return  0;
+    case 49: return  0;
+    case 50: return  0;
+    default:
+log("SYSERR: Missing level for WYRM paralyzation saving throw.");
+break;
+    }
+  case SAVING_ROD:	/* Rods */
+    switch (level) {
+    case  0: return 90;
+    case  1: return 80;
+    case  2: return 78;
+    case  3: return 77;
+    case  4: return 75;
+    case  5: return 72;
+    case  6: return 68;
+    case  7: return 65;
+    case  8: return 63;
+    case  9: return 62;
+    case 10: return 60;
+    case 11: return 57;
+    case 12: return 53;
+    case 13: return 50;
+    case 14: return 48;
+    case 15: return 47;
+    case 16: return 45;
+    case 17: return 42;
+    case 18: return 38;
+    case 19: return 35;
+    case 20: return 34;
+    case 21: return 33;
+    case 22: return 32;
+    case 23: return 30;
+    case 24: return 29;
+    case 25: return 27;
+    case 26: return 26;
+    case 27: return 25;
+    case 28: return 24;
+    case 29: return 23;
+    case 30: return 22;
+    case 31: return 20;
+    case 32: return 18;
+    case 33: return 16;
+    case 34: return 14;
+    case 35: return 12;
+    case 36: return 10;
+    case 37: return  8;
+    case 38: return  6;
+    case 39: return  5;
+    case 40: return  4;
+    case 41: return  3;
+    case 42: return  2;
+    case 43: return  1;
+    case 44: return  0;
+    case 45: return  0;
+    case 46: return  0;
+    case 47: return  0;
+    case 48: return  0;
+    case 49: return  0;
+    case 50: return  0;
+    default:
+log("SYSERR: Missing level for WYRM rod saving throw.");
+break;
+    }
+  case SAVING_PETRI:	/* Petrification */
+    switch (level) {
+    case  0: return 90;
+    case  1: return 75;
+    case  2: return 73;
+    case  3: return 72;
+    case  4: return 70;
+    case  5: return 67;
+    case  6: return 63;
+    case  7: return 60;
+    case  8: return 58;
+    case  9: return 57;
+    case 10: return 55;
+    case 11: return 52;
+    case 12: return 48;
+    case 13: return 45;
+    case 14: return 43;
+    case 15: return 42;
+    case 16: return 40;
+    case 17: return 37;
+    case 18: return 33;
+    case 19: return 30;
+    case 20: return 29;
+    case 21: return 28;
+    case 22: return 26;
+    case 23: return 25;
+    case 24: return 24;
+    case 25: return 23;
+    case 26: return 21;
+    case 27: return 20;
+    case 28: return 19;
+    case 29: return 18;
+    case 30: return 17;
+    case 31: return 16;
+    case 32: return 15;
+    case 33: return 14;
+    case 34: return 13;
+    case 35: return 12;
+    case 36: return 11;
+    case 37: return 10;
+    case 38: return  9;
+    case 39: return  8;
+    case 40: return  7;
+    case 41: return  6;
+    case 42: return  5;
+    case 43: return  4;
+    case 44: return  3;
+    case 45: return  2;
+    case 46: return  1;
+    case 47: return  0;
+    case 48: return  0;
+    case 49: return  0;
+    case 50: return  0;
+    default:
+log("SYSERR: Missing level for WYRM petrification saving throw.");
+break;
+    }
+  case SAVING_BREATH:	/* Breath weapons */
+    switch (level) {
+    case  0: return 90;
+    case  1: return 85;
+    case  2: return 83;
+    case  3: return 82;
+    case  4: return 80;
+    case  5: return 75;
+    case  6: return 70;
+    case  7: return 65;
+    case  8: return 63;
+    case  9: return 62;
+    case 10: return 60;
+    case 11: return 55;
+    case 12: return 50;
+    case 13: return 45;
+    case 14: return 43;
+    case 15: return 42;
+    case 16: return 40;
+    case 17: return 37;
+    case 18: return 33;
+    case 19: return 30;
+    case 20: return 29;
+    case 21: return 28;
+    case 22: return 26;
+    case 23: return 25;
+    case 24: return 24;
+    case 25: return 23;
+    case 26: return 21;
+    case 27: return 20;
+    case 28: return 19;
+    case 29: return 18;
+    case 30: return 17;
+    case 31: return 16;
+    case 32: return 15;
+    case 33: return 14;
+    case 34: return 13;
+    case 35: return 12;
+    case 36: return 11;
+    case 37: return 10;
+    case 38: return  9;
+    case 39: return  8;
+    case 40: return  7;
+    case 41: return  6;
+    case 42: return  5;
+    case 43: return  4;
+    case 44: return  3;
+    case 45: return  2;
+    case 46: return  1;
+    case 47: return  0;
+    case 48: return  0;
+    case 49: return  0;
+    case 50: return  0;
+    default:
+log("SYSERR: Missing level for WYRM breath saving throw.");
+break;
+    }
+  case SAVING_SPELL:	/* Generic spells */
+    switch (level) {
+    case  0: return 90;
+    case  1: return 85;
+    case  2: return 83;
+    case  3: return 82;
+    case  4: return 80;
+    case  5: return 77;
+    case  6: return 73;
+    case  7: return 70;
+    case  8: return 68;
+    case  9: return 67;
+    case 10: return 65;
+    case 11: return 62;
+    case 12: return 58;
+    case 13: return 55;
+    case 14: return 53;
+    case 15: return 52;
+    case 16: return 50;
+    case 17: return 47;
+    case 18: return 43;
+    case 19: return 40;
+    case 20: return 39;
+    case 21: return 38;
+    case 22: return 36;
+    case 23: return 35;
+    case 24: return 34;
+    case 25: return 33;
+    case 26: return 31;
+    case 27: return 30;
+    case 28: return 29;
+    case 29: return 28;
+    case 30: return 27;
+    case 31: return 25;
+    case 32: return 23;
+    case 33: return 21;
+    case 34: return 19;
+    case 35: return 17;
+    case 36: return 15;
+    case 37: return 13;
+    case 38: return 11;
+    case 39: return  9;
+    case 40: return  7;
+    case 41: return  6;
+    case 42: return  5;
+    case 43: return  4;
+    case 44: return  3;
+    case 45: return  2;
+    case 46: return  1;
+    case 47: return  0;
+    case 48: return  0;
+    case 49: return  0;
+    case 50: return  0;
+    default:
+log("SYSERR: Missing level for WYRM spell saving throw.");
+break;
+    }
+  default:
+    log("SYSERR: Invalid saving throw type.");
+    break;
+  }
+  case CLASS_UNDEAD:
+    switch (type) {
+    case SAVING_PARA:	/* Paralyzation */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 70;
+      case  2: return 68;
+      case  3: return 67;
+      case  4: return 65;
+      case  5: return 62;
+      case  6: return 58;
+      case  7: return 55;
+      case  8: return 53;
+      case  9: return 52;
+      case 10: return 50;
+      case 11: return 47;
+      case 12: return 43;
+      case 13: return 40;
+      case 14: return 38;
+      case 15: return 37;
+      case 16: return 35;
+      case 17: return 32;
+      case 18: return 28;
+      case 19: return 25;
+      case 20: return 24;
+      case 21: return 23;
+      case 22: return 22;
+      case 23: return 20;
+      case 24: return 19;
+      case 25: return 17;
+      case 26: return 16;
+      case 27: return 15;
+      case 28: return 14;
+      case 29: return 13;
+      case 30: return 12;
+      case 31: return 11;
+      case 32: return 10;
+      case 33: return  9;
+      case 34: return  8;
+      case 35: return  7;
+      case 36: return  6;
+      case 37: return  5;
+      case 38: return  4;
+      case 39: return  3;
+      case 40: return  2;
+      case 41: return  1;	/* Some mobiles. */
+      case 42: return  0;
+      case 43: return  0;
+      case 44: return  0;
+      case 45: return  0;
+      case 46: return  0;
+      case 47: return  0;
+      case 48: return  0;
+      case 49: return  0;
+      case 50: return  0;
+      default:
+  log("SYSERR: Missing level for UNDEAD paralyzation saving throw.");
+  break;
+      }
+    case SAVING_ROD:	/* Rods */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 80;
+      case  2: return 78;
+      case  3: return 77;
+      case  4: return 75;
+      case  5: return 72;
+      case  6: return 68;
+      case  7: return 65;
+      case  8: return 63;
+      case  9: return 62;
+      case 10: return 60;
+      case 11: return 57;
+      case 12: return 53;
+      case 13: return 50;
+      case 14: return 48;
+      case 15: return 47;
+      case 16: return 45;
+      case 17: return 42;
+      case 18: return 38;
+      case 19: return 35;
+      case 20: return 34;
+      case 21: return 33;
+      case 22: return 32;
+      case 23: return 30;
+      case 24: return 29;
+      case 25: return 27;
+      case 26: return 26;
+      case 27: return 25;
+      case 28: return 24;
+      case 29: return 23;
+      case 30: return 22;
+      case 31: return 20;
+      case 32: return 18;
+      case 33: return 16;
+      case 34: return 14;
+      case 35: return 12;
+      case 36: return 10;
+      case 37: return  8;
+      case 38: return  6;
+      case 39: return  5;
+      case 40: return  4;
+      case 41: return  3;
+      case 42: return  2;
+      case 43: return  1;
+      case 44: return  0;
+      case 45: return  0;
+      case 46: return  0;
+      case 47: return  0;
+      case 48: return  0;
+      case 49: return  0;
+      case 50: return  0;
+      default:
+  log("SYSERR: Missing level for UNDEAD rod saving throw.");
+  break;
+      }
+    case SAVING_PETRI:	/* Petrification */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 75;
+      case  2: return 73;
+      case  3: return 72;
+      case  4: return 70;
+      case  5: return 67;
+      case  6: return 63;
+      case  7: return 60;
+      case  8: return 58;
+      case  9: return 57;
+      case 10: return 55;
+      case 11: return 52;
+      case 12: return 48;
+      case 13: return 45;
+      case 14: return 43;
+      case 15: return 42;
+      case 16: return 40;
+      case 17: return 37;
+      case 18: return 33;
+      case 19: return 30;
+      case 20: return 29;
+      case 21: return 28;
+      case 22: return 26;
+      case 23: return 25;
+      case 24: return 24;
+      case 25: return 23;
+      case 26: return 21;
+      case 27: return 20;
+      case 28: return 19;
+      case 29: return 18;
+      case 30: return 17;
+      case 31: return 16;
+      case 32: return 15;
+      case 33: return 14;
+      case 34: return 13;
+      case 35: return 12;
+      case 36: return 11;
+      case 37: return 10;
+      case 38: return  9;
+      case 39: return  8;
+      case 40: return  7;
+      case 41: return  6;
+      case 42: return  5;
+      case 43: return  4;
+      case 44: return  3;
+      case 45: return  2;
+      case 46: return  1;
+      case 47: return  0;
+      case 48: return  0;
+      case 49: return  0;
+      case 50: return  0;
+      default:
+  log("SYSERR: Missing level for UNDEAD petrification saving throw.");
+  break;
+      }
+    case SAVING_BREATH:	/* Breath weapons */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 85;
+      case  2: return 83;
+      case  3: return 82;
+      case  4: return 80;
+      case  5: return 75;
+      case  6: return 70;
+      case  7: return 65;
+      case  8: return 63;
+      case  9: return 62;
+      case 10: return 60;
+      case 11: return 55;
+      case 12: return 50;
+      case 13: return 45;
+      case 14: return 43;
+      case 15: return 42;
+      case 16: return 40;
+      case 17: return 37;
+      case 18: return 33;
+      case 19: return 30;
+      case 20: return 29;
+      case 21: return 28;
+      case 22: return 26;
+      case 23: return 25;
+      case 24: return 24;
+      case 25: return 23;
+      case 26: return 21;
+      case 27: return 20;
+      case 28: return 19;
+      case 29: return 18;
+      case 30: return 17;
+      case 31: return 16;
+      case 32: return 15;
+      case 33: return 14;
+      case 34: return 13;
+      case 35: return 12;
+      case 36: return 11;
+      case 37: return 10;
+      case 38: return  9;
+      case 39: return  8;
+      case 40: return  7;
+      case 41: return  6;
+      case 42: return  5;
+      case 43: return  4;
+      case 44: return  3;
+      case 45: return  2;
+      case 46: return  1;
+      case 47: return  0;
+      case 48: return  0;
+      case 49: return  0;
+      case 50: return  0;
+      default:
+  log("SYSERR: Missing level for UNDEAD breath saving throw.");
+  break;
+      }
+    case SAVING_SPELL:	/* Generic spells */
+      switch (level) {
+      case  0: return 90;
+      case  1: return 85;
+      case  2: return 83;
+      case  3: return 82;
+      case  4: return 80;
+      case  5: return 77;
+      case  6: return 73;
+      case  7: return 70;
+      case  8: return 68;
+      case  9: return 67;
+      case 10: return 65;
+      case 11: return 62;
+      case 12: return 58;
+      case 13: return 55;
+      case 14: return 53;
+      case 15: return 52;
+      case 16: return 50;
+      case 17: return 47;
+      case 18: return 43;
+      case 19: return 40;
+      case 20: return 39;
+      case 21: return 38;
+      case 22: return 36;
+      case 23: return 35;
+      case 24: return 34;
+      case 25: return 33;
+      case 26: return 31;
+      case 27: return 30;
+      case 28: return 29;
+      case 29: return 28;
+      case 30: return 27;
+      case 31: return 25;
+      case 32: return 23;
+      case 33: return 21;
+      case 34: return 19;
+      case 35: return 17;
+      case 36: return 15;
+      case 37: return 13;
+      case 38: return 11;
+      case 39: return  9;
+      case 40: return  7;
+      case 41: return  6;
+      case 42: return  5;
+      case 43: return  4;
+      case 44: return  3;
+      case 45: return  2;
+      case 46: return  1;
+      case 47: return  0;
+      case 48: return  0;
+      case 49: return  0;
+      case 50: return  0;
+      default:
+  log("SYSERR: Missing level for UNDEAD spell saving throw.");
+  break;
+      }
+    default:
+      log("SYSERR: Invalid saving throw type.");
+      break;
+    }
+
+  
   default:
     log("SYSERR: Invalid class saving throw.");
     break;
@@ -1342,6 +1935,88 @@ int thaco(int class_num, int level)
     default:
       log("SYSERR: Missing level for OUTRIDER thac0.");
     }
+  
+  case CLASS_WYRM:
+    switch (level) {
+    case  0: return 100;
+    case  1: return  20;
+    case  2: return  20;
+    case  3: return  20;
+    case  4: return  18;
+    case  5: return  18;
+    case  6: return  18;
+    case  7: return  16;
+    case  8: return  16;
+    case  9: return  16;
+    case 10: return  14;
+    case 11: return  14;
+    case 12: return  14;
+    case 13: return  12;
+    case 14: return  12;
+    case 15: return  12;
+    case 16: return  10;
+    case 17: return  10;
+    case 18: return  10;
+    case 19: return   8;
+    case 20: return   8;
+    case 21: return   8;
+    case 22: return   6;
+    case 23: return   6;
+    case 24: return   6;
+    case 25: return   4;
+    case 26: return   4;
+    case 27: return   4;
+    case 28: return   2;
+    case 29: return   2;
+    case 30: return   2;
+    case 31: return   1;
+    case 32: return   1;
+    case 33: return   1;
+    case 34: return   1;
+    default:
+      log("SYSERR: Missing level for AETHERIST thac0.");
+    }
+  case CLASS_UNDEAD:
+    switch (level) {
+    case  0: return 100;
+    case  1: return  20;
+    case  2: return  20;
+    case  3: return  20;
+    case  4: return  18;
+    case  5: return  18;
+    case  6: return  18;
+    case  7: return  16;
+    case  8: return  16;
+    case  9: return  16;
+    case 10: return  14;
+    case 11: return  14;
+    case 12: return  14;
+    case 13: return  12;
+    case 14: return  12;
+    case 15: return  12;
+    case 16: return  10;
+    case 17: return  10;
+    case 18: return  10;
+    case 19: return   8;
+    case 20: return   8;
+    case 21: return   8;
+    case 22: return   6;
+    case 23: return   6;
+    case 24: return   6;
+    case 25: return   4;
+    case 26: return   4;
+    case 27: return   4;
+    case 28: return   2;
+    case 29: return   2;
+    case 30: return   2;
+    case 31: return   1;
+    case 32: return   1;
+    case 33: return   1;
+    case 34: return   1;
+    default:
+      log("SYSERR: Missing level for AETHERIST thac0.");
+    }
+  
   default:
     log("SYSERR: Unknown class in thac0 chart.");
   }
@@ -1416,6 +2091,26 @@ void roll_real_abils(struct char_data *ch)
     if (ch->real_abils.str == 18)
       ch->real_abils.str_add = rand_number(0, 100);
     break;
+  case CLASS_WYRM:
+    ch->real_abils.wis = table[0];
+    ch->real_abils.intel = table[1];
+    ch->real_abils.dex = table[2];
+    ch->real_abils.cha = table[3];
+    ch->real_abils.str = table[4];
+    ch->real_abils.con = table[5];
+    break;
+  case CLASS_UNDEAD:
+    ch->real_abils.str = table[0];
+    ch->real_abils.con = table[1];
+    ch->real_abils.dex = table[2];
+    ch->real_abils.wis = table[3];
+    ch->real_abils.intel = table[4];
+    ch->real_abils.cha = table[5];
+    if (ch->real_abils.str == 18)
+      ch->real_abils.str_add = rand_number(0, 100);
+    break;
+
+
   }
   ch->aff_abils = ch->real_abils;
 }
@@ -1451,7 +2146,17 @@ void do_start(struct char_data *ch)
     break;
 
   case CLASS_OUTRIDER:
+    SET_SKILL(ch, SKILL_SNEAK, 15);
+    SET_SKILL(ch, SKILL_HIDE, 10);
+    SET_SKILL(ch, SKILL_TRACK, 10);
     break;
+
+  case CLASS_WYRM:
+    break;
+
+  case CLASS_UNDEAD:
+    break;
+
   }
 
   advance_level(ch);
@@ -1503,6 +2208,20 @@ void advance_level(struct char_data *ch)
     add_mana = 0;
     add_move = rand_number(2, 5);
     break;
+
+  case CLASS_WYRM:
+    add_hp += rand_number(11, 16);
+    add_mana = rand_number(GET_LEVEL(ch), (int)(1.5 * GET_LEVEL(ch)));
+    add_mana = MIN(add_mana, 10);
+    add_move = rand_number(3, 4);
+    break;
+
+  case CLASS_UNDEAD:
+    add_hp += rand_number(10, 15);
+    add_mana = 0;
+    add_move = rand_number(0, 2);
+    break;
+
   }
 
   ch->points.max_hit += MAX(1, add_hp);
@@ -1561,6 +2280,13 @@ int invalid_class(struct char_data *ch, struct obj_data *obj)
 
   if (OBJ_FLAGGED(obj, ITEM_ANTI_DRIFTER) && IS_DRIFTER(ch))
     return TRUE;
+
+  if (OBJ_FLAGGED(obj, ITEM_ANTI_WYRM) && IS_WYRM(ch))
+    return TRUE;
+
+  if (OBJ_FLAGGED(obj, ITEM_ANTI_UNDEAD) && IS_UNDEAD(ch))
+    return TRUE;
+
 
   return FALSE;
 }
@@ -1644,7 +2370,14 @@ void init_spell_levels(void)
   spell_level(SKILL_BANDAGE, CLASS_OUTRIDER, 7);
   spell_level(SKILL_TRACK, CLASS_OUTRIDER, 9);
   spell_level(SKILL_BASH, CLASS_OUTRIDER, 12);
-  spell_level(SKILL_WHIRLWIND, CLASS_OUTRIDER, 16);
+
+  /* WYRMS */
+
+
+  /* UNDEAD */
+
+
+
 }
 
 /* This is the exp given to implementors -- it must always be greater than the
@@ -1819,6 +2552,84 @@ int level_exp(int chclass, int level)
       case LVL_IMMORT: return 8000000;
     }
     break;
+
+    case CLASS_WYRM:
+    switch (level) {
+      case  0: return 0;
+      case  1: return 1;
+      case  2: return 2500;
+      case  3: return 5000;
+      case  4: return 10000;
+      case  5: return 20000;
+      case  6: return 40000;
+      case  7: return 60000;
+      case  8: return 90000;
+      case  9: return 135000;
+      case 10: return 250000;
+      case 11: return 375000;
+      case 12: return 750000;
+      case 13: return 1125000;
+      case 14: return 1500000;
+      case 15: return 1875000;
+      case 16: return 2250000;
+      case 17: return 2625000;
+      case 18: return 3000000;
+      case 19: return 3375000;
+      case 20: return 3750000;
+      case 21: return 4000000;
+      case 22: return 4300000;
+      case 23: return 4600000;
+      case 24: return 4900000;
+      case 25: return 5200000;
+      case 26: return 5500000;
+      case 27: return 5950000;
+      case 28: return 6400000;
+      case 29: return 6850000;
+      case 30: return 7400000;
+      /* add new levels here */
+      case LVL_IMMORT: return 8000000;
+    }
+    break;
+
+    case CLASS_UNDEAD:
+    switch (level) {
+      case  0: return 0;
+      case  1: return 1;
+      case  2: return 2500;
+      case  3: return 5000;
+      case  4: return 10000;
+      case  5: return 20000;
+      case  6: return 40000;
+      case  7: return 60000;
+      case  8: return 90000;
+      case  9: return 135000;
+      case 10: return 250000;
+      case 11: return 375000;
+      case 12: return 750000;
+      case 13: return 1125000;
+      case 14: return 1500000;
+      case 15: return 1875000;
+      case 16: return 2250000;
+      case 17: return 2625000;
+      case 18: return 3000000;
+      case 19: return 3375000;
+      case 20: return 3750000;
+      case 21: return 4000000;
+      case 22: return 4300000;
+      case 23: return 4600000;
+      case 24: return 4900000;
+      case 25: return 5200000;
+      case 26: return 5500000;
+      case 27: return 5950000;
+      case 28: return 6400000;
+      case 29: return 6850000;
+      case 30: return 7400000;
+      /* add new levels here */
+      case LVL_IMMORT: return 8000000;
+    }
+    break;
+
+
   }
 
   /* This statement should never be reached if the exp tables in this function
@@ -1962,6 +2773,66 @@ const char *title_male(int chclass, int level)
       case LVL_GRGOD: return "the God of War";
       default: return "the OUTRIDER";
     }
+
+    case CLASS_WYRM:
+    switch (level) {
+      case  1: return "";
+      case  2: return "";
+      case  3: return "";
+      case  4: return "";
+      case  5: return "";
+      case  6: return "";
+      case  7: return "";
+      case  8: return "";
+      case  9: return "";
+      case 10: return "";
+      case 11: return "";
+      case 12: return "";
+      case 13: return "";
+      case 14: return "";
+      case 15: return "";
+      case 16: return "";
+      case 17: return "";
+      case 18: return "";
+      case 19: return "";
+      case 20: return "";
+      /* no one ever thought up these titles 21-30 */
+      case LVL_IMMORT: return "the Immortal Cardinal";
+      case LVL_GOD: return "the Inquisitor";
+      case LVL_GRGOD: return "the God of Good and Evil";
+      default: return "the WYRM";
+    }
+
+    case CLASS_UNDEAD:
+    switch (level) {
+      case  1: return "";
+      case  2: return "";
+      case  3: return "";
+      case  4: return "";
+      case  5: return "";
+      case  6: return "";
+      case  7: return "";
+      case  8: return "";
+      case  9: return "";
+      case 10: return "";
+      case 11: return "";
+      case 12: return "";
+      case 13: return "";
+      case 14: return "";
+      case 15: return "";
+      case 16: return "";
+      case 17: return "";
+      case 18: return "";
+      case 19: return "";
+      case 20: return "";
+      /* no one ever thought up these titles 21-30 */
+      case LVL_IMMORT: return "the Immortal Cardinal";
+      case LVL_GOD: return "the Inquisitor";
+      case LVL_GRGOD: return "the God of Good and Evil";
+      default: return "the UNDEAD";
+    }
+
+
   }
 
   /* Default title for classes which do not have titles defined */
@@ -2102,6 +2973,67 @@ const char *title_female(int chclass, int level)
       case LVL_GRGOD: return "the Goddess of War";
       default: return "the OUTRIDER";
     }
+
+    case CLASS_WYRM:
+    switch(level) {
+      case  1: return "";
+      case  2: return "";
+      case  3: return "";
+      case  4: return "";
+      case  5: return "";
+      case  6: return "";
+      case  7: return "";
+      case  8: return "";
+      case  9: return "";
+      case 10: return "";
+      case 11: return "";
+      case 12: return "";
+      case 13: return "";
+      case 14: return "";
+      case 15: return "";
+      case 16: return "";
+      case 17: return "";
+      case 18: return "";
+      case 19: return "";
+      case 20: return "";
+      /* no one ever thought up these titles 21-30 */
+      case LVL_IMMORT: return "the Immortal Lady of War";
+      case LVL_GOD: return "the Queen of Destruction";
+      case LVL_GRGOD: return "the Goddess of War";
+      default: return "the WYRM";
+    }
+
+    case CLASS_UNDEAD:
+    switch(level) {
+      case  1: return "";
+      case  2: return "";
+      case  3: return "";
+      case  4: return "";
+      case  5: return "";
+      case  6: return "";
+      case  7: return "";
+      case  8: return "";
+      case  9: return "";
+      case 10: return "";
+      case 11: return "";
+      case 12: return "";
+      case 13: return "";
+      case 14: return "";
+      case 15: return "";
+      case 16: return "";
+      case 17: return "";
+      case 18: return "";
+      case 19: return "";
+      case 20: return "";
+      /* no one ever thought up these titles 21-30 */
+      case LVL_IMMORT: return "the Immortal Lady of War";
+      case LVL_GOD: return "the Queen of Destruction";
+      case LVL_GRGOD: return "the Goddess of War";
+      default: return "the UNDEAD";
+    }
+
+
+
   }
 
   /* Default title for classes which do not have titles defined */

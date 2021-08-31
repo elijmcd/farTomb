@@ -1616,10 +1616,10 @@ void nanny(struct descriptor_data *d, char *arg)
       GET_RACE(d->character) = load_result;
 
     if (load_result == RACE_WYRM){
-      GET_CLASS(d->character) = CLASS_AETHERIST;
+      GET_CLASS(d->character) = CLASS_WYRM;
       STATE(d) = CON_RMOTD;
     } else if (load_result == RACE_UNDEAD) {
-      GET_CLASS(d->character) = CLASS_OUTRIDER;
+      GET_CLASS(d->character) = CLASS_UNDEAD;
       STATE(d) = CON_RMOTD;
     } else {
       write_to_output(d, "%s\r\nYour occupation: ", class_menu);

@@ -146,28 +146,30 @@
 
 /* PC classes */
 #define CLASS_UNDEFINED	  (-1) /**< PC Class undefined */
-#define CLASS_MOUNTEBANK  0    /**< PC Class Magic User */
-#define CLASS_AETHERIST      1    /**< PC Class AETHERIST */
-#define CLASS_DRIFTER       2    /**< PC Class DRIFTER */
-#define CLASS_OUTRIDER     3    /**< PC Class OUTRIDER */
-/** Total number of available PC Classes */
-#define NUM_CLASSES	  4
+#define CLASS_MOUNTEBANK  0    /**< PC Class MOUNTEBANK */
+#define CLASS_AETHERIST   1    /**< PC Class AETHERIST */
+#define CLASS_DRIFTER     2    /**< PC Class DRIFTER */
+#define CLASS_OUTRIDER    3    /**< PC Class OUTRIDER */
+#define CLASS_WYRM        4    /**< PC Class WYRM */
+#define CLASS_UNDEAD      5    /**< PC Class Undead */
+
+
+/** Total number of available PC Classes (incl. 0) */
+#define NUM_CLASSES	  6
 
 #define RACE_UNDEFINED  (-1) /*Race Undefined*/
 #define RACE_HUMAN        0 /* Race Human */
-#define RACE_SMALLKIN     1 /* Race Elf   */
-#define RACE_WYRM         2 /* Race Dwarf */
-#define RACE_UNDEAD       3 /* Race Dwarf */
+#define RACE_SMALLKIN     1 /* Race Smallkin  */
+#define RACE_WYRM         2 /* Race Wyrm */
+#define RACE_UNDEAD       3 /* Race Undead */
 
 /* Total Number of available PC Races*/
 #define NUM_RACES       4
 
 /* NPC classes (currently unused - feel free to implement!) */
 #define CLASS_OTHER       0    /**< NPC Class Other (or undefined) */
-#define CLASS_UNDEAD      1    /**< NPC Class Undead */
 #define CLASS_HUMANOID    2    /**< NPC Class Humanoid */
 #define CLASS_ANIMAL      3    /**< NPC Class Animal */
-#define CLASS_DRAGON      4    /**< NPC Class Dragon */
 #define CLASS_GIANT       5    /**< NPC Class Giant */
 
 /* Sex */
@@ -430,16 +432,16 @@
 #define ITEM_ANTI_EVIL        10   /**< Not usable by evil people	*/
 #define ITEM_ANTI_NEUTRAL     11   /**< Not usable by neutral people */
 #define ITEM_ANTI_MOUNTEBANK  12   /**< Not usable by MOUNTEBANKs */
-#define ITEM_ANTI_AETHERIST      13   /**< Not usable by AETHERISTs */
-#define ITEM_ANTI_DRIFTER	      14   /**< Not usable by thieves */
-#define ITEM_ANTI_OUTRIDER     15   /**< Not usable by OUTRIDERs */
+#define ITEM_ANTI_AETHERIST   13   /**< Not usable by AETHERISTs */
+#define ITEM_ANTI_DRIFTER	    14   /**< Not usable by DRIFTERS */
+#define ITEM_ANTI_OUTRIDER    15   /**< Not usable by OUTRIDERs */
 #define ITEM_NOSELL           16   /**< Shopkeepers won't touch it */
 #define ITEM_QUEST            17   /**< Item is a quest item         */
 
 #define ITEM_ANTI_HUMAN       19   /* Not usable by Humans*/
-#define ITEM_ANTI_SMALLKIN    20   /* Not usable by Elfs */
-#define ITEM_ANTI_WYRM        21   /* Not usable by Dwarf*/
-#define ITEM_ANTI_UNDEAD      22   /* Not usable by Dwarf*/
+#define ITEM_ANTI_SMALLKIN    20   /* Not usable by smallkin */
+#define ITEM_ANTI_WYRM        21   /* Not usable by wyrms */
+#define ITEM_ANTI_UNDEAD      22   /* Not usable by undead */
 
 /** Total number of item flags */
 #define NUM_ITEM_FLAGS    23

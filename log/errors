@@ -13,3 +13,4 @@ SYSERR: gethostbyaddr: Permission denied
 SYSERR: gethostbyaddr: Permission denied
 SYSERR: Write to socket: Connection reset by peer
 Aug 30 15:38:34 2021 :: SYSERR: XP tables not set up correctly in class.c!
+SYSERR: bind: Address already in use
