@@ -1177,7 +1177,7 @@ byte saving_throws(int class_num, int type, int level)
       log("SYSERR: Invalid saving throw type.");
       break;
     }
-  
+
   case CLASS_WYRM:
     switch (type) {
   case SAVING_PARA:	/* Paralyzation */
@@ -1761,7 +1761,7 @@ break;
       break;
     }
 
-  
+
   default:
     log("SYSERR: Invalid class saving throw.");
     break;
@@ -1935,7 +1935,7 @@ int thaco(int class_num, int level)
     default:
       log("SYSERR: Missing level for OUTRIDER thac0.");
     }
-  
+
   case CLASS_WYRM:
     switch (level) {
     case  0: return 100;
@@ -1974,7 +1974,7 @@ int thaco(int class_num, int level)
     case 33: return   1;
     case 34: return   1;
     default:
-      log("SYSERR: Missing level for AETHERIST thac0.");
+      log("SYSERR: Missing level for WYRM thac0.");
     }
   case CLASS_UNDEAD:
     switch (level) {
@@ -2014,9 +2014,9 @@ int thaco(int class_num, int level)
     case 33: return   1;
     case 34: return   1;
     default:
-      log("SYSERR: Missing level for AETHERIST thac0.");
+      log("SYSERR: Missing level for UNDEAD thac0.");
     }
-  
+
   default:
     log("SYSERR: Unknown class in thac0 chart.");
   }
@@ -2123,6 +2123,7 @@ void do_start(struct char_data *ch)
 
   set_title(ch, NULL);
   roll_real_abils(ch);
+  do_newbie(ch);
 
   GET_MAX_HIT(ch)  = 10;
   GET_MAX_MANA(ch) = 100;
@@ -2152,6 +2153,7 @@ void do_start(struct char_data *ch)
     break;
 
   case CLASS_WYRM:
+    SET_SKILL(ch, SPELL_FLY, 100);
     break;
 
   case CLASS_UNDEAD:
@@ -2372,6 +2374,7 @@ void init_spell_levels(void)
   spell_level(SKILL_BASH, CLASS_OUTRIDER, 12);
 
   /* WYRMS */
+  spell_level(SPELL_FLY, CLASS_WYRM, 1);
 
 
   /* UNDEAD */
@@ -3033,10 +3036,8 @@ const char *title_female(int chclass, int level)
     }
 
 
-
   }
 
   /* Default title for classes which do not have titles defined */
   return "the Classless";
 }
-

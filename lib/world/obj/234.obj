@@ -5,7 +5,7 @@ A skin with water seeping out of it, is lying here.~
 ~
 17 0 0 0 0 a 0 0 0 0 0 0 0
 8 8 0 0
-13 10 0 0
+13 10 0 0 0
 #23401
 black berries blackberries~
 some blackberries~
@@ -13,7 +13,7 @@ A bunch of blackberries.~
 ~
 19 0 0 0 0 a 0 0 0 0 0 0 0
 6 0 0 0
-1 8 0 0
+1 8 0 0 0
 #23402
 pouch~
 a small pouch~
@@ -21,7 +21,7 @@ A small pouch has been dropped here.~
 ~
 15 0 0 0 0 a 0 0 0 0 0 0 0
 15 1 -1 0
-1 30 0 0
+1 30 0 0 0
 #23403
 milk fountain milk~
 a fountain~
@@ -29,7 +29,7 @@ A drinking fountain looks out of place, here in the Arena.~
 ~
 23 0 0 0 0 0 0 0 0 0 0 0 0
 -1 1 10 0
-0 0 0 0
+0 0 0 0 0
 E
 fountain milk~
    The fountain seems to be filled with milk!  Of course, newbies drink milk.
@@ -41,7 +41,7 @@ A fallen leaf rests here.~
 ~
 19 0 0 0 0 a 0 0 0 0 0 0 0
 5 0 0 0
-1 5 0 0
+1 5 0 0 0
 E
 leaves leaf~
    The leaf has a strange magical affect to it.  Your feet seem lighter as if
@@ -54,7 +54,7 @@ A newbie shortsword is sitting here.~
 ~
 5 mn 0 0 0 an 0 0 0 0 0 0 0
 0 1 6 3
-3 10 0 0
+3 10 0 0 0
 #23406
 Newbie mace~
 a newbie mace~
@@ -62,7 +62,7 @@ A newbie mace has been dropped here.~
 ~
 5 op 0 0 0 an 0 0 0 0 0 0 0
 0 1 5 5
-3 10 0 0
+3 10 0 0 0
 E
 newbie mace~
    A short mace designed for new characters.
@@ -74,7 +74,7 @@ A newbie dagger is resting here.~
 ~
 5 mn 0 0 0 ano 0 0 0 0 0 0 0
 1 1 6 11
-2 10 0 0
+2 10 0 0 0
 E
 newbie dagger~
    A small dagger designed for thieves, or an offset weapon.
@@ -88,7 +88,7 @@ A newbie club has been left here.~
 ~
 5 op 0 0 0 ano 0 0 0 0 0 0 0
 1 1 4 7
-2 5 0 0
+2 5 0 0 0
 E
 newbie club~
    A small club designed for an offset hand.
@@ -102,7 +102,7 @@ A newbie chest plate rests here.~
 ~
 9 0 0 0 0 ad 0 0 0 0 0 0 0
 2 0 0 0
-6 15 0 0
+6 15 0 0 0
 E
 newbie chest~
    A small chest place designed for all classes.
@@ -114,7 +114,7 @@ A shiny ring is trying to hide here.~
 ~
 9 amno 0 0 0 ab 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 ring power~
    A ring with a fighter drawing his sword is engraved on this shiny ring.
@@ -128,7 +128,7 @@ A black ring is hiding in the shadows~
 ~
 9 mnp 0 0 0 ab 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 ring shadows~
    A dark black ring with no markings on it.
@@ -142,7 +142,7 @@ A humming ring is calling out to you.~
 ~
 9 abmop 0 0 0 ab 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 ring blessed~
    A ring that looks pure and glows brightly.
@@ -156,7 +156,7 @@ A ring that glows like fire is warding you off.~
 ~
 9 anop 0 0 0 ab 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 ring fire~
    This ring burns bright red and burns to the touch.
@@ -170,7 +170,7 @@ An amulet is lying here.~
 ~
 9 mno 0 0 0 ac 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 warriors amulet~
    This amulet is designed to protect the neck of a Warrior.
@@ -182,7 +182,7 @@ A black collar has been left here.~
 ~
 9 mnp 0 0 0 ac 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 black collar~
    This collar wraps around the neck of a thief to prevent this skin from
@@ -195,7 +195,7 @@ A silver pendant is resting here.~
 ~
 9 mop 0 0 0 ac 0 0 0 0 0 0 0
 1 0 0 0
-1 15 0 0
+1 15 0 0 0
 E
 silver pendant~
    This pendant is shaped as a cross.  It shines brightly.
@@ -207,7 +207,7 @@ A fire red charm is burning a hole here.~
 ~
 9 nop 0 0 0 ac 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 red charm~
    This charm is red as fire and burns to the touch.
@@ -219,7 +219,7 @@ A large Helm is looking for an owner~
 ~
 9 mno 0 0 0 ae 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 warriors helm~
    A large helm which covers the entire face.  It has slits for the Eyes and
@@ -232,7 +232,7 @@ A dark leather helm is sitting here.~
 ~
 9 mnp 0 0 0 ae 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 leather helm~
    This is helm is black and covers the entire face except for the eyes.  It
@@ -245,19 +245,19 @@ A gold tiara calls out to you.~
 ~
 9 mop 0 0 0 ae 0 0 0 0 0 0 0
 1 0 0 0
-1 20 0 0
+1 20 0 0 0
 E
 gold tiara~
    A tiara designed to show respect to the Deities.
 ~
 #23421
-Wizards Hat~
-a wizards hat~
-A pointy hat is floating here.~
+wizard hat pointed~
+a soft wizardy-looking hat~
+A pointed hat appears to be floating here.~
 ~
 9 nop 0 0 0 ae 0 0 0 0 0 0 0
 1 0 0 0
-2 10 0 0
+2 10 0 0 0
 E
 wizards hat~
    A common wizards hat which points at the end.  The hat is red with pictures
@@ -272,7 +272,7 @@ A pair of leggings are resting here.~
 ~
 9 mno 0 0 0 af 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 leggings~
    Leggings that cover the entire legs but has the ability to bend at the knee.
@@ -285,7 +285,7 @@ A set of leather leggings.~
 ~
 9 mnp 0 0 0 af 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 leather leggings~
    A pair of leggings designed for maneuverability.
@@ -297,7 +297,7 @@ A pair of breeches that allows for great movement.~
 ~
 9 mop 0 0 0 af 0 0 0 0 0 0 0
 1 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 cleric breeches~
    Breeches that fight very loosely but provides extra protection.
@@ -311,7 +311,7 @@ A set of leggings rest here.~
 ~
 15 nop 0 0 0 af 0 0 0 0 0 0 0
 15 1 -1 0
-1 20 0 0
+1 20 0 0 0
 E
 leather leggings~
    Leather leggings with pouches along the side.
@@ -323,7 +323,7 @@ A pair plate mail boots~
 ~
 9 mno 0 0 0 ag 0 0 0 0 0 0 0
 1 0 0 0
-2 50 0 0
+2 50 0 0 0
 E
 mail plate boots~
    A pair of boots that is made completely of Plate.
@@ -337,7 +337,7 @@ A rugged pair of boots.~
 ~
 9 mnp 0 0 0 ag 0 0 0 0 0 0 0
 1 0 0 0
-2 10 0 0
+2 10 0 0 0
 E
 leather boots~
    A pair of leather boots that look very comfortable.
@@ -349,9 +349,9 @@ Sandals~
 some sandals~
 A pair of Sandals.~
 ~
-9 mop 0 0 0 ag 0 0 0 0 0 0 0
+9 op 0 0 0 ag 0 0 0 0 0 0 0
 1 0 0 0
-2 10 0 0
+2 10 0 0 0
 E
 sandals~
    A pair of light weight sandals.
@@ -363,7 +363,7 @@ A pair of Mage boots are floating here.~
 ~
 9 nop 0 0 0 ag 0 0 0 0 0 0 0
 1 0 0 0
-2 10 0 0
+2 10 0 0 0
 E
 mage boots~
    A pair of boots that are very lightweight, but provide good protection.
@@ -386,7 +386,7 @@ v              O-v-O            O-^-O-O-O-O-O
 ~
 16 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0
+1 1 0 0 0
 #23495
 Tuxedo~
 a tuxedo~
@@ -394,7 +394,7 @@ A tuxedo sized for a dragon.~
 ~
 9 mn 0 0 0 ad 0 0 0 0 0 0 0
 0 0 0 0
-5 1 0 0
+5 1 0 0 0
 E
 tuxedo~
    You see a dragon sized Tuxedo.  Its coat has a twin tail.
@@ -406,7 +406,7 @@ A long white gown.~
 ~
 11 mn 0 0 0 ad 0 0 0 0 0 0 0
 0 0 0 0
-5 1 0 0
+5 1 0 0 0
 E
 wedding dress~
    You see a beautiful white wedding dress.  It covers the complete body of the
@@ -419,7 +419,7 @@ A beautiful ring of twisted gold and platinum.~
 ~
 9 agi 0 0 0 ab 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 0
+1 1 0 0 0
 E
 ring~
    A beautiful ring of twisted gold and platinum.  There is an engravement on
@@ -438,7 +438,7 @@ A wedding ring that shines brightly.~
 ~
 9 agi 0 0 0 ab 0 0 0 0 0 0 0
 5 0 0 0
-1 1 0 0
+1 1 0 0 0
 E
 ring~
    A ring that symbols love.  Engraved in the ring, I will love you forever,
@@ -456,7 +456,7 @@ A little black book is sitting here calling your name.~
 ~
 12 bgi 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0
+0 0 0 0 0
 E
 book~
    Upon these pages are players that have upset Ferret and will not receive
@@ -467,6 +467,6 @@ Saint
 Angel
 Phoenix
 Alexander
-@w(Maybe you!)!@n
+	w(Maybe you!)!	n
 ~
 $~

@@ -1052,7 +1052,7 @@ int search_help(const char *argument, int level)
         mid++;
       if (strn_cmp(argument, help_table[mid].keywords, minlen) || level < help_table[mid].min_level)
         break;
-        
+
       return (mid);
     }
     else if (chk > 0)
@@ -1281,10 +1281,15 @@ ACMD(do_who)
           CCNRM(ch, C_SPR), ((!(++num_can_see % 4)) ? "\r\n" : ""));
       } else {
         num_can_see++;
+
         send_to_char(ch, "%s[%2d %s %s] %s%s%s%s",
             (GET_LEVEL(tch) >= LVL_IMMORT ? CCYEL(ch, C_SPR) : ""),
-            GET_LEVEL(tch), RACE_ABBR(tch), CLASS_ABBR(tch),
-            GET_NAME(tch), (*GET_TITLE(tch) ? " " : ""), GET_TITLE(tch),
+            GET_LEVEL(tch),
+            (IS_WYRM(tch) || IS_UNDEAD(tch) ? pc_race_types[(int) GET_RACE(tch)] : RACE_ABBR(tch)),
+            (IS_WYRM(tch) || IS_UNDEAD(tch) ? "" : CLASS_ABBR(tch)),
+            GET_NAME(tch),
+            (*GET_TITLE(tch) ? " " : ""),
+            GET_TITLE(tch),
             CCNRM(ch, C_SPR));
 
         if (GET_INVIS_LEV(tch))
@@ -2120,7 +2125,7 @@ ACMD(do_toggle)
       for (i=0; *arg2 && *(sector_types[i]) != '\n'; i++)
         if (is_abbrev(arg2, sector_types[i]))
           break;
-      if (*(sector_types[i]) == '\n') 
+      if (*(sector_types[i]) == '\n')
         i=0;
       GET_BUILDWALK_SECTOR(ch) = i;
       send_to_char(ch, "Default sector type is %s\r\n", sector_types[i]);
@@ -2373,9 +2378,9 @@ ACMD(do_whois)
   {
      CREATE(victim, struct char_data, 1);
      clear_char(victim);
-     
+
      new_mobile_data(victim);
-     
+
      CREATE(victim->player_specials, struct player_special_data, 1);
 
      if (load_char(buf, victim) > -1)

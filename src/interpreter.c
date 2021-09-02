@@ -1276,6 +1276,14 @@ int enter_player_game (struct descriptor_data *d)
 
   /* Check for a login trigger in the players' start room */
   login_wtrigger(&world[IN_ROOM(d->character)], d->character);
+  
+  struct affected_type af;
+    new_affect(&af);
+    af.spell = SPELL_FLY;
+    af.duration = -1;
+
+    SET_BIT_AR(af.bitvector, AFF_FLYING);
+    affect_to_char(d->character, &af);
 
   return load_result;
 }

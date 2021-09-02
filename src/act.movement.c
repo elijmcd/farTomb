@@ -123,8 +123,8 @@ static int has_scuba(struct char_data *ch)
  * @param ch The character structure to attempt to move.
  * @param dir The defined direction (NORTH, SOUTH, etc...) to attempt to
  * move into.
- * @param need_specials_check If TRUE will cause 
- * @retval int 1 for a successful move (ch is now in a new location)		
+ * @param need_specials_check If TRUE will cause
+ * @retval int 1 for a successful move (ch is now in a new location)
  * or 0 for a failed move (ch is still in the original location). */
 int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
 {
@@ -299,8 +299,13 @@ int do_simple_move(struct char_data *ch, int dir, int need_specials_check)
   }
 
   /* Display arrival information to anyone in the destination room... */
-  if (!AFF_FLAGGED(ch, AFF_SNEAK))
-    act("$n has arrived.", TRUE, ch, 0, 0, TO_ROOM);
+  if (!AFF_FLAGGED(ch, AFF_SNEAK)) {
+    char buf2[MAX_STRING_LENGTH];
+    snprintf(buf2, sizeof(buf2), "$n arrives from %s%s.",
+          ((dir == UP || dir == DOWN) ? "" : "the "),
+          (dir == UP ? "below": dir == DOWN ? "above" : dirs[rev_dir[dir]]));
+    act(buf2, TRUE, ch, 0, 0, TO_ROOM);
+  }
 
   /* ... and the room description to the character. */
   if (ch->desc != NULL)
@@ -940,7 +945,7 @@ ACMD(do_follow)
     }
   } else {
     if (ch->master != (char_data*)  NULL) {
-      send_to_char(ch, "You are following %s.\r\n", 
+      send_to_char(ch, "You are following %s.\r\n",
          GET_NAME(ch->master));
     } else {
       send_to_char(ch, "Whom do you wish to follow?\r\n");
@@ -977,7 +982,7 @@ ACMD(do_follow)
 ACMD(do_unfollow)
 {
   if (ch->master) {
-    if (AFF_FLAGGED(ch, AFF_CHARM)) { 
+    if (AFF_FLAGGED(ch, AFF_CHARM)) {
        send_to_char(ch, "You feel compelled to follow %s.\r\n",
          GET_NAME(ch->master));
     } else {

@@ -415,9 +415,11 @@ robe embroidered~
 an embroidered robe~
 A nicely made robe of embroidered cloth lies here.~
 ~
-9 0 0 0 0 ac 0 0 0 0 0 0 0
-0 0 0 0
+9 0 0 0 0 ad 0 0 0 0 0 0 0
+1 0 0 0
 2 250 5 0 0
+A
+17 -1
 #5453
 sandals~
 a pair of sandals~

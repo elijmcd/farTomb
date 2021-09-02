@@ -1,0 +1,98 @@
+From: "Daniel W. Burke" <dwb@ix.netcom.com>
+Subject: Hometown - could easily be used for classes
+
+For simplicity, I found it easier to make another header file to
+handle the define for num_startrooms. structs.h was a bad place since
+it's only needed in a few files, and to change it would mean basically
+recopiling the mud, so this include in the below listed files would be
+most logical.
+
+#include "loadrooms.h"
+
+loadrooms.h -- You will need to add this file and make sure that all
+the dependancies are correct. It only needs to contain one line:
+
+#define NUM_STARTROOMS    4
+
+act.wizard.c -- I Added set hometown to do_set, with it sending a list
+of hometowns, and their numbers no matter what you set it for.
+
+   case 55:
+          RANGE(0, NUM_STARTROOMS);
+          GET_HOME(vict) = value;
+          send_to_char("NUM   ROOM     ZONE\r\n", ch);
+          send_to_char(" 1)   4298     Adrilankha\r\n", ch);
+          send_to_char(" 2)   3001     Midgaard\r\n", ch);
+          send_to_char(" 3)   5400     New Thalos\r\n", ch);
+          send_to_char(" 4)   7500     Guarlan\r\n", ch);
+          break;
+
+config.c
+
+/* virtual number of room that mortals should enter at */
+const sh_int mortal_start_room[NUM_STARTROOMS +1] =  {
+      0,    /* Newbie loadroom element */
+      4298, /* Adrilankha              */
+      3001, /* Midgaard                */
+      5400, /* New Thalos              */
+      7500  /* Guarlan                 */
+};
+
+db.c -- if you are going to put a menu to choose a hometown when the
+        character is created don't forget to comment out the line in
+        init_char that sets hometown to 1. This is defined near the top of
+        the file.
+
+sh_int r_mortal_start_room[NUM_STARTROOMS +1];
+
+This is a total replacement for the stock procedure... it assumes that
+under any circumstances, that mortal_start_room[1] always exists, and
+if any others are missing, sets it equal to mortal_start_room[1]
+
+/* make sure the start rooms exist & resolve their vnums to rnums */
+void check_start_rooms(void)
+{
+  int count;
+  extern sh_int mortal_start_room[NUM_STARTROOMS +1];
+  extern sh_int immort_start_room;
+  extern sh_int frozen_start_room;
+
+   for (count = 1; count <= (NUM_STARTROOMS + 1); count++)
+   if ((r_mortal_start_room[count] = real_room(mortal_start_room[count])) < 0)
+{
+      if (count > 1)
+        r_mortal_start_room[count] = real_room(mortal_start_room[1]);
+      else {
+         log("SYSERR:  Mortal start room does not exist.  Change in config.c.")
+;
+         exit(1);
+      }
+   }
+
+  if ((r_immort_start_room = real_room(immort_start_room)) < 0) {
+    if (!mini_mud)
+      log("SYSERR:  Warning: Immort start room does not exist.  Change in confi
+g.c.");
+    r_immort_start_room = r_mortal_start_room[1];
+  }
+  if ((r_frozen_start_room = real_room(frozen_start_room)) < 0) {
+    if (!mini_mud)
+      log("SYSERR:  Warning: Frozen start room does not exist.  Change in confi
+g.c.");
+    r_frozen_start_room = r_mortal_start_room[1];
+  }
+}
+
+spells.c -- in spell_recall, change 2 lines to equal these:
+
+  extern sh_int r_mortal_start_room[NUM_STARTROOMS +1];
+
+  char_to_room(victim, r_mortal_start_room[GET_HOME(ch)]);
+
+interpreter.c -- in nanny()
+
+  extern sh_int r_mortal_start_room[NUM_STARTROOMS +1];
+
+         load_room = r_mortal_start_room[GET_HOME(d->character)];
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^--add :)
+

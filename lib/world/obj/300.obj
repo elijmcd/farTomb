@@ -383,9 +383,9 @@ rod metal strange~
 a strange metal rod~
 A rather strange rod of a metallic material has been left here.~
 ~
-13 0 0 0 0 ao 0 0 0 0 0 0 0
-0 0 0 0
-15 7 0 0 0
+5 b 0 0 0 an 0 0 0 0 0 0 0
+2 1 4 0
+3 7 0 0 0
 E
 rod metal strange~
    This strange metallic rod looks like it was once a wooden branch, so

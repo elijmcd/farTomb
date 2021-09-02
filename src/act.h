@@ -192,6 +192,7 @@ ACMD(do_bandage);
 /* Functions with subcommands */
 /* do_gen_tog */
 ACMD(do_gen_tog);
+void do_newbie(struct char_data *vict);
 #define SCMD_NOSUMMON    0
 #define SCMD_NOHASSLE    1
 #define SCMD_BRIEF       2

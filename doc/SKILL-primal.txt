@@ -1,0 +1,53 @@
+     While skimming through the procedures for casting spells and a
+new mortal ability to create eq I added, armweap.c, I came up with an
+interesting fee for casting special spells and creating mortal eq.
+Primal Energy. Some of you may know it from the GodWars codebase. Well,
+here's my addition for primal energy. Please give credit to Andra for
+basic design, and nothing more. Maybe an email telling me you used it.
+I know, I know, its a fairly, well, easy snippet. :)
+
+ NOTE - This is designed for ASCII Pfiles 
+
+*** STRUCTS.H ***
+
+
+In struct char_player_data, near the bottom add:
+   int primal;             /* PC's Primal Energy                   */
+
+int struct char_file_u, near the bottom again add:
+   int primal;             /* PC's Primal Energy                   */
+
+Finally, in struct char_data, add:
+   int primal;             /* PC's Primal Energy                   */
+
+Wasn't that exciting? :p
+
+
+
+*** PFDEFAULTS.H ***
+ADD:
+#define PFDEF_PRIMAL         0
+
+
+*** UTILS.H      ***
+WIth all the other defines:
+#define GET_PRIMAL(ch) (ch)->player.primal
+
+*** DB.C         ***
+In save_char, after:
+    if(GET_WEIGHT(ch) != PFDEF_HEIGHT)
+      fbprintf(fl, "Wate: %d\n", GET_WEIGHT(ch));
+Add:
+    if(GET_PRIMAL(ch) != PFDEF_PRIMAL)
+      fbprintf(fl, "Prim: %d\n", GET_PRIMAL(ch));
+
+In load_char, after:
+	else if(!strcmp(tag, "Plyd"))
+	  ch->player.time.played = num;
+Add:
+        else if(!strcmp(tag, "Prim"))
+          GET_PRIMAL(ch) = num;
+
+That should be just about everything you need, bare minimum, to use
+primal energy.
+

@@ -1,33 +1,31 @@
-Name: Lothar
+Name: Nox
 Pass: k1ller
 Titl: 
 Sex : 1
 Clas: 5
 Race: 3
 Levl: 1
-Id  : 5
-Brth: 1630369559
-Plyd: 25
-Last: 1630369584
+Id  : 12
+Brth: 1630513194
+Plyd: 1180
+Last: 1630516373
 Host: hedgehugdilemma.mediacom.info
-Hite: 190
-Wate: 159
-Act : h 0 0 0
+Hite: 196
+Wate: 163
+Act : gh 0 0 0
 Aff : 0 0 0 0
 Pref: efghno 0 0 0
-Room: 3001
-Lern: 1
-Hung: 23
-Thir: 23
+Room: 65535
+Lern: 2
 Hit : 21/21
 Mana: 100/100
-Move: 84/84
+Move: 83/83
 Str : 15/0
-Int : 10
-Wis : 10
-Dex : 14
-Con : 15
-Cha : 4
+Int : 11
+Wis : 12
+Dex : 13
+Con : 13
+Cha : 7
 Ac  : 100
 Exp : 1
 Olc : 0
