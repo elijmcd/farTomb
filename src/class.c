@@ -2358,13 +2358,14 @@ void init_spell_levels(void)
   spell_level(SPELL_GROUP_HEAL, CLASS_AETHERIST, 22);
   spell_level(SPELL_REMOVE_CURSE, CLASS_AETHERIST, 26);
 
-  /* THIEVES */
+  /* DRIFTERS */
   spell_level(SKILL_SNEAK, CLASS_DRIFTER, 1);
   spell_level(SKILL_PICK_LOCK, CLASS_DRIFTER, 2);
   spell_level(SKILL_BACKSTAB, CLASS_DRIFTER, 3);
   spell_level(SKILL_STEAL, CLASS_DRIFTER, 4);
   spell_level(SKILL_HIDE, CLASS_DRIFTER, 5);
   spell_level(SKILL_TRACK, CLASS_DRIFTER, 6);
+  spell_level(SKILL_RUMMAGE, CLASS_DRIFTER, 1);
 
   /* OUTRIDERS */
   spell_level(SKILL_KICK, CLASS_OUTRIDER, 1);

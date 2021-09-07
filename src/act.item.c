@@ -204,6 +204,7 @@ static void get_check_money(struct char_data *ch, struct obj_data *obj)
 static void perform_get_from_container(struct char_data *ch, struct obj_data *obj,
 				     struct obj_data *cont, int mode)
 {
+  int value = 0, rummage_gold = 0, percent;
   if (mode == FIND_OBJ_INV || can_take_obj(ch, obj)) {
     if (IS_CARRYING_N(ch) >= CAN_CARRY_N(ch))
       act("$p: you can't hold any more items.", FALSE, ch, obj, 0, TO_CHAR);
@@ -213,6 +214,21 @@ static void perform_get_from_container(struct char_data *ch, struct obj_data *ob
       act("You get $p from $P.", FALSE, ch, obj, cont, TO_CHAR);
       act("$n gets $p from $P.", TRUE, ch, obj, cont, TO_ROOM);
       get_check_money(ch, obj);
+      percent = rand_number(1, 101);
+      if(value > 0 && isname(cont ->name, "corpse") && percent <= GET_SKILL(ch, SKILL_RUMMAGE)) {
+        if(GET_LEVEL(ch) < 8) {
+          rummage_gold = (int) (value * 0.05);
+        } else if (GET_LEVEL(ch) < 14) {
+          rummage_gold = (int) (value * 0.1);
+        } else if (GET_LEVEL(ch) < 21) {
+          rummage_gold = (int) (value * 0.15);
+        } else {
+          rummage_gold = (int) (value * 0.2);
+        }
+        send_to_char(ch, "You find %d coin%s while rummaging through the pockets, folds, and crevices.\r\n",
+                          rummage_gold, rummage_gold > 1 ? "s" : "");
+        GET_GOLD(ch) += rummage_gold;
+      }
     }
   }
 }
