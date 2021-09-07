@@ -877,7 +877,11 @@ ACMD(do_score)
     send_to_char(ch, "You are fighting %s.\r\n", FIGHTING(ch) ? PERS(FIGHTING(ch), ch) : "thin air");
     break;
   case POS_STANDING:
+    if(AFF_FLAGGED(ch, AFF_FLYING)){
+      send_to_char(ch, "You are flying in the air.\r\n");
+    } else {
     send_to_char(ch, "You are standing.\r\n");
+    }
     break;
   default:
     send_to_char(ch, "You are floating.\r\n");

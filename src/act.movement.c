@@ -743,11 +743,19 @@ ACMD(do_stand)
     char_from_furniture(ch);
     /* Will be sitting after a successful bash and may still be fighting. */
     GET_POS(ch) = FIGHTING(ch) ? POS_FIGHTING : POS_STANDING;
+    if(AFF_FLAGGED(ch, AFF_FLYING)){
+      send_to_char(ch, "You take to the air.\r\n");
+      act("$n glides gracefully into the air.", TRUE, ch, 0, 0, TO_ROOM);
+    }
     break;
   case POS_RESTING:
     send_to_char(ch, "You stop resting, and stand up.\r\n");
     act("$n stops resting, and clambers on $s feet.", TRUE, ch, 0, 0, TO_ROOM);
     GET_POS(ch) = POS_STANDING;
+    if(AFF_FLAGGED(ch, AFF_FLYING)){
+      send_to_char(ch, "You take to the air.\r\n");
+      act("$n glides gracefully into the air.", TRUE, ch, 0, 0, TO_ROOM);
+    }
     /* Were they sitting in something. */
     char_from_furniture(ch);
     break;
@@ -844,6 +852,10 @@ ACMD(do_rest)
     send_to_char(ch, "You sit down and rest your tired bones.\r\n");
     act("$n sits down and rests.", TRUE, ch, 0, 0, TO_ROOM);
     GET_POS(ch) = POS_RESTING;
+    if(AFF_FLAGGED(ch, AFF_FLYING)){
+      send_to_char(ch, "You gently land and sit down to rest.\r\n");
+      act("$n lands lightly on the ground and sits down to rest.", TRUE, ch, 0, 0, TO_ROOM);
+    }
     break;
   case POS_SITTING:
     send_to_char(ch, "You rest your tired bones.\r\n");
@@ -875,6 +887,11 @@ ACMD(do_sleep)
   case POS_RESTING:
     send_to_char(ch, "You go to sleep.\r\n");
     act("$n lies down and falls asleep.", TRUE, ch, 0, 0, TO_ROOM);
+    if(AFF_FLAGGED(ch, AFF_FLYING)){
+      send_to_char(ch, "You come in for a landing and lay down to sleep.\r\n");
+      act("$n comes in for a landing and lies down to sleep.", TRUE, ch, 0, 0, TO_ROOM);
+    }
+
     GET_POS(ch) = POS_SLEEPING;
     break;
   case POS_SLEEPING:
