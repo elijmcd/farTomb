@@ -6,20 +6,20 @@ Clas: 2
 Levl: 34
 Id  : 1
 Brth: 1630257129
-Plyd: 21971
-Last: 1631232394
+Plyd: 24884
+Last: 1631289791
 Lmot: 1630346070
 Lnew: 1630346072
 Host: hedgehugdilemma.mediacom.info
 Hite: 182
 Wate: 167
-Alin: -163
+Alin: -31
 Act : 0 0 0 0
 Aff : 0 0 0 0
 Pref: efghnoF 0 0 0
 Room: 65535
-Hit : 500/500
-Mana: 8/100
+Hit : 550/500
+Mana: 100/100
 Move: 82/82
 Str : 25/100
 Int : 25

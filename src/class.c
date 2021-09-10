@@ -2144,6 +2144,7 @@ void do_start(struct char_data *ch)
     SET_SKILL(ch, SKILL_BACKSTAB, 10);
     SET_SKILL(ch, SKILL_PICK_LOCK, 10);
     SET_SKILL(ch, SKILL_TRACK, 10);
+    SET_SKILL(ch, SKILL_RUMMAGE, 100);
     break;
 
   case CLASS_OUTRIDER:

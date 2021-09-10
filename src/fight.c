@@ -963,6 +963,7 @@ void perform_violence(void)
     if(LOST_WEAPON(ch)) {
       ch->mob_specials.disarmwait -= 1;
       if(ch->mob_specials.disarmwait == 0) {
+        do_get(ch, OBJN(LOST_WEAPON(ch), ch), 0, 0); 
         do_wield(ch, OBJN(LOST_WEAPON(ch), ch), 0, 0);
         LOST_WEAPON(ch) = NULL;
       }

@@ -389,15 +389,18 @@ ACMD(do_disarm)
       //act("$n disarms $p from your off-hand!", FALSE, ch, weap, vict, TO_VICT);
       //act("$n disarms $p from $N's off-hand!", FALSE, ch, weap, vict, TO_NOTVICT);
       //obj_to_char(unequip_char(vict, WEAR_DWIELD), vict); // used obj_to_room before
+    
     if((weap = GET_EQ(vict, WEAR_WIELD))) { // or else-if?
       if (IS_NPC(vict)) {
         LOST_WEAPON(vict) = weap;
         vict->mob_specials.disarmwait = 3;
       }
-      act("You disarm $p from $N's hand!", FALSE, ch, weap, vict, TO_CHAR);
+      act("You skillfully disarm $N and send $p flying from their hand!", FALSE, ch, weap, vict, TO_CHAR);
       act("$n disarms $p from your hand!", FALSE, ch, weap, vict, TO_VICT);
       act("$n disarms $p from $N's hand!", FALSE, ch, weap, vict, TO_NOTVICT);
       obj_to_char(unequip_char(vict, WEAR_WIELD), vict); // originally used obj_to_room
+      obj_from_char(weap);
+      obj_to_room(weap, IN_ROOM(ch));
     } else {
       log("SYSERR: do_disarm(), should have a weapon to be disarmed, but lost it.");
     }
@@ -410,7 +413,7 @@ ACMD(do_disarm)
   if (GET_LEVEL(ch) < LVL_IMMORT)
     WAIT_STATE(ch, PULSE_VIOLENCE);
   
-  if (success && IS_NPC(vict))
+  // if (success && IS_NPC(vict))
     set_fighting(ch, vict);
 }
 

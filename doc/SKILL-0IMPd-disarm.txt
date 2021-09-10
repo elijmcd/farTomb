@@ -138,3 +138,10 @@ in fight.c, in perform_violence(), add:
           LOST_WEAPON(ch) = NULL;
       }
     }
+
+
+
+TODO:
+make drop into room on success, instead of inventory.
+add do_get for mob proc, before wielding
+

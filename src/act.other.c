@@ -977,7 +977,7 @@ void do_newbie(struct char_data *vict)
   int give_mountebank[] = {30021, 23421, 5452, 148, 23428, -1}; /* Change Vnums */
   int give_aetherist[] = {30027, 4319, 168, 2755, 169, -1}; /* Change Vnums */
   int give_drifter[] = {24705, 31524, 27194, 20011, 27104,  -1}; /* Chnage Vnums */
-  int give_outrider[] = {6000, 26304, 140, 31316, 7209, -1}; /* Change Vnums*/
+  int give_outrider[] = {508, 26304, 140, 31316, 7209, -1}; /* Change Vnums*/
   int give_wyrm[] = {18607, 18607, 18607, 18607, 18607, -1}; /* Change Vnums*/
   int give_undead[] = {8612, 31509, 31416, -1}; /* Change Vnums*/
   int i;

@@ -27,7 +27,7 @@
 /* local function prototypes */
 /* do_get utility functions */
 static int can_take_obj(struct char_data *ch, struct obj_data *obj);
-static void get_check_money(struct char_data *ch, struct obj_data *obj);
+static int get_check_money(struct char_data *ch, struct obj_data *obj);
 static void get_from_container(struct char_data *ch, struct obj_data *cont, char *arg, int mode, int amount);
 static void get_from_room(struct char_data *ch, char *arg, int amount);
 static void perform_get_from_container(struct char_data *ch, struct obj_data *obj, struct obj_data *cont, int mode);
@@ -184,12 +184,12 @@ if (!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_NOHASSLE)) {
   return (1);
 }
 
-static void get_check_money(struct char_data *ch, struct obj_data *obj)
+static int get_check_money(struct char_data *ch, struct obj_data *obj)
 {
   int value = GET_OBJ_VAL(obj, 0);
 
   if (GET_OBJ_TYPE(obj) != ITEM_MONEY || value <= 0)
-    return;
+    return value;
 
   extract_obj(obj);
 
@@ -199,6 +199,7 @@ static void get_check_money(struct char_data *ch, struct obj_data *obj)
     send_to_char(ch, "There was 1 coin.\r\n");
   else
     send_to_char(ch, "There were %d coins.\r\n", value);
+  return value;
 }
 
 static void perform_get_from_container(struct char_data *ch, struct obj_data *obj,
@@ -213,9 +214,9 @@ static void perform_get_from_container(struct char_data *ch, struct obj_data *ob
       obj_to_char(obj, ch);
       act("You get $p from $P.", FALSE, ch, obj, cont, TO_CHAR);
       act("$n gets $p from $P.", TRUE, ch, obj, cont, TO_ROOM);
-      get_check_money(ch, obj);
+      value = get_check_money(ch, obj);
       percent = rand_number(1, 101);
-      if(value > 0 && isname(cont ->name, "corpse") && percent <= GET_SKILL(ch, SKILL_RUMMAGE)) {
+      if(isname(cont ->name, "corpse") && percent <= GET_SKILL(ch, SKILL_RUMMAGE)) {
         if(GET_LEVEL(ch) < 8) {
           rummage_gold = (int) (value * 0.05);
         } else if (GET_LEVEL(ch) < 14) {
