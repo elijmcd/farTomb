@@ -2369,10 +2369,11 @@ void init_spell_levels(void)
 
   /* OUTRIDERS */
   spell_level(SKILL_KICK, CLASS_OUTRIDER, 1);
-  spell_level(SKILL_RESCUE, CLASS_OUTRIDER, 3);
-  spell_level(SKILL_BANDAGE, CLASS_OUTRIDER, 7);
-  spell_level(SKILL_TRACK, CLASS_OUTRIDER, 9);
+  spell_level(SKILL_RESCUE, CLASS_OUTRIDER, 5);
+  spell_level(SKILL_BANDAGE, CLASS_OUTRIDER, 3);
+  spell_level(SKILL_TRACK, CLASS_OUTRIDER, 3);
   spell_level(SKILL_BASH, CLASS_OUTRIDER, 12);
+  spell_level(SKILL_DISARM, CLASS_OUTRIDER, 5);
 
   /* WYRMS */
   spell_level(SPELL_FLY, CLASS_WYRM, 1);

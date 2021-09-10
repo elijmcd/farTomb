@@ -1526,6 +1526,7 @@ static void parse_simple_mob(FILE *mob_f, int i, int nr)
   mob_proto[i].real_abils.dex = 11;
   mob_proto[i].real_abils.con = 11;
   mob_proto[i].real_abils.cha = 11;
+  mob_proto[i].mob_specials.lost_weapon = NULL;
 
   if (!get_line(mob_f, line)) {
     log("SYSERR: Format error in mob #%d, file ended after S flag!", nr);

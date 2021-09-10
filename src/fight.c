@@ -959,5 +959,14 @@ void perform_violence(void)
       char actbuf[MAX_INPUT_LENGTH] = "";
       (GET_MOB_SPEC(ch)) (ch, ch, 0, actbuf);
     }
+
+    if(LOST_WEAPON(ch)) {
+      ch->mob_specials.disarmwait -= 1;
+      if(ch->mob_specials.disarmwait == 0) {
+        do_wield(ch, OBJN(LOST_WEAPON(ch), ch), 0, 0);
+        LOST_WEAPON(ch) = NULL;
+      }
+    }
+
   }
 }

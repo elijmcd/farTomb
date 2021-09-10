@@ -177,6 +177,7 @@ ACMD(do_hit);
 /* Functions without subcommands */
 ACMD(do_assist);
 ACMD(do_bash);
+ACMD(do_disarm);
 ACMD(do_backstab);
 ACMD(do_flee);
 ACMD(do_kick);
