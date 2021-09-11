@@ -524,7 +524,14 @@ void show_string(struct descriptor_data *d, char *input)
     d->showstr_page = MAX(0, MIN(atoi(buf) - 1, d->showstr_count - 1));
 
   else if (*buf) {
-    send_to_char(d->character, "Valid commands while paging are RETURN, Q, R, B, or a numeric value.\r\n");
+    free(d->showstr_vector);
+    d->showstr_vector = NULL;
+    d->showstr_count = 0;
+    if (d->showstr_head) {
+      free(d->showstr_head);
+      d->showstr_head = NULL;
+    }
+    // send_to_char(d->character, "Valid commands while paging are RETURN, Q, R, B, or a numeric value.\r\n");
     return;
   }
   /* If we're displaying the last page, just send it to the character, and
