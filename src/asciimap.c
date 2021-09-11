@@ -74,19 +74,19 @@ struct map_info_type
 
 static struct map_info_type door_info[] =
 {
-  { DOOR_NONE, "   " },
-  { DOOR_DOWN_AND_SE, "\tr-\tn\\ " },
-  { DOOR_UP_AND_NE,   "\tr+\tn/ " },
-  { VDOOR_DIAGNW,     " \tm+\tn " },
-  { VDOOR_DIAGNE,     " \tm+\tn "},
-  { VDOOR_EW,  " \tm+\tn " },
-  { VDOOR_NS,  " \tm+\tn "},
-  { DOOR_DIAGNW,      " \\ " },
-  { DOOR_DIAGNE,      " / " },
-  { DOOR_DOWN, "\tr-\tn  " },
-  { DOOR_UP,   "\tr+\tn  " },
-  { DOOR_EW,   " - " },
-  { DOOR_NS,   " | " }
+  { DOOR_NONE, " " },
+  { DOOR_DOWN_AND_SE, "\tr-\tn\\" },
+  { DOOR_UP_AND_NE,   "\tr+\tn/" },
+  { VDOOR_DIAGNW,     "\tm+\tn" },
+  { VDOOR_DIAGNE,     "\tm+\tn"},
+  { VDOOR_EW,  "\tm+\tn" },
+  { VDOOR_NS,  "\tm+\tn"},
+  { DOOR_DIAGNW,      "\\" },
+  { DOOR_DIAGNE,      "/" },
+  { DOOR_DOWN, "\trv\tn" },
+  { DOOR_UP,   "\tr^\tn" },
+  { DOOR_EW,   "-" },
+  { DOOR_NS,   "|" }
 };
 
 static struct map_info_type compact_door_info[] =
@@ -100,10 +100,10 @@ static struct map_info_type compact_door_info[] =
   { VDOOR_NS,  " \tm+\tn "},
   { DOOR_DIAGNW,"\\" },
   { DOOR_DIAGNE,"/" },
-  { DOOR_DOWN, "\tr-\tn" },
-  { DOOR_UP,   "\tr+\tn" },
+  { DOOR_DOWN, "\trv\tn" },
+  { DOOR_UP,   "\tr^\tn" },
   { DOOR_EW,   "-" },
-  { DOOR_NS,   " | " }
+  { DOOR_NS,   "|" }
 };
 
 /* Add new sector types below for both map_info and world_map_info     */
@@ -111,16 +111,16 @@ static struct map_info_type compact_door_info[] =
 /* New sectors also need to be added to the perform_map function below */
 static struct map_info_type map_info[] =
 {
-  { SECT_INSIDE,       "\tc[\tn.\tc]\tn" }, /* 0 */
-  { SECT_CITY,         "\tc[\twC\tc]\tn" },
-  { SECT_FIELD,        "\tc[\tg,\tc]\tn" },
-  { SECT_FOREST,       "\tc[\tgY\tc]\tn" },
-  { SECT_HILLS,        "\tc[\tMm\tc]\tn" },
-  { SECT_MOUNTAIN,     "\tc[\trM\tc]\tn" }, /* 5 */
-  { SECT_WATER_SWIM,   "\tc[\tc~\tc]\tn" },
-  { SECT_WATER_NOSWIM, "\tc[\tb=\tc]\tn" },
-  { SECT_FLYING,       "\tc[\tC^\tc]\tn" },
-  { SECT_UNDERWATER,   "\tc[\tbU\tc]\tn" },
+  { SECT_INSIDE,       "\tn#\tn" }, /* 0 */
+  { SECT_CITY,         "\tw#\tn" },
+  { SECT_FIELD,        "\tG#\tn" },
+  { SECT_FOREST,       "\tg#\tn" },
+  { SECT_HILLS,        "\tMm\tn" },
+  { SECT_MOUNTAIN,     "\trM\tn" }, /* 5 */
+  { SECT_WATER_SWIM,   "\tc~\tn" },
+  { SECT_WATER_NOSWIM, "\tb=\tn" },
+  { SECT_FLYING,       "\tC^\tn" },
+  { SECT_UNDERWATER,   "\tb#\tn" },
   { -1,                ""        }, /* 10 */
   { -1,                ""        },
   { -1,                ""        },
@@ -141,23 +141,23 @@ static struct map_info_type map_info[] =
   { -1,                ""        },
   { -1,                ""        },
   { -1,                ""        },
-  { SECT_EMPTY,        "   "     }, /* 30 */
-  { SECT_STRANGE,      "\tc[\tR?\tc]\tn" },
-  { SECT_HERE,         "\tc[\tB!\tc]\tn"     },
+  { SECT_EMPTY,        " "     }, /* 30 */
+  { SECT_STRANGE,      "\tY?\tn" },
+  { SECT_HERE,         "\tR@\tn"     },
 };
 
 static struct map_info_type world_map_info[] =
 {
-  { SECT_INSIDE,       "\tn."  }, /* 0 */
-  { SECT_CITY,         "\twC"  },
-  { SECT_FIELD,        "\tg,"  },
-  { SECT_FOREST,       "\tgY"  },
+  { SECT_INSIDE,       "\tn#"  }, /* 0 */
+  { SECT_CITY,         "\tw#"  },
+  { SECT_FIELD,        "\tG#"  },
+  { SECT_FOREST,       "\tg#"  },
   { SECT_HILLS,        "\tMm"  },
   { SECT_MOUNTAIN,     "\trM"  }, /* 5 */
   { SECT_WATER_SWIM,   "\tc~"  },
   { SECT_WATER_NOSWIM, "\tb="  },
   { SECT_FLYING,       "\tC^"  },
-  { SECT_UNDERWATER,   "\tbU"  },
+  { SECT_UNDERWATER,   "\tb#"  },
   { -1,                ""     }, /* 10 */
   { -1,                ""     },
   { -1,                ""     },

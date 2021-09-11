@@ -215,20 +215,22 @@ static void perform_get_from_container(struct char_data *ch, struct obj_data *ob
       act("You get $p from $P.", FALSE, ch, obj, cont, TO_CHAR);
       act("$n gets $p from $P.", TRUE, ch, obj, cont, TO_ROOM);
       value = get_check_money(ch, obj);
-      percent = rand_number(1, 101);
-      if(isname(cont ->name, "corpse") && percent <= GET_SKILL(ch, SKILL_RUMMAGE)) {
-        if(GET_LEVEL(ch) < 8) {
-          rummage_gold = (int) (value * 0.05);
-        } else if (GET_LEVEL(ch) < 14) {
-          rummage_gold = (int) (value * 0.1);
-        } else if (GET_LEVEL(ch) < 21) {
-          rummage_gold = (int) (value * 0.15);
-        } else {
-          rummage_gold = (int) (value * 0.2);
+      if(value >= 1) {
+        percent = rand_number(1, 101);
+        if(isname(cont ->name, "corpse") && percent <= GET_SKILL(ch, SKILL_RUMMAGE)) {
+          if(GET_LEVEL(ch) < 8) {
+            rummage_gold = (int) (value * 0.05);
+          } else if (GET_LEVEL(ch) < 14) {
+            rummage_gold = (int) (value * 0.1);
+          } else if (GET_LEVEL(ch) < 21) {
+            rummage_gold = (int) (value * 0.15);
+          } else {
+            rummage_gold = (int) (value * 0.2);
+          }
+          send_to_char(ch, "You find %d more coin%s while rummaging through their clothing.\r\n",
+                            rummage_gold, rummage_gold > 1 ? "s" : "");
+          GET_GOLD(ch) += rummage_gold;
         }
-        send_to_char(ch, "You find %d coin%s while rummaging through the pockets, folds, and crevices.\r\n",
-                          rummage_gold, rummage_gold > 1 ? "s" : "");
-        GET_GOLD(ch) += rummage_gold;
       }
     }
   }
