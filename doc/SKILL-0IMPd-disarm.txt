@@ -141,7 +141,5 @@ in fight.c, in perform_violence(), add:
 
 
 
-TODO:
-make drop into room on success, instead of inventory.
-add do_get for mob proc, before wielding
-
+MODIFIED:
+disarmed weapon drops to room instead of inventory. mob will pick up and wield after 3 rounds.

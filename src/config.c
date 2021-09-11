@@ -261,24 +261,51 @@ int auto_save_olc = YES;
 int use_new_socials = YES;
 
 const char *MENU =
+// "\r\n"
+// "Welcome to tbaMUD!\r\n"
+// "\t(0\t)) Exit from tbaMUD.\r\n"
+// "\t(1\t)) Enter the game.\r\n"
+// "\t(2\t)) Enter description.\r\n"
+// "\t(3\t)) Read the background story.\r\n"
+// "\t(4\t)) Change password.\r\n"
+// "\t(5\t)) Delete this character.\r\n"
+// "\r\n"
+
 "\r\n"
-"Welcome to tbaMUD!\r\n"
-"\t(0\t)) Exit from tbaMUD.\r\n"
-"\t(1\t)) Enter the game.\r\n"
-"\t(2\t)) Enter description.\r\n"
-"\t(3\t)) Read the background story.\r\n"
-"\t(4\t)) Change password.\r\n"
-"\t(5\t)) Delete this character.\r\n"
+"    ________________________________\r\n"
+"   /                               /\\              o  .      #\r\n"
+"  |    Welcome to the Far Tomb    |_/             . .  .    ##\r\n"
+"  |                               |                . O o .  ###\r\n"
+"   \\    Your options:              \\             .  o  .     #\r\n"
+"    \\                               \\              o O.      |\r\n"
+"     |   1) Enter the realm          |             . o O     |/|\r\n"
+"     |   2) Enter a description      |             ___o_    /,,|\r\n"
+"     |   3) Read some history        |             | O |   |,,,|\r\n"
+"    /                               /              |o .|   | ,,|\r\n"
+"   |     4) Change password        |               | .o|   | , |\r\n"
+"   |     5) Delete this persona    |               |O  |   | , |\r\n"
+"    \\                               \\              | .O|   |   |\r\n"
+"     |                                |           __|o .|__ |   |\r\n"
+"     |   0) Exit the realm           |          / . O o  o\\|   |\r\n"
+"     |                               |         /. O .o .O .\\   |\r\n"
+"     /                               |        |^^^^^^^^^^^^^|  |\r\n"
+"  __/___________________________    /         |             |__|_\r\n"
+" /                             /   /           \\           /======\r\n"
+" \\                             \\__/             \\_________/\r\n"
+"  `-----------------------------'\r\n"
 "\r\n"
 "   Make your choice: ";
 
+
+
+
 const char *WELC_MESSG =
 "\r\n"
-"Welcome to tbaMUD!  May your visit here be... Enlightening"
+"The crows call out in welcome. The Far Tomb awaits you..."
 "\r\n\r\n";
 
 const char *START_MESSG =
-"Welcome.  This is your new tbaMUD character!  You can now earn gold,\r\n"
+"Welcome.  This is your new Far Tomb character!  You can now earn gold,\r\n"
 "gain experience, find weapons and equipment, and much more -- while\r\n"
 "meeting people from around the world!\r\n";
 

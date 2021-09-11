@@ -61,3 +61,4 @@ void perform_get_from_container(struct char_data *ch, struct obj_data *obj,
   }
 }
 
+MODIFIED: made check_gold return an int for value. works correctly now.
