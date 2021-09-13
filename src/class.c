@@ -2143,7 +2143,6 @@ void do_start(struct char_data *ch)
     SET_SKILL(ch, SKILL_STEAL, 15);
     SET_SKILL(ch, SKILL_BACKSTAB, 10);
     SET_SKILL(ch, SKILL_PICK_LOCK, 10);
-    SET_SKILL(ch, SKILL_TRACK, 10);
     SET_SKILL(ch, SKILL_RUMMAGE, 100);
     break;
 
@@ -2270,6 +2269,7 @@ int backstab_mult(int level)
 
 /* invalid_class is used by handler.c to determine if a piece of equipment is
  * usable by a particular class, based on the ITEM_ANTI_{class} bitvectors. */
+/* also checking for wyrms, who can only wear neck eq */
 int invalid_class(struct char_data *ch, struct obj_data *obj)
 {
   if (OBJ_FLAGGED(obj, ITEM_ANTI_MOUNTEBANK) && IS_MOUNTEBANK(ch))
@@ -2290,6 +2290,8 @@ int invalid_class(struct char_data *ch, struct obj_data *obj)
   if (OBJ_FLAGGED(obj, ITEM_ANTI_UNDEAD) && IS_UNDEAD(ch))
     return TRUE;
 
+  if (!OBJ_FLAGGED(obj, ITEM_WEAR_NECK) && IS_WYRM(ch))
+    return FALSE;
 
   return FALSE;
 }
@@ -2361,20 +2363,20 @@ void init_spell_levels(void)
 
   /* DRIFTERS */
   spell_level(SKILL_SNEAK, CLASS_DRIFTER, 1);
+  spell_level(SKILL_RUMMAGE, CLASS_DRIFTER, 1);
   spell_level(SKILL_PICK_LOCK, CLASS_DRIFTER, 2);
   spell_level(SKILL_BACKSTAB, CLASS_DRIFTER, 3);
   spell_level(SKILL_STEAL, CLASS_DRIFTER, 4);
   spell_level(SKILL_HIDE, CLASS_DRIFTER, 5);
-  spell_level(SKILL_TRACK, CLASS_DRIFTER, 6);
-  spell_level(SKILL_RUMMAGE, CLASS_DRIFTER, 1);
 
   /* OUTRIDERS */
   spell_level(SKILL_KICK, CLASS_OUTRIDER, 1);
-  spell_level(SKILL_RESCUE, CLASS_OUTRIDER, 5);
   spell_level(SKILL_BANDAGE, CLASS_OUTRIDER, 3);
   spell_level(SKILL_TRACK, CLASS_OUTRIDER, 3);
+  spell_level(SKILL_HIDE, CLASS_OUTRIDER, 5);
+  spell_level(SKILL_RESCUE, CLASS_OUTRIDER, 5);
+  spell_level(SKILL_DISARM, CLASS_OUTRIDER, 8);
   spell_level(SKILL_BASH, CLASS_OUTRIDER, 12);
-  spell_level(SKILL_DISARM, CLASS_OUTRIDER, 5);
 
   /* WYRMS */
   spell_level(SPELL_FLY, CLASS_WYRM, 1);
