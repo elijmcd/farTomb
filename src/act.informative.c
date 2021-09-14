@@ -410,7 +410,7 @@ static void list_char_to_char(struct char_data *list, struct char_data *ch)
         list_one_char(i, ch);
       else if (IS_DARK(IN_ROOM(ch)) && !CAN_SEE_IN_DARK(ch) &&
 	       AFF_FLAGGED(i, AFF_INFRAVISION))
-        send_to_char(ch, "You see a pair of glowing red eyes looking your way.\r\n");
+        send_to_char(ch, "You see a pair of glowing eyes in the dark.\r\n");
       send_to_char(ch, "%s", CCNRM(ch, C_NRM));
     }
 }
@@ -919,7 +919,7 @@ ACMD(do_score)
     send_to_char(ch, "You feel protected.\r\n");
 
   if (AFF_FLAGGED(ch, AFF_INFRAVISION))
-    send_to_char(ch, "Your eyes are glowing red.\r\n");
+    send_to_char(ch, "Your eyes are more sensitive in the dark.\r\n");
 
   if (PRF_FLAGGED(ch, PRF_SUMMONABLE))
     send_to_char(ch, "You are summonable by other players.\r\n");

@@ -1266,14 +1266,25 @@ int enter_player_game (struct descriptor_data *d)
   if (!SCRIPT(d->character))
     read_saved_vars(d->character);
 
+
+  /* Beyond This Point: Auto/Permanent effects for races/classes */
   if ((d->character->player.race) == RACE_WYRM){
-      struct affected_type af;
-      new_affect(&af);
-      af.spell = SPELL_FLY;
-      af.duration = -1;
-      SET_BIT_AR(af.bitvector, AFF_FLYING);
-      affect_to_char(d->character, &af);
-    }
+    struct affected_type af;
+    new_affect(&af);
+    af.spell = SPELL_FLY;
+    af.duration = -1;
+    SET_BIT_AR(af.bitvector, AFF_FLYING);
+    affect_to_char(d->character, &af);
+  }
+  if((d->character->player.chclass) == CLASS_OUTRIDER){
+    struct affected_type af;
+    new_affect(&af);
+    af.spell = SPELL_INFRAVISION;
+    af.duration = -1;
+    SET_BIT_AR(af.bitvector, AFF_INFRAVISION);
+    affect_to_char(d->character, &af);
+  }
+  /* end Permaffects */
 
   d->character->next = character_list;
   character_list = d->character;

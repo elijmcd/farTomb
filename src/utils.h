@@ -1,5 +1,5 @@
 /**
-* @file utils.h
+* file utils.h
 * Utility macros and prototypes of utility functions.
 *
 * Part of the core tbaMUD source code distribution, which is a derivative
@@ -9,9 +9,9 @@
 * Copyright (C) 1993, 94 by the Trustees of the Johns Hopkins University
 * CircleMUD is based on DikuMUD, Copyright (C) 1990, 1991.
 *
-* @todo Merge structs, random and other very generic functions and macros into
+* todo Merge structs, random and other very generic functions and macros into
 * the utils module.
-* @todo Take more mud specific functions and function prototypes (follower
+* todo Take more mud specific functions and function prototypes (follower
 * functions, move functions, char_from_furniture) out of utils and declare /
 * define elsewhere.
 */

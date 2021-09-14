@@ -418,15 +418,15 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     af[0].duration = 24;
     SET_BIT_AR(af[0].bitvector, AFF_FLYING);
     accum_duration = TRUE;
-    to_vict = "You float above the ground.";
+    to_vict = "You take to the air.";
     break;
 
   case SPELL_INFRAVISION:
     af[0].duration = 12 + level;
     SET_BIT_AR(af[0].bitvector, AFF_INFRAVISION);
     accum_duration = TRUE;
-    to_vict = "Your eyes glow red.";
-    to_room = "$n's eyes glow red.";
+    to_vict = "Your eyes are glowing.";
+    to_room = "$n's eyes are glowing.";
     break;
 
   case SPELL_INVISIBLE:
