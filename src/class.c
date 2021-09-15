@@ -2206,7 +2206,7 @@ void advance_level(struct char_data *ch)
     break;
 
   case CLASS_OUTRIDER:
-    add_hp += rand_number(10, 15);
+    add_hp += rand_number(9, 14);
     add_mana = 0;
     add_move = rand_number(2, 5);
     break;
