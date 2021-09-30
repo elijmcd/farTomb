@@ -1648,13 +1648,39 @@ void nanny(struct descriptor_data *d, char *arg)
       break;
     
     case CON_QCLASS:
+      if(!strcmp(arg, "z") || !strcmp(arg, "Z")) {
+        write_to_output(d, "%s\r\nClass Help: ", class_menu);
+        STATE(d) = CON_QCLASS_HELP;
+        return;
+      }
+
       load_result = parse_class(*arg);
       if (load_result == CLASS_UNDEFINED) {
         write_to_output(d, "\r\nThat's not a proper occupation.\r\nYour occupation: ");
         return;
       } else
         GET_CLASS(d->character) = load_result;
-    }
+    
+      case CON_QCLASS_HELP:
+        if(!strcmp(arg, "z") || !strcmp(arg, "Z")){
+          write_to_output(d,"%s\r\nClass: ", class_menu);
+          STATE(d) = CON_QCLASS;
+          return;
+        }
+        if(*arg) {
+          load_result = parse_class(*arg);
+          if (load_result == CLASS_UNDEFINED) {
+            write_to_output(d, "\r\nThat's not a class.\r\n%s\r\nClass Help: ", class_menu);
+            return;
+          }
+          show_help(d, class_names[load_result]);
+        } else {
+          write_to_output(d, "\r\n%s\r\nClass Help: ", class_menu);
+          break;
+        }
+        STATE(d) = CON_QCLASS_HELP;
+        break;
+    }  
       /*not sure what this olc code is for? */
       if (d->olc) {
         free(d->olc);

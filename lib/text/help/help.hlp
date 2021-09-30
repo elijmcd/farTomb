@@ -302,21 +302,21 @@ AC-CONFIDENCE ARMOR-CLASS ARMOUR-CLASS AC-APPLY
 is at protecting you.  When you don armor, any AC apply that armor has is 
 subtracted from your standard (naked) AC value, modified depending on where on
 the body you are wearing the armor.  Some items have a special bonus, and 
-subtract from the AC directly. Negative AC is better. Modifiers: Body X3, 
-head and legs X2.
+subtract from the AC directly. Negative AC is better. 
 
-See also: MEDIT-AC
-#31
+See Also: ARMOR-SPELL
+#0
 AC-CONFIDENCE ARMOR-CLASS ARMOUR-CLASS AC-APPLY 
 
    Your Armor Class (often called AC) is an expression for how good your armor
 is at protecting you.  When you don armor, any AC apply that armor has is 
 subtracted from your standard (naked) AC value, modified depending on where on
 the body you are wearing the armor.  Some items have a special bonus, and 
-subtract from the AC directly. Negative AC is better. 
+subtract from the AC directly. Negative AC is better. Modifiers: Body X3, 
+head and legs X2.
 
-See Also: ARMOR-SPELL
-#0
+See also: MEDIT-AC
+#31
 ACRONYMS TERMINOLOGY VOCABULARY
 
 Here are some common terms used in building, and TBA zone:
@@ -2035,6 +2035,8 @@ CONTROL-WEATHER
 
 Usage       : cast 'control weather' <'better' | 'worse'>
 Accumulative: Yes
+Duration    : -
+Level       : Cleric level 17.
 
 This spell will change the "course" of the current weather.
 
@@ -2046,8 +2048,6 @@ CONTROL-WEATHER
 
 Usage       : cast 'control weather' <'better' | 'worse'>
 Accumulative: Yes
-Duration    : -
-Level       : Cleric level 17.
 
 This spell will change the "course" of the current weather.
 
@@ -2732,9 +2732,9 @@ Rhade is feeling very sad today.
 See also: SOCIALS, GEMOTE
 #0
 Empty
-#31
-Empty
 #0
+Empty
+#31
 ENCHANT-WEAPON ENCHANT-ARMOR 
 
 Usage       : cast 'enchant weapon' <weapon>
@@ -5451,6 +5451,10 @@ Enter new string :
 =============================================
 Developed by Joseph Arnusch (Vatiken) for use in tbaMUD 3.64.
 #0
+MUDCOMMAND %MUDCOMMAND%
+
+See @RHELP TEXT-VAR@n
+#31
 MUDCOMMAND CMD.MUDCOMMAND %CMD.MUDCOMMAND% %MUDCOMMAND% CMD.MUDCOMMAND 
 
    Used to match text to existing commands in the MUD. This will also match
@@ -5460,10 +5464,6 @@ any abbreviations.
 if %cmd.mudcommand% == sit && chair /= %arg% && %arg%
 
 Examples: @RTSTAT 81, 52, 62
-#31
-MUDCOMMAND %MUDCOMMAND%
-
-See @RHELP TEXT-VAR@n
 #31
 MULTIPLAYING MULTIPLAYERS MULTIPLE MULTI-PLAYERS MULTI-PLAYING
 
@@ -9004,28 +9004,6 @@ mob or object vnum.
 
 See also: POSTMASTER, PETSHOPS, BANKS, GUILDMASTER, BOARDS
 #31
-SPELLS
-
- 1) armor                 2) teleport              3) bless                
- 4) blindness             5) burning hands         6) call lightning       
- 7) charm person          8) chill touch           9) clone                
-10) color spray          11) control weather      12) create food          
-13) create water         14) cure blind           15) cure critic          
-16) cure light           17) curse                18) detect alignment     
-19) detect invisibility  20) detect magic         21) detect poison        
-22) dispel evil          23) earthquake           24) enchant weapon       
-25) energy drain         26) fireball             27) harm                 
-28) heal                 29) invisibility         30) lightning bolt       
-31) locate object        32) magic missile        33) poison               
-34) protection from evil 35) remove curse         36) sanctuary            
-37) shocking grasp       38) sleep                39) strength             
-40) summon               41) !UNUSED!             42) word of recall       
-43) remove poison        44) sense life           45) animate dead         
-46) dispel good          47) group armor          48) group heal           
-49) !UNUSED!             50) infravision          51) waterwalk            
-52) identify
-
-#31
 SPELLS MAGICS SPELLBOOKS TOMBS SPELL-LEVELS SPELLS-STOCK SPELLLIST
 
 | Mage               level |   Cleric              level |
@@ -9065,6 +9043,28 @@ SPELLS MAGICS SPELLBOOKS TOMBS SPELL-LEVELS SPELLS-STOCK SPELLLIST
 
 See also: SKILLS
 #0
+SPELLS
+
+ 1) armor                 2) teleport              3) bless                
+ 4) blindness             5) burning hands         6) call lightning       
+ 7) charm person          8) chill touch           9) clone                
+10) color spray          11) control weather      12) create food          
+13) create water         14) cure blind           15) cure critic          
+16) cure light           17) curse                18) detect alignment     
+19) detect invisibility  20) detect magic         21) detect poison        
+22) dispel evil          23) earthquake           24) enchant weapon       
+25) energy drain         26) fireball             27) harm                 
+28) heal                 29) invisibility         30) lightning bolt       
+31) locate object        32) magic missile        33) poison               
+34) protection from evil 35) remove curse         36) sanctuary            
+37) shocking grasp       38) sleep                39) strength             
+40) summon               41) !UNUSED!             42) word of recall       
+43) remove poison        44) sense life           45) animate dead         
+46) dispel good          47) group armor          48) group heal           
+49) !UNUSED!             50) infravision          51) waterwalk            
+52) identify
+
+#31
 SPLITTING
 
 Usage: split <amount to split>
@@ -10307,6 +10307,27 @@ TNL
 can attain the next level.
 
 #0
+TOGGLES CONFIGURE SETTINGS
+
+Usage: toggle
+       toggle <option> <argument>
+
+TOGGLE shows you the current values of various toggles available on the MUD.
+This command can also be used to change these values, if used with the correct
+argument. When a toggle is set, it will be saved in that state until the next
+time you change it. 
+
+Hit Pnt Display: OFF              Brief: OFF         Summonable: OFF
+   Move Display: OFF            Compact: ON               Quest: OFF
+   Mana Display: OFF             NoTell: OFF           NoRepeat: OFF
+      AutoExits: OFF            NoShout: OFF              Wimpy: OFF
+       NoGossip: OFF          NoAuction: OFF            NoGrats: OFF
+       AutoLoot: ON            AutoGold: ON           AutoSplit: ON 
+        AutoSac: ON          AutoAssist: ON                 AFK: OFF
+     Pagelength: 23               Color: off     
+
+See also: DISPLAY, NOSHOUT, NOSUMM, NOTELL, QUEST, REPEAT, WIMP
+#0
 TOGGLES CONFIGURE SETTINGS 
 
 Usage: toggle
@@ -10330,27 +10351,6 @@ Hit Pnt Display: OFF              Brief: OFF         Summonable: OFF
         AutoSac: ON          AutoAssist: ON             AutoMap: ON
      Pagelength: 32         Screenwidth: 80                 AFK: OFF
         Autokey: OFF           Autodoor: OFF              Color: on     
-
-See also: DISPLAY, NOSHOUT, NOSUMM, NOTELL, QUEST, REPEAT, WIMP
-#0
-TOGGLES CONFIGURE SETTINGS
-
-Usage: toggle
-       toggle <option> <argument>
-
-TOGGLE shows you the current values of various toggles available on the MUD.
-This command can also be used to change these values, if used with the correct
-argument. When a toggle is set, it will be saved in that state until the next
-time you change it. 
-
-Hit Pnt Display: OFF              Brief: OFF         Summonable: OFF
-   Move Display: OFF            Compact: ON               Quest: OFF
-   Mana Display: OFF             NoTell: OFF           NoRepeat: OFF
-      AutoExits: OFF            NoShout: OFF              Wimpy: OFF
-       NoGossip: OFF          NoAuction: OFF            NoGrats: OFF
-       AutoLoot: ON            AutoGold: ON           AutoSplit: ON 
-        AutoSac: ON          AutoAssist: ON                 AFK: OFF
-     Pagelength: 23               Color: off     
 
 See also: DISPLAY, NOSHOUT, NOSUMM, NOTELL, QUEST, REPEAT, WIMP
 #0
@@ -12055,6 +12055,24 @@ TRIGGER-FORMATS TRG-FILES TRIG-FILES TRIG-FORMATS TRG-FORMATS
 
 See Also: TRIGEDIT
 #31
+TRIGGER-TESTING
+
+There are numerous reasons a trigger would not fire.
+
+1. Nohassle - Ensure you have nohassle off. Simply toggle it by typing "nohassle" or stat self to see if the PRF flag NO_HASS is set (enabled).
+
+2. %echo% - Make sure the trigger is doing what you expect. Add an "%echo% firing" in the first line to make sure it is working. Also echo any variables you are using in the trigger to make sure they contain what you expect.
+
+3. Mobs - If a mob can not see the player a trigger may not fire. Be wary of blind mobs, dark rooms, invis/sneaking players. Also switch into the mob to test the trigger and you will see the mob try to execute the trigger commands to help you troubleshoo
+. If you see a "Huh?" or a "that person is not here" it can help you fix your problem.
+ 
+4. Command Triggers - Arguments: * means all commands. This is an easy way to freeze yourself (all commands you enter are captured by the trigger). To protect against this and other possibly malicious uses of triggers level 32 and above may not be able t
+ fully test some triggers (specifically damage and command come to mind). So either create a mortal character or set your level to 31 to fully test all triggers. The return command can be setup to allow you to restore your level back to original, ask you
+
+
+
+See also: TRIGEDIT-MOB-TUTORIAL, TRIGEDIT-ADVANCED-TUTORIAL
+#0
 TRIGGER-TESTING TRIGEDIT-TESTING
  
 There are numerous reasons a trigger may not fire.
@@ -12081,24 +12099,6 @@ all triggers. The return command can be setup to allow you to restore your level
 back to original, ask your coder to add your ID.
  
 See Also: TRIGEDIT-ADVANCED
-#0
-TRIGGER-TESTING
-
-There are numerous reasons a trigger would not fire.
-
-1. Nohassle - Ensure you have nohassle off. Simply toggle it by typing "nohassle" or stat self to see if the PRF flag NO_HASS is set (enabled).
-
-2. %echo% - Make sure the trigger is doing what you expect. Add an "%echo% firing" in the first line to make sure it is working. Also echo any variables you are using in the trigger to make sure they contain what you expect.
-
-3. Mobs - If a mob can not see the player a trigger may not fire. Be wary of blind mobs, dark rooms, invis/sneaking players. Also switch into the mob to test the trigger and you will see the mob try to execute the trigger commands to help you troubleshoo
-. If you see a "Huh?" or a "that person is not here" it can help you fix your problem.
- 
-4. Command Triggers - Arguments: * means all commands. This is an easy way to freeze yourself (all commands you enter are captured by the trigger). To protect against this and other possibly malicious uses of triggers level 32 and above may not be able t
- fully test some triggers (specifically damage and command come to mind). So either create a mortal character or set your level to 31 to fully test all triggers. The return command can be setup to allow you to restore your level back to original, ask you
-
-
-
-See also: TRIGEDIT-MOB-TUTORIAL, TRIGEDIT-ADVANCED-TUTORIAL
 #0
 TSTAT EXAMPLES TRIGSTAT TRIGGERSTAT
 
@@ -13513,4 +13513,9 @@ zlock - Locks one or all zones. Type zlock for usage.
 zunlock - Locks one or all zones. Type zunlock for usage. 
 
 #31
+MOUNTEBANK
+
+A charlatan, trickster, or shyguy...
+
+#0
 $~

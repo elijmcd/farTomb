@@ -325,6 +325,7 @@ const char *connected_types[] = {
   "Message edit",
   "Protocol Detection",
   "Select Race",
+  "Class Help",
   "\n"
 };
 
@@ -332,24 +333,24 @@ const char *connected_types[] = {
  * @pre Must be in the same order as the defines.
  * Not used in sprinttype() so no \\n. */
 const char *wear_where[] = {
-  "<used as light>      ",
-  "<worn on finger>     ",
-  "<worn on finger>     ",
-  "<worn around neck>   ",
-  "<worn around neck>   ",
-  "<worn on body>       ",
-  "<worn on head>       ",
-  "<worn on legs>       ",
-  "<worn on feet>       ",
-  "<worn on hands>      ",
-  "<worn on arms>       ",
-  "<worn as shield>     ",
-  "<worn about body>    ",
-  "<worn about waist>   ",
-  "<worn around wrist>  ",
-  "<worn around wrist>  ",
-  "<wielded>            ",
-  "<held>               "
+  "{light  } ",
+  "{finger } ",
+  "{finger } ",
+  "{neck   } ",
+  "{neck   } ",
+  "{body   } ",
+  "{head   } ",
+  "{legs   } ",
+  "{feet   } ",
+  "{hands  } ",
+  "{arms   } ",
+  "{shield } ",
+  "{back   } ",
+  "{waist  } ",
+  "{wrist  } ",
+  "{wrist  } ",
+  "{wielded} ",
+  "{held   } "
 };
 
 /* Describes where an item can be worn.

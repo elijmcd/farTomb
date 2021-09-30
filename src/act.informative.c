@@ -166,10 +166,10 @@ static void show_obj_modifiers(struct obj_data *obj, struct char_data *ch)
     send_to_char(ch, " ..It glows yellow!");
 
   if (OBJ_FLAGGED(obj, ITEM_GLOW))
-    send_to_char(ch, " ..It has a soft glowing aura!");
+    send_to_char(ch, " {glowing}");
 
   if (OBJ_FLAGGED(obj, ITEM_HUM))
-    send_to_char(ch, " ..It emits a faint humming sound!");
+    send_to_char(ch, " {humming}");
 }
 
 static void list_obj_to_char(struct obj_data *list, struct char_data *ch, int mode, int show)
