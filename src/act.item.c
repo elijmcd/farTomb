@@ -227,7 +227,7 @@ static void perform_get_from_container(struct char_data *ch, struct obj_data *ob
           } else {
             rummage_gold = (int) (value * 0.2);
           }
-          send_to_char(ch, "You find %d more coin%s while rummaging through their clothing.\r\n",
+          send_to_char(ch, "You find %d more coin%s while rummaging through the remains.\r\n",
                             rummage_gold, rummage_gold > 1 ? "s" : "");
           GET_GOLD(ch) += rummage_gold;
         }
