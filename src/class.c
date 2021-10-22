@@ -35,15 +35,15 @@ const char *class_abbrevs[] = {
   "\n"
 };
 
-const char *class_names[] = {
-  "Mountebank",
-  "Aetherist",
-  "Drifter",
-  "Outrider",
-  "Wyrm",
-  "Undead",
-  "\n"
-};
+// const char *class_names[] = {
+//   "Mountebank",
+//   "Aetherist",
+//   "Drifter",
+//   "Outrider",
+//   "Wyrm",
+//   "Undead",
+//   "\n"
+// };
 
 const char *pc_class_types[] = {
   "Mountebank",

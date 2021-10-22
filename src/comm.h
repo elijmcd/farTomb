@@ -59,7 +59,7 @@ void echo_on(struct descriptor_data *d);
 void game_loop(socket_t mother_desc);
 void heartbeat(int heart_pulse);
 void copyover_recover(void);
-void show_help(struct descriptor_data *t, const char *entry);
+// void show_help(struct descriptor_data *t, const char *entry);
 
 /** webster dictionary lookup */
 extern long last_webster_teller;

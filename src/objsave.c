@@ -876,11 +876,10 @@ static int gen_receptionist(struct char_data *ch, struct char_data *recep, int c
 {
   int cost;
   char buf[128];
-  const char *action_table[] = { "smile", "dance", "sigh", "blush", "burp",
-	  "cough", "fart", "twiddle", "yawn" };
+  const char *action_table[] = { "smile", "sigh", "yawn", "cough", "twiddle", "burp" };
 
   if (!cmd && !rand_number(0, 5)) {
-    do_action(recep, NULL, find_command(action_table[rand_number(0, 8)]), 0);
+    do_action(recep, NULL, find_command(action_table[rand_number(0, 5)]), 0);
     return (FALSE);
   }
 

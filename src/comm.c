@@ -2881,36 +2881,36 @@ static void msdp_update( void )
   }
 }
 
-void show_help(struct descriptor_data *t, const char *entry)
-{
-  int chk, bot, top, mid, minlen;
-  char buf[MAX_STRING_LENGTH];
+// void show_help(struct descriptor_data *t, const char *entry)
+// {
+//   int chk, bot, top, mid, minlen;
+//   char buf[MAX_STRING_LENGTH];
 
-  if (!help_table)
-    return;
+//   if (!help_table)
+//     return;
 
-  bot = 0;
-  top = top_of_helpt;
-  minlen = strlen(entry);
+//   bot = 0;
+//   top = top_of_helpt;
+//   minlen = strlen(entry);
 
-  for (;;) {
-    mid = (bot + top) / 2;
+//   for (;;) {
+//     mid = (bot + top) / 2;
 
-    if (bot > top) {
-      return;
-    }
-    else if (!(chk = strn_cmp(entry, help_table[mid].keywords, minlen))) {
-      while ((mid > 0) &&
-        (!(chk = strn_cmp(entry, help_table[mid - 1].keywords, minlen))))
-        mid--;
-      write_to_output(t, "\r\n");
-      snprintf(buf, sizeof(buf), "%s\r\n[ PRESS RETURN TO CONTINUE ]",
-        help_table[mid].entry);
-      page_string(t, buf, 0);
-      return;
-    } else {
-      if (chk > 0) bot = mid + 1;
-      else top = mid -1;
-    }
-  }
-}
+//     if (bot > top) {
+//       return;
+//     }
+//     else if (!(chk = strn_cmp(entry, help_table[mid].keywords, minlen))) {
+//       while ((mid > 0) &&
+//         (!(chk = strn_cmp(entry, help_table[mid - 1].keywords, minlen))))
+//         mid--;
+//       write_to_output(t, "\r\n");
+//       snprintf(buf, sizeof(buf), "%s\r\n[ PRESS RETURN TO CONTINUE ]",
+//         help_table[mid].entry);
+//       page_string(t, buf, 0);
+//       return;
+//     } else {
+//       if (chk > 0) bot = mid + 1;
+//       else top = mid -1;
+//     }
+//   }
+// }

@@ -119,6 +119,7 @@ void assign_mobiles(void)
   ASSIGNMOB(30128, postmaster);
   ASSIGNMOB(31510, postmaster);
 
+  ASSIGNMOB(1000, receptionist);
   ASSIGNMOB(1200, receptionist);
   ASSIGNMOB(3005, receptionist);
   ASSIGNMOB(5404, receptionist);

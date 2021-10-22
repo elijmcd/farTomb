@@ -29,7 +29,7 @@ const char *title_male(int chclass, int level);
 /* Global variables */
 
 extern const char *class_abbrevs[];
-extern const char *class_names[];
+// extern const char *class_names[];
 extern const char *pc_class_types[];
 extern const char *class_menu;
 extern int prac_params[][NUM_CLASSES];

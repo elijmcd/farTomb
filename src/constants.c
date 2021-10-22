@@ -325,7 +325,7 @@ const char *connected_types[] = {
   "Message edit",
   "Protocol Detection",
   "Select Race",
-  "Class Help",
+  // "Class Help",
   "\n"
 };
 

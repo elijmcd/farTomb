@@ -1,6 +1,10 @@
 #10
-None~
-New Zone~
-1000 1099 30 2
+Excelibur~
+BROADMOOR~
+1000 1099 15 2 d 0 0 0 1 33
+M 0 1000 1 1000 	(a kindly innkeep)
+M 0 1001 1 1000 	(a spoony bard)
+M 0 1002 1 1000 	(a buxom barmaid)
+O 0 1000 1 1001 	(the fount of Broadmoor)
 S
 $

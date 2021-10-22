@@ -1,21 +1,660 @@
 #1000
-Inside the Croaking Toad~
-This room is brightly lit and filled with activity. Long tables are scattered about, made of some dark-hued and heavy wood. Torches flicker gently along the walls, leaving sooty deposits.
+@yThe @gCroaking Toad @yTavern & Inn~
+
+The establishment is well lit and filled with activity. 
+A few long tables span the center of the hall, hewn from a dark-hued and heavy wood.
+Torches flicker mildly along the walls, leaving sooty deposits.
 ~
-10 16 0 0 0 0
+10 24 0 0 0 0
 D6
 ~
 ~
-0 0 0
+0 0 1001
+D9
+~
+~
+0 0 -1
 S
 #1001
-Coachlight Square~
-You are standing at the nexus of Coachlight Lane and Broadmoor Avenue, comprising the central hub of the town of Meadowmere.
+Broadmoor Central Square~
+The town square seems a bustling place, yet an eerie hollowness fills the atmosphere.
+Coachlight lane, the primary thoroughfare, sprawls widely to the East and West.
+By comparison, the North-South avenue of Meadowmere seems but a scraggly companion.
 ~
-10 0 0 0 0 0
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1039
+D1
+~
+~
+0 0 1002
+D2
+~
+~
+0 0 1022
+D3
+~
+~
+0 0 1035
 D8
 ~
 ~
 0 0 1000
+S
+#1002
+Eastern Coachlight~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1003
+D3
+~
+~
+0 0 1001
+S
+#1003
+Eastern Coachlight~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1004
+D3
+~
+~
+0 0 1002
+S
+#1004
+Eastern Coachlight~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1005
+D3
+~
+~
+0 0 1003
+S
+#1005
+Eastern Coachlight~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1006
+D3
+~
+~
+0 0 1004
+S
+#1006
+Eastern Coachlight at the Rivercut~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D3
+~
+~
+0 0 1005
+D5
+~
+~
+0 0 -1
+D8
+~
+~
+0 0 1007
+S
+#1007
+Along the Rivercut~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D2
+~
+~
+0 0 1008
+D6
+~
+~
+0 0 1006
+D9
+~
+~
+0 0 1010
+S
+#1008
+Along the Rivercut~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1007
+D2
+~
+~
+0 0 1009
+D3
+~
+~
+0 0 1010
+S
+#1009
+At Rivercut-upon-Cozy~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1008
+D6
+~
+~
+0 0 1010
+D9
+~
+~
+0 0 1023
+S
+#1010
+The Riverbank~
+You are in an unfinished room.
+~
+10 0 0 0 0 2
+D0
+~
+~
+0 0 1011
+D1
+~
+~
+0 0 1008
+D3
+~
+~
+0 0 1013
+D7
+~
+~
+0 0 1007
+D8
+~
+~
+0 0 1009
+S
+#1011
+On the River~
+You are in an unfinished room.
+~
+10 0 0 0 0 6
+D2
+~
+~
+0 0 1010
+D7
+~
+~
+0 0 1012
+D9
+~
+~
+0 0 1013
+S
+#1012
+On the River~
+You are in an unfinished room.
+~
+10 0 0 0 0 6
+D9
+~
+~
+0 0 1011
+S
+#1013
+On the River~
+You are in an unfinished room.
+~
+10 0 0 0 0 6
+D1
+~
+~
+0 0 1010
+D3
+~
+~
+0 0 1014
+D7
+~
+~
+0 0 1011
+S
+#1014
+On the River~
+You are in an unfinished room.
+~
+10 0 0 0 0 6
+D0
+~
+~
+0 0 1020
+D1
+~
+~
+0 0 1013
+D3
+~
+~
+0 0 1015
+S
+#1015
+On the River~
+You are in an unfinished room.
+~
+10 0 0 0 0 6
+D0
+~
+~
+0 0 1019
+D1
+~
+~
+0 0 1014
+D3
+~
+~
+0 0 1016
+S
+#1016
+On the River~
+You are in an unfinished room.
+~
+10 0 0 0 0 6
+D1
+~
+~
+0 0 1015
+D3
+~
+~
+0 0 1017
+S
+#1017
+In a Culvert Under Meadowmere~
+You are in an unfinished room.
+~
+10 0 0 0 0 9
+D1
+~
+~
+0 0 1016
+S
+#1018
+Southern Meadowmere~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1022
+D2
+~
+~
+0 0 1028
+S
+#1019
+In the Marsh~
+You are in an unfinished room.
+~
+10 0 0 0 0 6
+D1
+~
+~
+0 0 1020
+D2
+~
+~
+0 0 1015
+S
+#1020
+In the Marsh~
+You are in an unfinished room.
+~
+10 0 0 0 0 6
+D1
+~
+~
+0 0 1021
+D2
+~
+~
+0 0 1014
+D3
+~
+~
+0 0 1019
+S
+#1021
+In a Dense Copse of Cottonwood~
+You are in an unfinished room.
+~
+10 16 0 0 0 3
+D3
+~
+~
+0 0 1020
+S
+#1022
+Southern Meadowmere~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1001
+D2
+~
+~
+0 0 1018
+S
+#1023
+On Mellow Court~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D5
+~
+~
+0 0 -1
+D6
+~
+~
+0 0 1024
+D7
+~
+~
+0 0 1009
+S
+#1024
+At Cozy-upon-Rivercut~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1030
+D3
+~
+~
+0 0 1025
+D8
+~
+~
+0 0 1023
+S
+#1025
+Cozy Lane~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1024
+D3
+~
+~
+0 0 1026
+S
+#1026
+Cozy Lane~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1025
+D3
+~
+~
+0 0 1027
+S
+#1027
+Cozy Lane~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1026
+D3
+~
+~
+0 0 1028
+S
+#1028
+Southern Meadowmere, at Cozy Lane~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1018
+D1
+~
+~
+0 0 1027
+D2
+~
+~
+0 0 1029
+S
+#1029
+Southern Meadowmere~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1028
+D2
+~
+~
+0 0 1031
+S
+#1030
+Ascent to Belcrest Way~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D3
+~
+~
+0 0 1024
+D8
+~
+~
+0 0 1032
+D9
+~
+~
+0 0 1034
+S
+#1031
+Southern Meadowmere~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1029
+S
+#1032
+Eastern Belcrest Way~
+You are in an unfinished room.
+~
+10 0 0 0 0 4
+D6
+~
+~
+0 0 1030
+D9
+~
+~
+0 0 1033
+S
+#1033
+Inside the Cathodrome~
+You are in an unfinished room.
+~
+10 0 0 0 0 0
+D6
+~
+~
+0 0 1034
+D7
+~
+~
+0 0 1032
+S
+#1034
+Western Belcrest Way~
+You are in an unfinished room.
+~
+10 0 0 0 0 4
+D7
+~
+~
+0 0 1030
+D8
+~
+~
+0 0 1033
+S
+#1035
+Western Coachlight~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1001
+D3
+~
+~
+0 0 1036
+S
+#1036
+Western Coachlight~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1035
+D3
+~
+~
+0 0 1037
+S
+#1037
+Western Coachlight~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D1
+~
+~
+0 0 1036
+D3
+~
+~
+0 0 1038
+S
+#1038
+Broadmoor Westgate~
+You are in an unfinished room.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1037
+S
+#1039
+Northern Meadowmere~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1040
+D2
+~
+~
+0 0 1001
+S
+#1040
+Northern Meadowmere~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1041
+D2
+~
+~
+0 0 1039
+S
+#1041
+Northern Meadowmere~
+You are in an unfinished room.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1042
+D2
+~
+~
+0 0 1040
+S
+#1042
+Broadmoor Northgate~
+You are in an unfinished room.
+~
+10 0 0 0 0 0
+D2
+~
+~
+0 0 1041
 S
 $~

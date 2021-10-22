@@ -5,7 +5,7 @@ A large piece of cloth mounted on a pole lies on the ground.~
 ~
 12 a 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-4 10 0 7
+4 10 0 7 0
 A
 5 1
 #31301
@@ -15,7 +15,7 @@ A filthy set of scrap armor lies in a heap.~
 ~
 9 0 0 0 0 ad 0 0 0 0 0 0 0
 5 0 0 0
-7 4 0 1
+7 4 0 1 0
 #31302
 torch~
 a torch~
@@ -23,7 +23,7 @@ A torch has been left here.~
 ~
 1 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 20 0
-3 3 0 1
+3 3 0 1 0
 #31303
 human leg~
 the remains of a human leg~
@@ -31,7 +31,7 @@ The remains of a human leg lie discarded on the ground.~
 ~
 19 0 0 0 0 ao 0 0 0 0 0 0 0
 20 0 0 1
-7 1 0 1
+7 1 0 1 0
 #31304
 green wart~
 a green wart~
@@ -39,7 +39,7 @@ A hideous green wart lies severed from someone's skin.~
 ~
 11 0 0 0 0 abe 0 0 0 0 0 0 0
 0 0 0 0
-1 1 0 1
+1 1 0 1 0
 A
 17 3
 #31305
@@ -49,7 +49,7 @@ A filthy rag of a vest lies stinking on the ground.~
 ~
 9 0 0 0 0 ak 0 0 0 0 0 0 0
 6 0 0 0
-5 4 0 7
+5 4 0 7 0
 A
 3 1
 #31306
@@ -59,7 +59,7 @@ A tarnished ring lies on the ground.~
 ~
 9 0 0 0 0 ab 0 0 0 0 0 0 0
 2 0 0 0
-2 200 0 8
+2 200 0 8 0
 A
 3 1
 #31307
@@ -69,7 +69,7 @@ A curve bladed sword has been left behind.~
 ~
 5 0 0 0 0 an 0 0 0 0 0 0 0
 1 4 2 3
-7 10 0 7
+7 10 0 7 0
 #31308
 raggedy pair black pants~
 a raggedy pair of black pants~
@@ -77,7 +77,7 @@ A raggedy pair of black pants lie strewn on the ground.~
 ~
 9 0 0 0 0 af 0 0 0 0 0 0 0
 4 0 0 0
-3 1 0 6
+3 1 0 6 0
 A
 4 1
 #31309
@@ -87,7 +87,7 @@ A curve-bladed knife has been dropped here.~
 ~
 5 0 0 0 0 an 0 0 0 0 0 0 0
 1 4 3 11
-4 10 0 12
+4 10 0 12 0
 A
 2 1
 #31310
@@ -97,7 +97,7 @@ A set of dented armor from one of the Lord's Retinue lies here.~
 ~
 9 0 0 0 0 ad 0 0 0 0 0 0 0
 8 0 0 0
-9 100 0 5
+9 100 0 5 0
 A
 5 1
 #31311
@@ -107,7 +107,7 @@ A once-fine, but now very filthy cape has been left here.~
 ~
 9 0 0 0 0 ak 0 0 0 0 0 0 0
 5 0 0 0
-3 50 0 11
+3 50 0 11 0
 A
 19 1
 #31312
@@ -117,7 +117,7 @@ A sword that had seen many battles lies on the ground.~
 ~
 5 0 0 0 0 an 0 0 0 0 0 0 0
 1 2 6 3
-4 10 0 8
+4 10 0 8 0
 A
 19 1
 #31313
@@ -127,7 +127,7 @@ A battle-scarred chest plate lies on its side here.~
 ~
 9 0 0 0 0 ad 0 0 0 0 0 0 0
 8 0 0 0
-7 75 0 8
+7 75 0 8 0
 #31314
 three pronged pitch fork~
 a three-pronged pitch fork~
@@ -135,7 +135,7 @@ A three-pronged pitch fork lies dully on the ground.~
 ~
 5 0 0 0 0 an 0 0 0 0 0 0 0
 1 3 4 14
-4 10 0 9
+4 10 0 9 0
 A
 5 1
 #31315
@@ -145,17 +145,17 @@ A homemade leather vest has been left here.~
 ~
 9 0 0 0 0 ak 0 0 0 0 0 0 0
 4 0 0 0
-4 200 0 7
+4 200 0 7 0
 A
 1 2
 #31316
 sewn leather pants~
-a pair of sewn leather pants~
+sewn leather pants~
 A pair of sewn leather pants have been discarded on the ground.~
 ~
 9 0 0 0 0 af 0 0 0 0 0 0 0
 7 0 0 0
-4 10 0 1
+4 10 0 1 0
 #31317
 toy dolly~
 a toy dolly~
@@ -163,7 +163,7 @@ A toy dolly has been left on the ground.~
 ~
 12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-2 2 0 8
+2 2 0 8 0
 A
 4 1
 #31318
@@ -173,7 +173,7 @@ A long wooden pole lies on the ground.~
 ~
 5 0 0 0 0 an 0 0 0 0 0 0 0
 1 2 6 7
-3 2 0 8
+3 2 0 8 0
 A
 13 15
 #31319
@@ -183,7 +183,7 @@ A good, sturdy kitchen knife lies on the ground.~
 ~
 5 0 0 0 0 ano 0 0 0 0 0 0 0
 1 3 3 3
-3 1 0 5
+3 1 0 5 0
 #31320
 pair grubby overalls~
 a pair of grubby overalls~
@@ -191,7 +191,7 @@ A pair of grubby overalls lie thrown on the ground.~
 ~
 9 0 0 0 0 ak 0 0 0 0 0 0 0
 4 0 0 0
-4 3 0 1
+4 3 0 1 0
 #31321
 sooty black dress~
 a black, sooty dress~
@@ -199,7 +199,7 @@ A dress black with soot has been left here.~
 ~
 9 0 0 0 0 ad 0 0 0 0 0 0 0
 4 0 0 0
-3 3 0 1
+3 3 0 1 0
 #31322
 steady waterfall water~
 a steady waterfall~
@@ -207,7 +207,7 @@ A waterfall streams steadily down from the mountaintop.~
 ~
 23 0 0 0 0 0 0 0 0 0 0 0 0
 500 500 15 0
-505 0 0 0
+505 0 0 0 0
 E
 waterfall~
    It appears that there may be some sort of cavern or cave behind the fall, but
@@ -220,7 +220,7 @@ The fire-dried husk of a goblin body lies stinking on the ground.~
 ~
 12 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0
+0 0 0 0 0
 #31324
 scraps wood timber~
 a few scraps of wood and timber~
@@ -228,7 +228,7 @@ A few scraps of wood and timber from what was a farmhouse lie here.~
 ~
 13 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-3 1 0 1
+3 1 0 1 0
 #31325
 jumble boulders~
 a jumble of boulders~
@@ -236,7 +236,7 @@ A jumble of boulders lie strewn about the ground.~
 ~
 12 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0
+0 0 0 0 0
 #31326
 unidentifiable body part~
 an unidentifiable body part~
@@ -244,5 +244,5 @@ An unidentifiable human body part lies left on the ground.~
 ~
 12 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-4 1 0 0
+4 1 0 0 0
 $~
