@@ -571,7 +571,7 @@ S
 Western Coachlight~
 You are in an unfinished room.
 ~
-10 0 0 0 0 1
+10 1 0 0 0 1
 D1
 ~
 ~
@@ -585,7 +585,7 @@ S
 Western Coachlight~
 You are in an unfinished room.
 ~
-10 0 0 0 0 1
+10 1 0 0 0 1
 D1
 ~
 ~
@@ -599,7 +599,7 @@ S
 Broadmoor Westgate~
 You are in an unfinished room.
 ~
-10 0 0 0 0 0
+10 1 0 0 0 0
 D1
 ~
 ~

@@ -513,7 +513,7 @@ void look_at_room(struct char_data *ch, int ignore_brief)
     }
   }
   else
-    send_to_char(ch, "%s\r\n", world[IN_ROOM(ch)].name);
+    send_to_char(ch, "%s", world[IN_ROOM(ch)].name);
   send_to_char(ch, "%s\r\n", CCNRM(ch, C_NRM));
 
   if ((!IS_NPC(ch) && !PRF_FLAGGED(ch, PRF_BRIEF)) || ignore_brief ||
