@@ -6,15 +6,15 @@ Clas: 3
 Levl: 34
 Id  : 22
 Brth: 1634915739
-Plyd: 6438
-Last: 1634922177
-Host: 192.168.0.14
+Plyd: 21361
+Last: 1635312168
+Host: hedgehugdilemma.mediacom.info
 Hite: 182
 Wate: 123
 Act : h 0 0 0
 Aff : 0 0 0 0
 Pref: efghmnorvF 0 0 0
-Room: 3008
+Room: 65535
 Lern: 68
 Hit : 415/415
 Mana: 100/100
@@ -29,5 +29,6 @@ Ac  : 100
 Gold: 1001
 Exp : 10000000
 Affs:
+50 -1 0 0 2048 0 0 0
 50 -1 0 0 2048 0 0 0
 0 0 0 0 0 0 0 0

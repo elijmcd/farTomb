@@ -43,6 +43,7 @@ D8
 ~
 0 0 1000
 S
+T 1003
 #1002
 Eastern Coachlight~
 You are in an unfinished room.
@@ -57,6 +58,7 @@ D3
 ~
 0 0 1001
 S
+T 1003
 #1003
 Eastern Coachlight~
 You are in an unfinished room.
@@ -71,6 +73,7 @@ D3
 ~
 0 0 1002
 S
+T 1003
 #1004
 Eastern Coachlight~
 You are in an unfinished room.
@@ -85,6 +88,7 @@ D3
 ~
 0 0 1003
 S
+T 1003
 #1005
 Eastern Coachlight~
 You are in an unfinished room.
@@ -99,6 +103,7 @@ D3
 ~
 0 0 1004
 S
+T 1003
 #1006
 Eastern Coachlight at the Rivercut~
 You are in an unfinished room.
@@ -117,6 +122,7 @@ D8
 ~
 0 0 1007
 S
+T 1003
 #1007
 Along the Rivercut~
 You are in an unfinished room.
@@ -137,7 +143,9 @@ D9
 S
 #1008
 Along the Rivercut~
-You are in an unfinished room.
+The path here is made of many small and expertly crafted bricks of varying hues, arranged in ornate floral and geometric mosaics.
+Large cement cisterns hold arrangements of regional flowers and grasses, lending a regal feel and a pleasant aroma to the area.
+The Rivercut is a popular destination for citizens of Broadmoor to enjoy an afternoon stroll, or to watch the sunset over the river.
 ~
 10 0 0 0 0 1
 D0
@@ -153,9 +161,12 @@ D3
 ~
 0 0 1010
 S
+T 1002
 #1009
-At Rivercut-upon-Cozy~
-You are in an unfinished room.
+Along the Rivercut~
+The path here is made of many small and expertly crafted bricks of varying hues, arranged in ornate floral and geometric mosaics.
+Large cement cisterns hold arrangements of regional flowers and grasses, lending a regal feel and a pleasant aroma to the area.
+The Rivercut is a popular destination for citizens of Broadmoor to enjoy an afternoon stroll, or to watch the sunset over the river.
 ~
 10 0 0 0 0 1
 D0
@@ -171,6 +182,7 @@ D9
 ~
 0 0 1023
 S
+T 1002
 #1010
 The Riverbank~
 You are in an unfinished room.
@@ -530,6 +542,10 @@ Inside the Cathodrome~
 You are in an unfinished room.
 ~
 10 0 0 0 0 0
+D4
+~
+~
+0 0 1044
 D6
 ~
 ~
@@ -567,6 +583,7 @@ D3
 ~
 0 0 1036
 S
+T 1003
 #1036
 Western Coachlight~
 You are in an unfinished room.
@@ -581,6 +598,7 @@ D3
 ~
 0 0 1037
 S
+T 1003
 #1037
 Western Coachlight~
 You are in an unfinished room.
@@ -595,6 +613,7 @@ D3
 ~
 0 0 1038
 S
+T 1003
 #1038
 Broadmoor Westgate~
 You are in an unfinished room.
@@ -656,5 +675,15 @@ D2
 ~
 ~
 0 0 1041
+S
+#1044
+An unfinished room~
+You are in an unfinished room.
+~
+10 0 0 0 0 0
+D5
+~
+~
+0 0 1033
 S
 $~

@@ -111,9 +111,9 @@ static struct map_info_type compact_door_info[] =
 /* New sectors also need to be added to the perform_map function below */
 static struct map_info_type map_info[] =
 {
-  { SECT_INSIDE,       "\tn#\tn" }, /* 0 */
+  { SECT_INSIDE,       "\ty#\tn" }, /* 0 */
   { SECT_CITY,         "\tw#\tn" },
-  { SECT_FIELD,        "\tG#\tn" },
+  { SECT_FIELD,        "\ty#\tn" },
   { SECT_FOREST,       "\tg#\tn" },
   { SECT_HILLS,        "\tMm\tn" },
   { SECT_MOUNTAIN,     "\trM\tn" }, /* 5 */
@@ -501,14 +501,14 @@ static void perform_map( struct char_data *ch, char *argument, bool worldmap )
   map[centre][centre] = SECT_HERE;
 
   /* Feel free to put your own MUD name or header in here */
-  send_to_char(ch, " \tY-\tytbaMUD Map System\tY-\tn\r\n"
+  send_to_char(ch, " \ty~~~\tYThe\ty~\tYFar\ty~\tYTomb\ty~~~\tn\r\n"
                    "\tD  .-.__--.,--.__.-.\tn\r\n" );
 
   count += sprintf(buf + count, "\tn\tn\tn%s Up\\\\", door_info[NUM_DOOR_TYPES + DOOR_UP].disp);
   count += sprintf(buf + count, "\tn\tn\tn%s Down\\\\", door_info[NUM_DOOR_TYPES + DOOR_DOWN].disp);
   count += sprintf(buf + count, "\tn%s You\\\\", map_info[SECT_HERE].disp);
   count += sprintf(buf + count, "\tn%s Inside\\\\", map_info[SECT_INSIDE].disp);
-  count += sprintf(buf + count, "\tn%s City\\\\", map_info[SECT_CITY].disp);
+  count += sprintf(buf + count, "\tn%s Road\\\\", map_info[SECT_CITY].disp);
   count += sprintf(buf + count, "\tn%s Field\\\\", map_info[SECT_FIELD].disp);
   count += sprintf(buf + count, "\tn%s Forest\\\\", map_info[SECT_FOREST].disp);
   count += sprintf(buf + count, "\tn%s Hills\\\\", map_info[SECT_HILLS].disp);

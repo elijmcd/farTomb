@@ -1,9 +1,9 @@
 #1000
-inn keep innkeep kindly~
-a kindly innkeep~
-The innkeep mills about expectantly.
+kindly innkeep bobu~
+Bobu the kindly innkeep~
+Bobu the kindly innkeep mills about lazily.
 ~
-The keeper of the inn is a tired-looking man of middle age and kind countenance.
+The keeper of the @gCroaking Toad@n is a rotund and tired-looking man, with a fairly feline featureset. His tiredness is perpetual, and he seems fairly unable to keep his eyes open.
 ~
 321563 0 0 0 65624 0 0 0 0 E
 0 20 10 1d1+0 1d1+0
@@ -39,12 +39,25 @@ eli barrow boy melancholic youth~
 Eli the barrow boy~
 A melancholic youth is here, selling wares from his pushcart. 
 ~
-It looks unfinished.
+Eli appears to be about 13 years of age, with unruly shoulder-length hair.
+Dressed all in shabby corduroy, he greets you with a sad, imploring smile upon his chubby face.
+His skin is almost pure white, and seems to glow in the pale moonlight.
 ~
 516169 0 0 0 65856 0 0 0 0 E
-0 20 10 1d1+0 1d1+0
-0 0
+30 10 -8 6d6+300 5d5+5
+300 90000
 8 8 1
+Str: 18
+Dex: 18
+Int: 18
+Wis: 18
+Con: 18
+Cha: 18
+SavingPara: 7
+SavingRod: 7
+SavingPetri: 7
+SavingBreath: 7
+SavingSpell: 7
 E
 T 1001
 T 1000
