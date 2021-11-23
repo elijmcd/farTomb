@@ -2,9 +2,11 @@
 Excelibur~
 BROADMOOR~
 1000 1099 15 2 d 0 0 0 1 33
-M 0 1000 1 1000 	(a kindly innkeep)
+M 0 1000 1 1000 	(Bobu the kindly innkeep)
 M 0 1001 1 1000 	(a spoony bard)
 M 0 1002 1 1000 	(a buxom barmaid)
+G 1 1099 100 -1 	(a roasted rat with honey glaze)
+M 0 1004 1 1047 	(Replevin)
 O 0 1000 1 1001 	(the fount of Broadmoor)
 S
 $

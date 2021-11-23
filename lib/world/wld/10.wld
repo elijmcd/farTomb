@@ -390,6 +390,14 @@ On Mellow Court~
 You are in an unfinished room.
 ~
 10 0 0 0 0 1
+D1
+~
+~
+0 0 1032
+D3
+~
+~
+0 0 1034
 D5
 ~
 ~
@@ -408,10 +416,6 @@ At Cozy-upon-Rivercut~
 You are in an unfinished room.
 ~
 10 0 0 0 0 1
-D1
-~
-~
-0 0 1030
 D3
 ~
 ~
@@ -496,22 +500,20 @@ D2
 0 0 1031
 S
 #1030
-Ascent to Belcrest Way~
-You are in an unfinished room.
+Amid the Vaulting~
+This room is an expanse of black floor-tiles, each surrounded by softly shining silvery grouting.
+The tiles, a combination of scalene polygons of different shapes and sizes, have a radiant blackness to them which somehow fails to be of either onyx or jet.
+It is easy to doubt the solidity of the webbed floor and doubtless there are many who would be afraid to walk upon this silvery web, as if Something has built it... Something that waits... Something that would know precisely when to cause it to give way beneath an unwary visitor.
 ~
-10 0 0 0 0 1
-D3
-~
-~
-0 0 1024
-D8
+10 0 0 0 0 0
+D6
 ~
 ~
-0 0 1032
+0 0 1047
 D9
 ~
 ~
-0 0 1034
+0 0 1044
 S
 #1031
 Southern Meadowmere~
@@ -528,42 +530,46 @@ Eastern Belcrest Way~
 You are in an unfinished room.
 ~
 10 0 0 0 0 4
-D6
+D3
 ~
 ~
-0 0 1030
+0 0 1023
 D9
 ~
 ~
 0 0 1033
 S
 #1033
-Inside the Cathodrome~
+Portico to the Cathodrome~
 You are in an unfinished room.
 ~
 10 0 0 0 0 0
-D4
-~
-~
-0 0 1044
 D6
 ~
 ~
 0 0 1034
 D7
 ~
-~
+door~
 0 0 1032
+D8
+~
+door~
+1 0 1043
+D9
+~
+door~
+1 0 1046
 S
 #1034
 Western Belcrest Way~
 You are in an unfinished room.
 ~
 10 0 0 0 0 4
-D7
+D1
 ~
 ~
-0 0 1030
+0 0 1023
 D8
 ~
 ~
@@ -676,14 +682,102 @@ D2
 ~
 0 0 1041
 S
+#1043
+Inside the Cathodrome~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D6
+~
+door~
+1 0 1033
+D9
+~
+~
+0 0 1045
+S
 #1044
-An unfinished room~
-You are in an unfinished room.
+Amid the Vaulting~
+This room is an expanse of black floor-tiles, each surrounded by softly shining silvery grouting.
+The tiles, a combination of scalene polygons of different shapes and sizes, have a radiant blackness to them which somehow fails to be of either onyx or jet.
+It is easy to doubt the solidity of the webbed floor and doubtless there are many who would be afraid to walk upon this silvery web, as if Something has built it... Something that waits, Something that would know precisely when to cause it to give way beneath an unwary visitor.
 ~
 10 0 0 0 0 0
 D5
 ~
 ~
-0 0 1033
+0 0 1045
+D6
+~
+~
+0 0 1048
+D7
+~
+~
+0 0 1030
+S
+#1045
+Inside the Cathodrome~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D4
+~
+~
+0 0 1044
+D6
+~
+~
+0 0 1046
+D7
+~
+~
+0 0 1043
+S
+#1046
+Inside the Cathodrome~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D7
+~
+door~
+1 0 1033
+D8
+~
+~
+0 0 1045
+S
+#1047
+The Clerestory~
+This room is an expanse of black floor-tiles, each surrounded by softly shining silvery grouting.
+The tiles, a combination of scalene polygons of different shapes and sizes, have a radiant blackness to them which somehow fails to be of either onyx or jet.
+It is easy to doubt the solidity of the webbed floor and doubtless there are many who would be afraid to walk upon this silvery web, as if Something has built it... Something that waits... Something that would know precisely when to cause it to give way beneath an unwary visitor.
+~
+10 56 0 0 0 0
+D8
+~
+~
+0 0 1030
+D9
+~
+~
+0 0 1048
+S
+#1048
+Amid the Vaulting~
+This room is an expanse of black floor-tiles, each surrounded by softly shining silvery grouting.
+The tiles, a combination of scalene polygons of different shapes and sizes, have a radiant blackness to them which somehow fails to be of either onyx or jet.
+It is easy to doubt the solidity of the webbed floor and doubtless there are many who would be afraid to walk upon this silvery web, as if Something has built it... Something that waits... Something that would know precisely when to cause it to give way beneath an unwary visitor.
+~
+10 0 0 0 0 0
+D7
+~
+~
+0 0 1047
+D8
+~
+~
+0 0 1044
 S
 $~

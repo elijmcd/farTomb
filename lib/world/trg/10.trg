@@ -37,4 +37,16 @@ load Broadmoor lamp posts~
 ~
 %load% obj 1001
 ~
+#1004
+eli fades 1003~
+0 t 100
+~
+%echo% This trigger commandlist is not complete!
+~
+#1005
+load aetherist guildmaster 1004~
+0 n 100
+~
+%echo% This trigger commandlist is not complete!
+~
 $~

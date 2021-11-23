@@ -955,13 +955,19 @@ ACMD(do_equipment)
     if (GET_EQ(ch, i)) {
       found = TRUE;
       if (CAN_SEE_OBJ(ch, GET_EQ(ch, i))) {
-        send_to_char(ch, "%s", wear_where[i]);
+        send_to_char(ch, "%s%s%s", CCMAG(ch, C_NRM), wear_where[i], CCNRM(ch, C_NRM));
         show_obj_to_char(GET_EQ(ch, i), ch, SHOW_OBJ_SHORT);
       } else {
         send_to_char(ch, "%s", wear_where[i]);
         send_to_char(ch, "Something.\r\n");
       }
     }
+    if (!GET_EQ(ch, i)) {
+      found = FALSE;
+        send_to_char(ch, "%s", wear_where[i]);
+    	  send_to_char(ch, "%s%s%s\r\n", CCBLK(ch, C_NRM), "nothing", CCNRM(ch, C_NRM));
+    }
+
   }
   if (!found)
     send_to_char(ch, " Nothing.\r\n");
@@ -1286,11 +1292,14 @@ ACMD(do_who)
       } else {
         num_can_see++;
 
-        send_to_char(ch, "%s[%2d %s %s] %s%s%s%s",
-            (GET_LEVEL(tch) >= LVL_IMMORT ? CCYEL(ch, C_SPR) : ""),
+        send_to_char(ch, "[%s%2d %s%s %s%s%s] %s%s%s%s",
+            CCRED(ch, C_SPR),
             GET_LEVEL(tch),
-            (IS_WYRM(tch) || IS_UNDEAD(tch) ? pc_race_types[(int) GET_RACE(tch)] : RACE_ABBR(tch)),
-            (IS_WYRM(tch) || IS_UNDEAD(tch) ? "" : CLASS_ABBR(tch)),
+            CCYEL(ch, C_SPR),
+            pc_race_types[(int) GET_RACE(tch)],
+            (IS_WYRM(tch) || IS_UNDEAD(tch) ? "" : pc_class_types[(int) GET_CLASS(tch)]),
+            (!(IS_WYRM(tch) || IS_UNDEAD(tch)) ? " " : ""),
+            CCNRM(ch, C_SPR),
             GET_NAME(tch),
             (*GET_TITLE(tch) ? " " : ""),
             GET_TITLE(tch),

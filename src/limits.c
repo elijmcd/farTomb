@@ -224,6 +224,10 @@ void gain_exp(struct char_data *ch, int gain)
 {
   int is_altered = FALSE;
   int num_levels = 0;
+  int old_hp = GET_MAX_HIT(ch);
+  int new_hp = 0;
+  int diff_hp = 0;
+
 
   if (!IS_NPC(ch) && ((GET_LEVEL(ch) < 1 || GET_LEVEL(ch) >= LVL_IMMORT)))
     return;
@@ -243,6 +247,8 @@ void gain_exp(struct char_data *ch, int gain)
       GET_LEVEL(ch) += 1;
       num_levels++;
       advance_level(ch);
+      new_hp = GET_MAX_HIT(ch);
+      diff_hp = (new_hp - old_hp);
       is_altered = TRUE;
     }
 
@@ -250,7 +256,7 @@ void gain_exp(struct char_data *ch, int gain)
       mudlog(BRF, MAX(LVL_IMMORT, GET_INVIS_LEV(ch)), TRUE, "%s advanced %d level%s to level %d.",
 		GET_NAME(ch), num_levels, num_levels == 1 ? "" : "s", GET_LEVEL(ch));
       if (num_levels == 1)
-        send_to_char(ch, "You rise a level!\r\n");
+        send_to_char(ch, "You rise a level!\r\nYou gain %d hitpoints.\r\n", diff_hp);
       else
 	send_to_char(ch, "You rise %d levels!\r\n", num_levels);
       set_title(ch, NULL);

@@ -1,5 +1,6 @@
 CircleMUD v3.0 Shop File~
-#1001~
+#1000~
+1099
 -1
 1.00
 1.00
@@ -18,6 +19,30 @@ CircleMUD v3.0 Shop File~
 1002
 0
 1000
+-1
+0
+28
+0
+0
+#1001~
+1099
+-1
+1.00
+1.00
+19
+17
+-1
+%s Sorry, I don't stock that item.~
+%s You don't seem to have that.~
+%s I don't trade in such items.~
+%s I can't afford that!~
+%s You are too poor!~
+%s That'll be %d coins, thanks.~
+%s I'll give you %d coins for that.~
+0
+4
+0
+1024
 -1
 0
 28

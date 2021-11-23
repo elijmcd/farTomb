@@ -4,7 +4,7 @@ the fount of Broadmoor~
 The fount of Broadmoor stands crookedly here, trickling pleasantly.~
 ~
 23 0 0 0 0 0 0 0 0 0 0 0 0
--1 1 0 0
+-1 24 0 0
 0 0 0 0 0
 #1001
 ironwork lantern post~
@@ -14,4 +14,20 @@ A lantern illuminates the area, held aloft by an ornate iron post.~
 1 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 -1 0
 1000 0 0 0 0
+#1002
+small carbon rod metal orb plasma conductor~
+a small plasma conductor~
+A small carbon rod topped with a shiny metal orb lies here.~
+~
+3 bmp 0 0 0 ao 0 0 0 i 0 0 0
+1 20 20 1
+0 0 0 0 0
+#1099
+roasted rat food~
+a roasted rat with honey glaze~
+A delicious rat is here, having been roasted and smothered in honey.~
+~
+19 0 0 0 0 a 0 0 0 0 0 0 0
+6 0 0 0
+0 3 0 0 0
 $~

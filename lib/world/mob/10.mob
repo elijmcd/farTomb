@@ -61,4 +61,17 @@ SavingSpell: 7
 E
 T 1001
 T 1000
+#1004
+lamont replevin body hanging~
+Replevin~
+A body hangs here suspended by one ankle, with its head affixed securely to an opening in the wall.
+~
+Lamont Replevin is the resident Arch Aetherist of Broadmoor. His dour face is partly covered by a hinged mask of magnalium, which is connected to a vent in the wall by a clever arrangement of hoses.
+He periodically adjusts his body to improve his comfort but otherwise offers no suggestion that he might be alive, let alone noticing you.
+~
+516122 0 0 0 64 0 0 0 0 E
+0 20 10 1d1+0 1d1+0
+0 0
+5 5 1
+E
 $

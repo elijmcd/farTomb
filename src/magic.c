@@ -335,7 +335,7 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     af[0].modifier = -20;
     af[0].duration = 24;
     accum_duration = TRUE;
-    to_vict = "You feel someone protecting you.";
+    to_vict = "You sense the air harden around you.";
     break;
 
   case SPELL_BLESS:
@@ -367,8 +367,8 @@ void mag_affects(int level, struct char_data *ch, struct char_data *victim,
     af[1].duration = 2;
     SET_BIT_AR(af[1].bitvector, AFF_BLIND);
 
-    to_room = "$n seems to be blinded!";
-    to_vict = "You have been blinded!";
+    to_room = "A darkness fills $n's eyes.";
+    to_vict = "A darkness fills your vision, you are blinded!";
     break;
 
   case SPELL_CURSE:

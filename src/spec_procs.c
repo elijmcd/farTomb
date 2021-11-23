@@ -12,6 +12,7 @@
  * ftp://ftp.circlemud.org/pub/CircleMUD/contrib/snippets/specials */
 
 #include "conf.h"
+#include "screen.h"
 #include "sysdep.h"
 #include "structs.h"
 #include "utils.h"
@@ -77,8 +78,10 @@ static const char *how_good(int percent)
     return " (good)";
   if (percent <= 85)
     return " (very good)";
+  if (percent <= 99)
+    return " (superb)";
 
-  return " (superb)";
+  return " (master)";
 }
 
 static const char *prac_types[] = {
@@ -110,7 +113,12 @@ void list_skills(struct char_data *ch)
   for (sortpos = 1; sortpos <= MAX_SKILLS; sortpos++) {
     i = spell_sort_info[sortpos];
     if (GET_LEVEL(ch) >= spell_info[i].min_level[(int) GET_CLASS(ch)]) {
-    ret = snprintf(buf2 + len, sizeof(buf2) - len, "%-20s %s\r\n", spell_info[i].name, how_good(GET_SKILL(ch, i)));
+    ret = snprintf(buf2 + len, sizeof(buf2) - len, "%s%-20s %s%s%s\r\n", CCCYN(ch, C_NRM), spell_info[i].name, CCMAG(ch, C_NRM), how_good(GET_SKILL(ch, i)), CCNRM(ch, C_NRM));
+      if (how_good(GET_SKILL(ch,i)) == " (master)" || how_good(GET_SKILL(ch, i)) == " (superb)") {
+        ret = snprintf(buf2 + len, sizeof(buf2) - len, "%s%-20s %s%s%s\r\n", CBCYN(ch, C_NRM), spell_info[i].name, CBMAG(ch, C_NRM), how_good(GET_SKILL(ch, i)), CCNRM(ch, C_NRM));
+      }
+
+      
       if (ret < 0 || len + ret >= sizeof(buf2))
         break;
       len += ret;

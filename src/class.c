@@ -154,7 +154,7 @@ struct guild_info_type guild_info[] = {
 
 /* Midgaard */
  { CLASS_MOUNTEBANK,    3017,    SOUTH   },
- { CLASS_AETHERIST,        3004,    NORTH   },
+ { CLASS_AETHERIST,        1045,    UP   },
  { CLASS_DRIFTER,         3027,    EAST   },
  { CLASS_OUTRIDER,       3021,    EAST   },
 
