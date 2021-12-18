@@ -959,5 +959,6 @@ void mag_assign_spells(void)
   skillo(SKILL_BANDAGE, "bandage");
   skillo(SKILL_RUMMAGE, "rummage");
   skillo(SKILL_DISARM, "disarm");
+  skillo(SKILL_GOUGE, "gouge"); 
 }
 

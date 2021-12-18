@@ -113,6 +113,7 @@
 #define SKILL_BANDAGE               141 /* OUTRIDER -Reserved Skill[] DO NOT CHANGE */
 #define SKILL_RUMMAGE               142 /* DRIFTER */
 #define SKILL_DISARM                143 /* OUTRIDER */
+#define SKILL_GOUGE                 143 /* DRIFTER */
 /* New skills may be added here up to MAX_SKILLS (200) */
 
 /* NON-PLAYER AND OBJECT SPELLS AND SKILLS: The practice levels for the spells

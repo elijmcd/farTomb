@@ -180,6 +180,7 @@ ACMD(do_bash);
 ACMD(do_disarm);
 ACMD(do_backstab);
 ACMD(do_flee);
+ACMD(do_gouge);
 ACMD(do_kick);
 ACMD(do_kill);
 ACMD(do_order);

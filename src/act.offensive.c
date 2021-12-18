@@ -189,7 +189,7 @@ ACMD(do_order)
   else if (!(vict = get_char_vis(ch, name, NULL, FIND_CHAR_ROOM)) && !is_abbrev(name, "followers"))
     send_to_char(ch, "That person isn't here.\r\n");
   else if (ch == vict)
-    send_to_char(ch, "You obviously suffer from skitzofrenia.\r\n");
+    send_to_char(ch, "Are you feeling schizo-paranoid?\r\n");
   else {
     if (AFF_FLAGGED(ch, AFF_CHARM)) {
       send_to_char(ch, "Your superior would not aprove of you giving orders.\r\n");
@@ -662,5 +662,67 @@ ACMD(do_bandage)
     vict, TO_NOTVICT);
   act("Someone bandages you, and you feel a bit better now.",
          FALSE, ch, 0, vict, TO_VICT);
-  GET_HIT(vict) = 0;
+  GET_HIT(vict) = 1;
+}
+
+ACMD(do_gouge)
+{
+  char arg[MAX_INPUT_LENGTH];
+  struct char_data *vict;
+  struct affected_type af[MAX_AFFECT];
+  int percent, prob, i;
+
+  if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_GOUGE)) {
+    send_to_char(ch, "You have no idea how.\r\n");
+    return;
+  }
+
+  one_argument(argument, arg);
+
+  if (!(vict = get_char_vis(ch, arg, NULL, FIND_CHAR_ROOM))) {
+    if (FIGHTING(ch) && IN_ROOM(ch) == IN_ROOM(FIGHTING(ch))) {
+      vict = FIGHTING(ch);
+    } else {
+      send_to_char(ch, "Gouge who?\r\n");
+      return;
+    }
+  }
+  if (vict == ch) {
+    send_to_char(ch, "That is not a great idea...\r\n");
+    return;
+  }
+  /* 101% is a complete failure */
+  percent = ((10 - (compute_armor_class(vict) / 10)) * 2) + rand_number(1, 101);
+  prob = GET_SKILL(ch, SKILL_GOUGE);
+
+  if (IS_AFFECTED(ch, AFF_HIDE)) {
+    prob = (prob + ((GET_SKILL(ch, SKILL_GOUGE)) / 4));
+  }
+
+  if (percent > prob) {
+    damage(ch, vict, 0, SKILL_GOUGE);
+  } else if (prob >= percent) {
+    damage(ch, vict, GET_LEVEL(ch) / 2, SKILL_GOUGE);
+    if (!IS_AFFECTED(vict, AFF_BLIND))
+    {
+      for (i = 0; i < MAX_AFFECT; i++) {
+        new_affect(&(af[i]));
+        if (MOB_FLAGGED(vict, MOB_NOBLIND) || GET_LEVEL(vict) >= LVL_IMMORT) {
+          send_to_char(ch, "You fail to blind your opponent.\r\n");
+        }
+        af[0].spell = SPELL_BLINDNESS;      
+        af[0].location = APPLY_HITROLL;
+        af[0].modifier = -3;
+        af[0].duration = 1;
+        SET_BIT_AR(af[0].bitvector, AFF_BLIND);
+        af[1].spell = SPELL_BLINDNESS;
+        af[1].location = APPLY_AC;
+        af[1].modifier = 20;
+        af[1].duration = 1;
+        SET_BIT_AR(af[1].bitvector, AFF_BLIND);
+        affect_to_char(vict, &af[i]);
+      }
+    }
+    WAIT_STATE(ch, PULSE_VIOLENCE * 3);
+  }
 }

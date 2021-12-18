@@ -2374,9 +2374,10 @@ void init_spell_levels(void)
   spell_level(SKILL_SNEAK, CLASS_DRIFTER, 1);
   spell_level(SKILL_RUMMAGE, CLASS_DRIFTER, 1);
   spell_level(SKILL_PICK_LOCK, CLASS_DRIFTER, 2);
-  spell_level(SKILL_BACKSTAB, CLASS_DRIFTER, 3);
+  spell_level(SKILL_BACKSTAB, CLASS_DRIFTER, 10);
   spell_level(SKILL_STEAL, CLASS_DRIFTER, 4);
   spell_level(SKILL_HIDE, CLASS_DRIFTER, 5);
+  spell_level(SKILL_GOUGE, CLASS_DRIFTER, 3);
 
   /* OUTRIDERS */
   spell_level(SKILL_KICK, CLASS_OUTRIDER, 1);
@@ -2385,7 +2386,7 @@ void init_spell_levels(void)
   spell_level(SKILL_HIDE, CLASS_OUTRIDER, 5);
   spell_level(SKILL_RESCUE, CLASS_OUTRIDER, 5);
   spell_level(SKILL_DISARM, CLASS_OUTRIDER, 8);
-  spell_level(SKILL_BASH, CLASS_OUTRIDER, 12);
+  spell_level(SKILL_BASH, CLASS_OUTRIDER, 10);
 
   /* WYRMS */
   spell_level(SPELL_FLY, CLASS_WYRM, 1);
