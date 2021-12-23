@@ -669,8 +669,8 @@ ACMD(do_gouge)
 {
   char arg[MAX_INPUT_LENGTH];
   struct char_data *vict;
-  struct affected_type af[MAX_AFFECT];
-  int percent, prob, i;
+  struct affected_type af;
+  int percent, prob;
 
   if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_GOUGE)) {
     send_to_char(ch, "You have no idea how.\r\n");
@@ -703,26 +703,34 @@ ACMD(do_gouge)
     damage(ch, vict, 0, SKILL_GOUGE);
   } else if (prob >= percent) {
     damage(ch, vict, GET_LEVEL(ch) / 2, SKILL_GOUGE);
-    if (!IS_AFFECTED(vict, AFF_BLIND))
+    if (!AFF_FLAGGED(vict, AFF_BLIND))
     {
-      for (i = 0; i < MAX_AFFECT; i++) {
-        new_affect(&(af[i]));
-        if (MOB_FLAGGED(vict, MOB_NOBLIND) || GET_LEVEL(vict) >= LVL_IMMORT) {
-          send_to_char(ch, "You fail to blind your opponent.\r\n");
-        }
-        af[0].spell = SPELL_BLINDNESS;      
-        af[0].location = APPLY_HITROLL;
-        af[0].modifier = -3;
-        af[0].duration = 1;
-        SET_BIT_AR(af[0].bitvector, AFF_BLIND);
-        af[1].spell = SPELL_BLINDNESS;
-        af[1].location = APPLY_AC;
-        af[1].modifier = 20;
-        af[1].duration = 1;
-        SET_BIT_AR(af[1].bitvector, AFF_BLIND);
-        affect_to_char(vict, &af[i]);
+      if (MOB_FLAGGED(vict, MOB_NOBLIND) || GET_LEVEL(vict) >= LVL_IMMORT) {
+        send_to_char(ch, "Your opponent cannot be blinded.\r\n");
+      } else if (GET_EQ(vict, 6) != NULL) {
+        send_to_char(ch, "Your victim's headwear prevents you from blinding them.\r\n");
+      } else {
+        new_affect(&af);
+        af.spell = SKILL_GOUGE;      
+        af.location = APPLY_HITROLL;
+        af.modifier = -3;
+        af.duration = (PULSE_VIOLENCE * 4);
+        SET_BIT_AR(af.bitvector, AFF_BLIND);
+        affect_to_char(vict, &af);
+
+        new_affect(&af);
+        af.spell = SKILL_GOUGE;
+        af.location = APPLY_AC;
+        af.modifier = 20;
+        af.duration = (PULSE_VIOLENCE * 4);
+        SET_BIT_AR(af.bitvector, AFF_BLIND);
+        affect_to_char(vict, &af);
+
+        act("\tgYou temporarily \tWblind\tg $N\tn.", FALSE, ch, 0, vict, TO_CHAR);
+        act("\tg$N is temporarily \tWblinded\tn.", TRUE, ch, 0, vict, TO_NOTVICT);
+        act("\tgYou viciously gouge $N's face, blinding him!\tn.", FALSE, ch, 0, vict, TO_CHAR);
       }
     }
-    WAIT_STATE(ch, PULSE_VIOLENCE * 3);
   }
+  WAIT_STATE(ch, PULSE_VIOLENCE * 2);
 }

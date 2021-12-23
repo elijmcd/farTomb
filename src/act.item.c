@@ -189,7 +189,7 @@ static int get_check_money(struct char_data *ch, struct obj_data *obj)
   int value = GET_OBJ_VAL(obj, 0);
 
   if (GET_OBJ_TYPE(obj) != ITEM_MONEY || value <= 0)
-    return value;
+    return 0;
 
   extract_obj(obj);
 

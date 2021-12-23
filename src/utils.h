@@ -857,7 +857,7 @@ do                                                              \
 #define RACE_ABBR(ch) (IS_NPC(ch) ? "--" : race_abbrevs[(int)GET_RACE(ch)])
 
 
-/** 1 if ch is magic user class, 0 if not. */
+/** 1 if ch is MOUNTEBANK class, 0 if not. */
 #define IS_MOUNTEBANK(ch)	(!IS_NPC(ch) && \
         (GET_CLASS(ch) == CLASS_MOUNTEBANK))
 /** 1 if ch is AETHERIST class, 0 if not. */

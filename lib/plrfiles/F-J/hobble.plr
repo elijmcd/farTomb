@@ -6,8 +6,8 @@ Clas: 2
 Levl: 34
 Id  : 1
 Brth: 1630257129
-Plyd: 89589
-Last: 1639808334
+Plyd: 91222
+Last: 1640284063
 Lmot: 1631378037
 Lnew: 1630346072
 Host: hedgehugdilemma.mediacom.info
@@ -19,7 +19,7 @@ Aff : 0 0 0 0
 Pref: efghmnovF c 0 0
 Room: 65535
 Hit : 500/500
-Mana: 44/100
+Mana: 100/100
 Move: 82/82
 Str : 25/100
 Int : 25
@@ -39,5 +39,12 @@ Affs:
 53 -1 0 0 131072 0 0 0
 53 -1 0 0 131072 0 0 0
 0 0 0 0 0 0 0 0
+Alis: 2
+ helmload
+ load o 28739
+0
+ citload
+ load m 27423
+0
 Vars: 1
 tba_greeting 0 1
