@@ -71,7 +71,7 @@ map_option = 1
 default_map_size = 10
 
 * Default minimap size shown to the right of room descriptions
-default_minimap_size = 2
+default_minimap_size = 7
 
 * Do you want scripts to be attachable to players?
 script_players = 0

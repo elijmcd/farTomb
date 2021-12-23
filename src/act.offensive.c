@@ -695,7 +695,7 @@ ACMD(do_gouge)
   percent = ((10 - (compute_armor_class(vict) / 10)) * 2) + rand_number(1, 101);
   prob = GET_SKILL(ch, SKILL_GOUGE);
 
-  if (IS_AFFECTED(ch, AFF_HIDE)) {
+  if (AFF_FLAGGED(ch, AFF_HIDE)) {
     prob = (prob + ((GET_SKILL(ch, SKILL_GOUGE)) / 4));
   }
 
@@ -714,7 +714,7 @@ ACMD(do_gouge)
         af.spell = SKILL_GOUGE;      
         af.location = APPLY_HITROLL;
         af.modifier = -3;
-        af.duration = (PULSE_VIOLENCE * 4);
+        af.duration = PULSE_VIOLENCE * 4;
         SET_BIT_AR(af.bitvector, AFF_BLIND);
         affect_to_char(vict, &af);
 
@@ -722,15 +722,17 @@ ACMD(do_gouge)
         af.spell = SKILL_GOUGE;
         af.location = APPLY_AC;
         af.modifier = 20;
-        af.duration = (PULSE_VIOLENCE * 4);
+        af.duration = PULSE_VIOLENCE * 4;
         SET_BIT_AR(af.bitvector, AFF_BLIND);
         affect_to_char(vict, &af);
 
+        GET_WAIT_STATE(vict) = PULSE_VIOLENCE * 3;
+
         act("\tgYou temporarily \tWblind\tg $N\tn.", FALSE, ch, 0, vict, TO_CHAR);
         act("\tg$N is temporarily \tWblinded\tn.", TRUE, ch, 0, vict, TO_NOTVICT);
-        act("\tgYou viciously gouge $N's face, blinding him!\tn.", FALSE, ch, 0, vict, TO_CHAR);
+        //act("\tgYou viciously gouge $N's face, blinding him!\tn.", FALSE, ch, 0, vict, TO_CHAR);
       }
     }
   }
-  WAIT_STATE(ch, PULSE_VIOLENCE * 2);
+  GET_WAIT_STATE(ch) = PULSE_VIOLENCE * 2;
 }

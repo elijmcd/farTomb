@@ -6,8 +6,8 @@ Clas: 2
 Levl: 34
 Id  : 1
 Brth: 1630257129
-Plyd: 91222
-Last: 1640284063
+Plyd: 101471
+Last: 1640296515
 Lmot: 1631378037
 Lnew: 1630346072
 Host: hedgehugdilemma.mediacom.info
@@ -16,10 +16,10 @@ Wate: 167
 Alin: -15
 Act : 0 0 0 0
 Aff : 0 0 0 0
-Pref: efghmnovF c 0 0
-Room: 65535
+Pref: efghimnovF c 0 0
+Room: 1000
 Hit : 500/500
-Mana: 100/100
+Mana: 0/100
 Move: 82/82
 Str : 25/100
 Int : 25
@@ -28,7 +28,7 @@ Dex : 25
 Con : 25
 Cha : 25
 Ac  : 100
-Gold: 46610
+Gold: 46994
 Exp : 7000000
 Olc : 0
 Affs:

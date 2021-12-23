@@ -962,11 +962,11 @@ ACMD(do_equipment)
         send_to_char(ch, "Something.\r\n");
       }
     }
-    if (!GET_EQ(ch, i)) {
-      found = FALSE;
-        send_to_char(ch, "%s", wear_where[i]);
-    	  send_to_char(ch, "%s%s%s\r\n", CCBLK(ch, C_NRM), "nothing", CCNRM(ch, C_NRM));
-    }
+    //if (!GET_EQ(ch, i)) {
+      //found = FALSE;
+        //send_to_char(ch, "%s", wear_where[i]);
+    	  //send_to_char(ch, "%s%s%s\r\n", CCBLK(ch, C_NRM), "nothing", CCNRM(ch, C_NRM));
+    //}
 
   }
   if (!found)
