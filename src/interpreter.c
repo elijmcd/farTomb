@@ -1285,6 +1285,14 @@ int enter_player_game (struct descriptor_data *d)
     SET_BIT_AR(af.bitvector, AFF_INFRAVISION);
     affect_to_char(d->character, &af);
   }
+  if ((d->character->player.race) == RACE_UNDEAD) {
+    struct affected_type af;
+    new_affect(&af);
+    af.spell = SPELL_SANCTUARY;
+    af.duration = -1;
+    SET_BIT_AR(af.bitvector, AFF_SANCTUARY);
+    affect_to_char(d->character, &af);
+  }
   /* end Permaffects */
 
   d->character->next = character_list;
