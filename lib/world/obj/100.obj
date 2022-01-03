@@ -33,13 +33,13 @@ A clear river with small trout swimming lazily in the current flows by.~
 400 0 -1 0
 0 0 0 0 0
 E
+fish~
+   They are small trout of some kind. They look very tasty.
+~
+E
 river~
    The river here is gently flowing by. Small trout float close to the surface.
 You wonder if you could catch one of them.
-~
-E
-fish~
-   They are small trout of some kind. They look very tasty.
 ~
 #10003
 lake~
@@ -231,4 +231,20 @@ deer meat venison~
    This large slab of meat has been recently cooked and, though dry, looks
 rather tasty.
 ~
+#10078
+deep lilac tunic~
+@[F205]a deep lilac tunic embroidered with @[F222]silver leaves and feathers@n~
+@nA heavy @[F205]lilac tunic@n lies here, discarded and @[F222]shimmering@n.~
+~
+11 guv 0 0 0 ad 0 0 0 0 0 0 0
+0 0 0 0
+3 0 0 0 0
+A
+17 -10
+A
+9 10
+A
+3 1
+A
+4 2
 $~

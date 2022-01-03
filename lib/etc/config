@@ -68,10 +68,10 @@ diagonal_dirs = 1
 map_option = 1
 
 * Default size of map shown by 'map' command
-default_map_size = 10
+default_map_size = 12
 
 * Default minimap size shown to the right of room descriptions
-default_minimap_size = 7
+default_minimap_size = 6
 
 * Do you want scripts to be attachable to players?
 script_players = 0

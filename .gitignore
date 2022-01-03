@@ -11,3 +11,9 @@ src/.accepted
 src/depend
 src/util/depend
 .vs/*
+lib/circle.exe.stackdump
+lib/circle.exe.stackdump
+lib/etc/config
+lib/etc/last
+lib/etc/time
+.gitignore

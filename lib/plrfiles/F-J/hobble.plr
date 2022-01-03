@@ -6,8 +6,8 @@ Clas: 2
 Levl: 34
 Id  : 1
 Brth: 1630257129
-Plyd: 101471
-Last: 1640296515
+Plyd: 131038
+Last: 1641236057
 Lmot: 1631378037
 Lnew: 1630346072
 Host: hedgehugdilemma.mediacom.info
@@ -17,9 +17,9 @@ Alin: -15
 Act : 0 0 0 0
 Aff : 0 0 0 0
 Pref: efghimnovF c 0 0
-Room: 1000
+Room: 65535
 Hit : 500/500
-Mana: 0/100
+Mana: 100/100
 Move: 82/82
 Str : 25/100
 Int : 25
@@ -28,10 +28,12 @@ Dex : 25
 Con : 25
 Cha : 25
 Ac  : 100
-Gold: 46994
+Gold: 47004
 Exp : 7000000
 Olc : 0
 Affs:
+18 37 0 0 8 0 0 0
+20 37 0 0 32 0 0 0
 53 -1 0 0 131072 0 0 0
 53 -1 0 0 131072 0 0 0
 53 -1 0 0 131072 0 0 0
@@ -39,12 +41,15 @@ Affs:
 53 -1 0 0 131072 0 0 0
 53 -1 0 0 131072 0 0 0
 0 0 0 0 0 0 0 0
-Alis: 2
- helmload
- load o 28739
+Alis: 3
+ sum
+ cast 'summon' driftor
 0
  citload
  load m 27423
+0
+ helmload
+ load o 28739
 0
 Vars: 1
 tba_greeting 0 1

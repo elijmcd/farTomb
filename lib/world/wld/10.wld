@@ -1,6 +1,5 @@
 #1000
 @yThe @gCroaking Toad @yTavern & Inn~
-
 The establishment is well lit and filled with activity. 
 A few long tables span the center of the hall, hewn from a dark-hued and heavy wood.
 Torches flicker mildly along the walls, leaving sooty deposits.
@@ -38,6 +37,10 @@ D3
 ~
 ~
 0 0 1035
+D6
+~
+~
+0 0 1049
 D8
 ~
 ~
@@ -317,7 +320,7 @@ D1
 S
 #1018
 Southern Meadowmere~
-You are in an unfinished room.
+The road here shifts subtly into a bridge that spans the river. Looking west, you can follow the dark line of the water as it snakes through the Waylands on its course to the Endless Sea beyond. Looking east, you see through the mists of Broadmoor the great titanic mountains which are home to the source of the waters. The road extends to the @Cnorth@n and @Csouth@n.
 ~
 10 0 0 0 0 1
 D0
@@ -614,10 +617,18 @@ D1
 ~
 ~
 0 0 1036
+D2
+~
+~
+0 0 1061
 D3
 ~
 ~
 0 0 1038
+D6
+~
+~
+0 0 1060
 S
 T 1003
 #1038
@@ -779,5 +790,365 @@ D8
 ~
 ~
 0 0 1044
+S
+#1049
+Entry to the Marketplace~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D0
+~
+~
+0 0 1050
+D3
+~
+~
+0 0 1052
+D6
+~
+~
+0 0 1051
+D8
+~
+~
+0 0 1001
+S
+#1050
+A Sprawling Marketplace~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D0
+~
+~
+0 0 1057
+D2
+~
+~
+0 0 1049
+D3
+~
+~
+0 0 1051
+D9
+~
+~
+0 0 1052
+S
+#1051
+A Sprawling Marketplace~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D0
+~
+~
+0 0 1056
+D1
+~
+~
+0 0 1050
+D2
+~
+~
+0 0 1052
+D3
+~
+~
+0 0 1059
+D6
+~
+~
+0 0 1058
+D8
+~
+~
+0 0 1049
+S
+#1052
+A Sprawling Marketplace~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D0
+~
+~
+0 0 1051
+D1
+~
+~
+0 0 1049
+D3
+~
+~
+0 0 1053
+D7
+~
+~
+0 0 1050
+S
+#1053
+The Keen Edge~
+This unfinished room was created by Hobble.
+~
+10 16 0 0 0 0
+D1
+~
+~
+0 0 1052
+S
+#1054
+A Neglected Alley~
+This unfinished room was created by Hobble.
+~
+10 1 0 0 0 1
+D1
+The door is made of solid oak, with intricate patterning scrawled along the entire perimeter.
+~
+door~
+1 0 1059
+D2
+~
+~
+0 0 1060
+D3
+A long time ago, this wagon was carved and painted by hand with obvious care and affection, but it now rests sullenly amid the grass and bushes, slowly giving way to the moss and vines which cover it. The rickety old door hangs tantalizingly ajar...
+~
+wagon~
+3 0 1055
+S
+#1055
+Inside an Antiquated Wagon~
+The interior of this old wagon is vastly more spacious and ornate than you would expect from the outside. There are shelves all over, covered in musty old tomes and small dusty vials containing all manor of tincture and linament.
+In the center of the room is a thick table made of dark wood and covered with a finely patterned cloth of shifting colors.
+~
+10 16 0 0 0 0
+D1
+As you gaze into the crystal it seems as if there are two reflections layered over and throughout each other.
+It gradually becomes more difficult to determine the nature of the light being exuded by the ball.
+Is it glowing?
+Is it glowing? or?
+...
+~
+crystal~
+3 0 1059
+S
+#1056
+Armors~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1057
+D2
+~
+~
+0 0 1051
+S
+#1057
+Clothing~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D2
+~
+~
+0 0 1050
+D3
+~
+~
+0 0 1056
+S
+#1058
+Loot & Tool~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D8
+~
+~
+0 0 1051
+S
+#1059
+Tricks of the Tradecraft~
+A thick smoke of incense sits heavy in the air, lending to this small and well-decorated shop a heady aroma of herbs and resins.
+The shelves are ancient and heavy, presenting all manner of shiny baubles to invite the investigative gaze of the curious.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1051
+D3
+The door is made of solid oak, with intricate patterning scrawled along the entire perimeter.
+~
+door~
+1 0 1054
+S
+#1060
+A Neglected Alley~
+This unfinished room was created by Hobble.
+~
+10 1 0 0 0 1
+D0
+~
+~
+0 0 1054
+D8
+~
+~
+0 0 1037
+S
+#1061
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1037
+D1
+~
+~
+0 0 1066
+D2
+~
+~
+0 0 1063
+D3
+~
+~
+0 0 1062
+S
+#1062
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1061
+S
+#1063
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1061
+D1
+~
+~
+0 0 1065
+D2
+~
+~
+0 0 1067
+D3
+~
+~
+0 0 1064
+S
+#1064
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1063
+S
+#1065
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D3
+~
+~
+0 0 1063
+S
+#1066
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D3
+~
+~
+0 0 1061
+S
+#1067
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 1
+D0
+~
+~
+0 0 1063
+D1
+~
+~
+0 0 1068
+D3
+~
+~
+0 0 1069
+S
+#1068
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D3
+~
+~
+0 0 1067
+S
+#1069
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1067
+D5
+~
+bookshelf~
+3 0 1070
+S
+#1070
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1071
+D4
+~
+~
+0 0 1069
+S
+#1071
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D3
+~
+~
+0 0 1070
 S
 $~

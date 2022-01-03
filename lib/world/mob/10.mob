@@ -61,6 +61,7 @@ SavingSpell: 7
 E
 T 1001
 T 1000
+T 1004
 #1004
 lamont replevin body hanging~
 Replevin~
@@ -73,5 +74,96 @@ He periodically adjusts his body to improve his comfort but otherwise offers no 
 0 20 10 1d1+0 1d1+0
 0 0
 5 5 1
+E
+#1005
+blade master blacksmith~
+Broadmoor's Blademaster~
+The town blacksmith is here, skimming his dross.
+~
+The blacksmith hammers away happily on his creations.
+He is a stout and sturdy smallkin, quite capable with his tools and a master at his profession.
+~
+10 0 0 0 0 0 0 0 0 E
+29 11 -7 5d5+290 4d4+4
+290 84100
+8 8 1
+Str: 18
+Dex: 15
+Int: 12
+Con: 16
+Cha: 12
+SavingPara: 7
+SavingRod: 7
+SavingPetri: 7
+SavingBreath: 7
+SavingSpell: 7
+E
+#1006
+small black cat~
+a small black cat~
+A small black cat sits atop a pile of rubble, staring strangely at you.
+~
+This little cat is hardly any bigger than a bowl of rice, but it looks extremely old. It stares at you with extraordinarily large and wide eyes, the blinking of which is the only clue that the cat is alive, and not a statue.
+~
+10 0 0 0 0 0 0 0 0 E
+30 10 -8 6d6+300 5d5+5
+300 90000
+5 5 0
+BareHandAttack: 8
+Str: 18
+Dex: 18
+Int: 18
+Wis: 18
+Con: 18
+Cha: 18
+SavingPara: 7
+SavingRod: 7
+SavingPetri: 7
+SavingBreath: 7
+SavingSpell: 7
+E
+T 1007
+#1007
+small wrinkled old woman lady zemani~
+Lady Zemani~
+A small wrinkled old woman sits at the table, grinning contentedly.
+~
+The fortune teller is grinning from ear to ear, and her merry eyes are mere slits. Her long, thick salt and pepper hair is tied in a large bun atop her head, kept in place by a thin carved wooden spike.
+She wears a deep lilac-toned tunic embroidered with silver leaves and feathers, which seem to rustle and sway with the slightest breeze.
+~
+434202 0 0 0 65552 0 0 0 0 E
+30 10 -8 6d6+300 5d5+5
+300 90000
+6 6 2
+Int: 18
+Wis: 18
+Cha: 16
+SavingPara: 7
+SavingRod: 7
+SavingPetri: 7
+SavingBreath: 7
+SavingSpell: 7
+E
+#1008
+kent tall man~
+Kent~
+An extremely tall man is tending the shop, chuckling to himself as he straightens the shelves.
+~
+Kent is an exceedingly amusing and industrious man. Always in motion, making people smile as he flatters and confounds them.
+~
+452634 0 0 0 0 0 0 0 0 E
+30 10 -8 6d6+300 5d5+5
+300 90000
+8 8 1
+Str: 12
+Dex: 14
+Int: 17
+Wis: 16
+Cha: 18
+SavingPara: 7
+SavingRod: 7
+SavingPetri: 7
+SavingBreath: 7
+SavingSpell: 7
 E
 $

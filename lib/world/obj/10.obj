@@ -21,6 +21,43 @@ A small carbon rod topped with a shiny metal orb lies here.~
 ~
 3 bmp 0 0 0 ao 0 0 0 i 0 0 0
 1 20 20 1
+0 10 0 0 0
+#1077
+antiquated wagon~
+an antiquated wagon~
+An antiquated wagon rests here, overgrown with moss and vines.~
+~
+0 g 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0
+0 0 0 0 0
+E
+small antiquated wagon~
+A long time ago, this small wagon was immaculately carved and painted, but it now lies abandoned and unused amid grass and bushes, slowly giving way to the moss and vines which cover it.
+The old rickety door hangs tantalizingly ajar...
+~
+#1078
+deep lilac tunic~
+@[F205]a deep lilac tunic @[F222]embroidered with silver leaves and feathers@n~
+@nA heavy @[F205]lilac tunic@n lies here, discarded and @[F222]shimmering@n.~
+~
+11 guv 0 0 0 ad 0 0 0 0 0 0 0
+0 0 0 0
+3 0 0 0 0
+A
+17 -10
+A
+9 10
+A
+3 1
+A
+4 2
+#1079
+crystal ball~
+an eerie crystal ball~
+A crystal ball rests atop the table, somehow providing light to the room.~
+~
+0 a 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0
 0 0 0 0 0
 #1099
 roasted rat food~
