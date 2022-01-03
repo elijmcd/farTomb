@@ -67,7 +67,8 @@ void assign_mobiles(void)
 
   ASSIGNMOB(3095, cryogenicist);
 
-  ASSIGNMOB(1004, guild);
+  ASSIGNMOB(1004, guild); /*replevin AETHERIST */
+  ASSIGNMOB(1007, guild); /*zemani MOUNTEBANK */
   ASSIGNMOB(120, guild);
   ASSIGNMOB(121, guild);
   ASSIGNMOB(122, guild);

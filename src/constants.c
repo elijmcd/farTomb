@@ -49,16 +49,16 @@ const char *dirs[] =
 
 const char *autoexits[] =
 {
-  "n",
-  "e",
-  "s",
-  "w",
-  "u",
-  "d",
-  "nw",
-  "ne",
-  "se",
-  "sw",
+  "north",
+  "east",
+  "south",
+  "west",
+  "up",
+  "down",
+  "northwest",
+  "northeast",
+  "southeast",
+  "southwest",
   "\n"
 };
 
