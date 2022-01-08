@@ -1504,3 +1504,84 @@ char * convert_from_tabs(char * string)
   parse_tab(buf);
   return(buf);
 }
+
+int get_wprof(struct char_data *ch)
+{
+  int i, vnum = 0, prof = 0;
+
+  if (IS_NPC(ch))
+    return(10);
+
+  if (GET_EQ(ch, WEAR_WIELD))
+    vnum = GET_OBJ_VNUM(GET_EQ(ch, WEAR_WIELD));
+
+  if (!vnum) /* no weapon */
+    return(10);
+
+  for (i = 0; i < MAX_PROFS; i++) {
+    if (vnum == GET_PROF_VNUM(ch, i))
+      prof = (GET_PROF_PROF(ch, i) /100);
+  }
+  if (prof == 0)
+    return(10);
+  else if (prof <= 20)
+    return(1);
+  else if (prof <= 40)
+    return(2);
+  else if (prof <= 60)
+    return(3);
+  else if (prof <= 80)
+    return(4);
+  else if (prof <= 85)
+    return(5);
+  else if (prof <= 90)
+    return(6);
+  else if (prof <= 95)
+    return(7);
+  else if (prof <= 99)
+    return(8);
+  else
+    return(9);
+}
+
+void add_wprof(struct char_data *ch)
+{
+  int done = FALSE, i, vnum =0;
+
+  if (IS_NPC(ch))
+    return;
+  
+  if (GET_EQ(ch, WEAR_WIELD))
+    vnum = GET_OBJ_VNUM(GET_EQ(ch, WEAR_WIELD));
+
+  if (!vnum) /*no weapon */
+    return;
+  
+  for (i = 0; i < MAX_PROFS; i++) {
+    if (vnum == GET_PROF_VNUM(ch, i)) {
+      if (GET_PROF_PROF(ch, i) < 10000)
+        GET_PROF_PROF(ch, i) += 1;
+      done = TRUE;
+    }
+  }
+  
+  if (!done) {
+    for (i = 0; i < MAX_PROFS; i++) {
+      if (!GET_PROF_VNUM(ch, i) && !done) {
+        GET_PROF_VNUM(ch, i) = vnum;
+        GET_PROF_PROF(ch, i) = 1;
+        done = TRUE;
+      }
+    }
+  }
+  /* Uh oh, we've gone over the MAX; clear profs and make an excuse */
+  if (!done) {
+    for (i = 0; i < MAX_PROFS; i++) {
+      GET_PROF_VNUM(ch, i) = 0;
+      GET_PROF_PROF(ch, i) = 0;
+    }
+    send_to_char(ch, "^4You have used too many weapons and are starting to forget them!\r\n");
+    send_to_char(ch, "Oh no! You've forgotten how to use all weapons!\r\n");
+  }
+  return;
+}

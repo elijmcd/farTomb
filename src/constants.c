@@ -607,6 +607,24 @@ const char *fullness[] =
   ""
 };
 
+/* weapon proficiencies modifiers */
+const struct weapon_prof_data wprof[] = {
+  /*  +HIT,  AC,  +DAM */
+  { 0,  0,  90},  /* Not used     */
+  { 1,  0,  4},   /* prof <= 20   */
+  { 2,  0,  4},   /* prof <= 40   */
+  { 3,  0,  3},   /* prof <= 60   */
+  { 4,  0,  3},   /* prof <= 80   */
+  { 6,  -1, 2},   /* prof <= 85   */
+  { 7,  -2, 2},   /* prof <= 90   */
+  { 8,  -3, 2},   /* prof <= 95   */
+  { 9,  -4, 1},   /* prof <= 99   */
+  {10,  -5, 1},   /* prof == 100  */
+  {-1,  0,  90}   /* prof == 0    */
+
+  /* +DAM == (damage) + (plyr.lvl / #) */
+};
+
 /** Strength attribute affects.
  * The fields are hit mod, damage mod, weight carried mod, and weight wielded
  * mod. */

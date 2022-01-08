@@ -1,23 +1,20 @@
 Name: Hobble
 Pass: k1ller
-Titl: the 	[f225]Im	[f235]pi	[f245]sh 	[F255]O	[F245]N	[F235]E	n
+Titl: the Implementor
 Sex : 1
-Clas: 2
+Clas: 3
 Levl: 34
 Id  : 1
-Brth: 1630257129
-Plyd: 131038
-Last: 1641236057
-Lmot: 1631378037
-Lnew: 1630346072
+Brth: 1641612200
+Plyd: 205
+Last: 1641612434
 Host: hedgehugdilemma.mediacom.info
-Hite: 182
-Wate: 167
-Alin: -15
+Hite: 176
+Wate: 120
 Act : 0 0 0 0
 Aff : 0 0 0 0
-Pref: efghimnovF c 0 0
-Room: 65535
+Pref: efghnoF 0 0 0
+Room: 1001
 Hit : 500/500
 Mana: 100/100
 Move: 82/82
@@ -28,28 +25,11 @@ Dex : 25
 Con : 25
 Cha : 25
 Ac  : 100
-Gold: 47004
 Exp : 7000000
 Olc : 0
+Page: 0
 Affs:
-18 37 0 0 8 0 0 0
-20 37 0 0 32 0 0 0
-53 -1 0 0 131072 0 0 0
-53 -1 0 0 131072 0 0 0
-53 -1 0 0 131072 0 0 0
-53 -1 0 0 131072 0 0 0
-53 -1 0 0 131072 0 0 0
-53 -1 0 0 131072 0 0 0
+50 -1 0 0 2048 0 0 0
+50 -1 0 0 2048 0 0 0
 0 0 0 0 0 0 0 0
-Alis: 3
- sum
- cast 'summon' driftor
-0
- citload
- load m 27423
-0
- helmload
- load o 28739
-0
-Vars: 1
-tba_greeting 0 1
+Prof:

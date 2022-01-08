@@ -245,7 +245,8 @@ cpp_extern const struct command_info cmd_info[] = {
   { "plist"    , "plist"   , POS_DEAD    , do_plist    , LVL_GOD, 0 },
   { "policy"   , "pol"     , POS_DEAD    , do_gen_ps   , 0, SCMD_POLICIES },
   { "pour"     , "pour"    , POS_STANDING, do_pour     , 0, SCMD_POUR },
-  { "prompt"   , "pro"     , POS_DEAD    , do_display  , 0, 0 },
+  { "prof"     , "pro"     , POS_SLEEPING, do_prof     , 0, 0},
+  { "prompt"   , "prom"    , POS_DEAD    , do_display  , 0, 0 },
   { "prefedit" , "pre"     , POS_DEAD    , do_oasis_prefedit , 0, 0 },
   { "purge"    , "purge"   , POS_DEAD    , do_purge    , LVL_BUILDER, 0 },
 

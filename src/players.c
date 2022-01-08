@@ -306,6 +306,11 @@ int load_char(const char *name, struct char_data *ch)
     for (i = 0; i < PR_ARRAY_MAX; i++)
       PRF_FLAGS(ch)[i] = PFDEF_PREFFLAGS;
 
+    for (i = 0; i < MAX_PROFS; i++){
+      ch->player_specials->profs[i].vnum = 0;
+      ch->player_specials->profs[i].prof = 0;
+    }
+    
     while (get_line(fl, line)) {
       tag_argument(line, tag);
 
@@ -410,15 +415,28 @@ int load_char(const char *name, struct char_data *ch)
 	else if (!strcmp(tag, "Plyd"))	ch->player.time.played	= atoi(line);
 	else if (!strcmp(tag, "PfIn"))	POOFIN(ch)		= strdup(line);
 	else if (!strcmp(tag, "PfOt"))	POOFOUT(ch)		= strdup(line);
-        else if (!strcmp(tag, "Pref")) {
-          if (sscanf(line, "%s %s %s %s", f1, f2, f3, f4) == 4) {
-            PRF_FLAGS(ch)[0] = asciiflag_conv(f1);
-            PRF_FLAGS(ch)[1] = asciiflag_conv(f2);
-            PRF_FLAGS(ch)[2] = asciiflag_conv(f3);
-            PRF_FLAGS(ch)[3] = asciiflag_conv(f4);
-          } else
+  else if (!strcmp(tag, "Pref")) {
+    if (sscanf(line, "%s %s %s %s", f1, f2, f3, f4) == 4) {
+      PRF_FLAGS(ch)[0] = asciiflag_conv(f1);
+      PRF_FLAGS(ch)[1] = asciiflag_conv(f2);
+      PRF_FLAGS(ch)[2] = asciiflag_conv(f3);
+      PRF_FLAGS(ch)[3] = asciiflag_conv(f4);
+    } else
 	    PRF_FLAGS(ch)[0] = asciiflag_conv(f1);
-	  }
+	}
+  else if (!strcmp(tag, "Prof")) {
+    i = 0;
+    int num = 0;
+    int num2 = 0;
+    do {
+      get_line(fl, line);
+      sscanf(line, "%d %d", &num, &num2);
+      GET_PROF_VNUM(ch, i) = num;
+      GET_PROF_PROF(ch, i) = num2;
+      i++;
+    } while (num !=0);
+  }
+
         break;
 
       case 'Q':
@@ -678,7 +696,7 @@ void save_char(struct char_data * ch)
     }
     fprintf(fl, "0 0\n");
   }
-
+  
   /* Save affects */
   if (tmp_aff[0].spell > 0) {
     fprintf(fl, "Affs:\n");
@@ -689,6 +707,13 @@ void save_char(struct char_data * ch)
           aff->modifier, aff->location, aff->bitvector[0], aff->bitvector[1], aff->bitvector[2], aff->bitvector[3]);
     }
     fprintf(fl, "0 0 0 0 0 0 0 0\n");
+  }
+
+  /* save weapon profs */
+  fprintf(fl, "Prof:\n");
+  for (i = 0; i < MAX_PROFS; i++) {
+    if (GET_PROF_VNUM(ch, i) && GET_PROF_PROF(ch, i))
+      fprintf(fl, "%d %d\n", GET_PROF_VNUM(ch, i), GET_PROF_PROF(ch, i));
   }
 
   write_aliases_ascii(fl, ch);

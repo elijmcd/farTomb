@@ -5,7 +5,7 @@ A dried and salted fish lies at your feet.~
 ~
 19 0 0 0 0 ao 0 0 0 0 0 0 0
 25 0 0 0
-2 100 0 0
+2 100 0 0 0
 E
 herring salted~
    The slender and shrivelled herring comes from waters far away, and looks
@@ -18,7 +18,7 @@ A swan's feather drifts along the ground in the breeze.~
 ~
 21 0 0 0 0 ao 0 0 0 0 0 0 0
 0 0 0 0
-1 440 0 0
+1 440 0 0 0
 E
 quill feather white swan~
    A single, slender swan's feather stands from the end of an ivory- colored ink
@@ -31,7 +31,7 @@ A sharp-edged shard sparkles dimly from the ground.~
 ~
 13 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-2 10 0 0
+2 10 0 0 0
 E
 shard crystal~
    The broken crystal glass has a sharp edge, and looks like it could hurt
@@ -45,7 +45,7 @@ Someone has left a pair of silk gloves crumpled here.~
 ~
 11 0 0 0 0 ah 0 0 0 0 0 0 0
 0 0 0 0
-2 400 0 0
+2 400 0 0 0
 E
 gloves silk~
    You see a pair of creased gloves of dark silk.  There are tiny holes in the
@@ -58,7 +58,7 @@ A pile of blue silk is lying on the ground.~
 ~
 11 0 0 0 0 ai 0 0 0 0 0 0 0
 0 0 0 0
-5 700 0 0
+5 700 0 0 0
 E
 shawl blue silk~
    The trellised shawl is handmade of a dusty-blue silk, and is framed to wrap
@@ -71,7 +71,7 @@ A pile of indigo-blue silk lies here.~
 ~
 11 0 0 0 0 ad 0 0 0 0 0 0 0
 0 0 0 0
-7 210 0 0
+7 210 0 0 0
 E
 gown indigo silk~
    The gown has a deep indigo blue shine to its silken folds.  When worn by a
@@ -86,7 +86,7 @@ A glass of white wine sits primly on the ground.~
 ~
 17 0 0 0 0 ao 0 0 0 0 0 0 0
 5 5 2 0
-10 100 0 0
+10 100 0 0 0
 E
 wine glass~
    It's a tall, clear glass rimmed in genuine crystal and filled with sparkling
@@ -99,7 +99,7 @@ A colorful map is lying here.~
 ~
 12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-3 20 0 0
+3 20 0 0 0
 E
 map~
    It is a simplified map of Sundhaven.
@@ -133,7 +133,7 @@ A crystalline potion sits here.~
 ~
 10 g 0 0 0 a 0 0 0 0 0 0 0
 13 3 -1 -1
-2 200 0 0
+2 200 0 0 0
 E
 potion crystal~
    The potion sparkles with a diamond-like shine.
@@ -145,7 +145,7 @@ A corkscrew wooden staff lies here discarded.~
 ~
 4 g 0 0 0 ao 0 0 0 0 0 0 0
 13 10 10 10
-10 400 0 0
+10 400 0 0 0
 E
 staff twisted~
    The staff has been carved into a twisting spiral from a light gray pliant
@@ -158,7 +158,7 @@ A blue bottle floats by in the water.~
 ~
 15 0 0 0 0 0 0 0 0 0 0 0 0
 3 0 -1 0
-0 0 0 0
+0 0 0 0 0
 E
 bottle blue~
    You see a bottle floating listlessly, carved from blue glass.  There appears
@@ -172,7 +172,7 @@ A wet and crumpled paper lies on the ground.~
 ~
 12 0 0 0 0 a 0 0 0 0 0 0 0
 0 0 0 0
-1 10 0 0
+1 10 0 0 0
 E
 message paper~
    The words are scrawled in black ink and leave crooked trails as they run down
@@ -182,12 +182,12 @@ waters.  Only those of evil thoughts and deeds may pass unscathed.
 ~
 #27213
 sword heraldry~
-a heraldry sword~
+@Ba heraldry sword@n~
 A sword marked with the insignia of a noble house is lying here.~
 ~
 5 0 0 0 0 an 0 0 0 0 0 0 0
 0 2 3 3
-10 800 0 0
+10 800 0 0 0
 E
 sword heraldry~
    The sword is of silver with a slender, tapering point, sharp as a needle.
@@ -200,7 +200,7 @@ A shining mithril dagger lies here.~
 ~
 5 0 0 0 0 an 0 0 0 0 0 0 0
 0 5 8 11
-1 500 0 0
+1 500 0 0 0
 E
 dagger mithril~
    It's a silver-colored dagger, with a crescent-like blade.
@@ -216,7 +216,7 @@ a wall~
 ~
 15 0 0 0 0 0 0 0 0 0 0 0 0
 100 5 -1 0
-0 0 0 0
+0 0 0 0 0
 E
 wall stone~
    A gray stone wall covers the entrance.
@@ -228,7 +228,7 @@ A billowing cloak blows in the wind nearby.~
 ~
 9 0 0 0 0 ak 0 0 0 0 0 0 0
 4 0 0 0
-5 200 0 0
+5 200 0 0 0
 E
 cloak taupe~
    It is long with full folds that catch the wind, and soft as angora or lambs
@@ -241,7 +241,7 @@ A steaming hot bowl of ma gung sits here.~
 ~
 19 0 0 0 0 a 0 0 0 0 0 0 0
 5 0 0 0
-2 10 0 0
+2 10 0 0 0
 E
 bowl ma gung~
    You slightly burn your fingers touching the ornamented bowl, which is small
@@ -254,7 +254,7 @@ A basket sits on the ground.~
 ~
 15 0 0 0 0 ao 0 0 0 0 0 0 0
 20 5 -1 0
-5 40 0 0
+5 40 0 0 0
 E
 basket~
    The basket is small, wicker, and bowl-shaped..  A perfect container for
@@ -267,7 +267,7 @@ Some blackberries lie in a pile in the dirt.~
 ~
 19 0 0 0 0 a 0 0 0 0 0 0 0
 12 0 0 0
-1 20 0 0
+1 20 0 0 0
 E
 blackberries berries black~
    The blackberries are ripe and full, growing to be large in this region of the
@@ -280,7 +280,7 @@ A message is inscribed over the doorway to the west.~
 ~
 12 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0
+0 0 0 0 0
 E
 message guild sign~
    The message reads..  "Within this sanctum do the priests learn the holy words
@@ -297,7 +297,7 @@ A heap of refuse emits a foul smell.~
 ~
 12 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0
+0 0 0 0 0
 E
 heap rubble refuse~
    This enormous pile of trash is disgusting, no one would touch it..  You
@@ -311,7 +311,7 @@ A misty-white potion sits here.~
 ~
 10 g 0 0 0 a 0 0 0 0 0 0 0
 20 19 -1 -1
-1 700 0 0
+1 700 0 0 0
 E
 potion white~
    A mist whirls about the surface of the liquid, which is milky- white in
@@ -324,7 +324,7 @@ Bubbles rise and pop from a potion on the ground.~
 ~
 10 g 0 0 0 a 0 0 0 0 0 0 0
 20 19 20 -1
-1 210 0 0
+1 210 0 0 0
 E
 potion bubbling~
    The potion is multi-colored, with small bubbles shivering chaotically to the
@@ -337,7 +337,7 @@ A silvery wand rests here.~
 ~
 3 fg 0 0 0 ao 0 0 0 0 0 0 0
 25 1 1 29
-4 300 0 0
+4 300 0 0 0
 E
 wand silver silvery~
    The short silver wand is inscribed with runes for a single spell of
@@ -351,7 +351,7 @@ depleting.~
 ~
 17 0 0 0 0 ao 0 0 0 0 0 0 0
 20 20 2 0
-25 550 0 0
+25 550 0 0 0
 E
 bottle wine spanish~
    It looks and smells luxuriously inebriating, and brings to mind ponderous
@@ -364,7 +364,7 @@ A gallant rapier of silver is lying here.~
 ~
 5 a 0 0 0 an 0 0 0 0 0 0 0
 0 6 3 3
-10 100 0 0
+10 100 0 0 0
 E
 foil fencing rapier~
    Forged entirely from silver but for a hilt of black ruby, it was given to a

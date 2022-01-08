@@ -957,6 +957,13 @@ struct char_special_data
   struct char_special_data_saved saved; /**< Constants saved for PCs. */
 };
 
+#define MAX_PROFS 100
+
+struct wprof_data {
+  int vnum;
+  int prof;
+};
+
 /** Data only needed by PCs, and needs to be saved to disk. */
 struct player_special_data_saved
 {
@@ -998,6 +1005,8 @@ struct player_special_data
   int last_olc_mode;     /**< ? Currently Unused ? */
   char *host;            /**< Resolved hostname, or ip, for player. */
   int buildwalk_sector;  /**< Default sector type for buildwalk */
+  struct wprof_data profs[MAX_PROFS]; /* character's proficiencies */
+
 };
 
 /** Special data used by NPCs, not PCs */
@@ -1419,6 +1428,12 @@ struct config_data
   struct game_operation operation;
   /** Autowiz specific settings, like turning it on and minimum level */
   struct autowiz_data autowiz;
+};
+
+struct weapon_prof_data {
+  int to_hit;
+  int to_ac;
+  int add_dam;
 };
 
 #ifdef MEMORY_DEBUG

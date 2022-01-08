@@ -940,6 +940,27 @@ ACMD(do_score)
   }
 }
 
+ACMD(do_prof)
+{
+  struct obj_data *obj;
+  int i, some =FALSE;
+  char buf[MAX_STRING_LENGTH];
+
+
+  send_to_char(ch, "%s%s%s%s%s%s%s\r\n\r\n", CBCYN(ch, C_NRM), "{{ ", CCCYN(ch, 1), "weapon proficiencies", CBCYN(ch, C_NRM), " }}", CCNRM(ch, 1));
+  for (i = 0; i < MAX_PROFS; i++) {
+    if (GET_PROF_PROF(ch, i) / 100) {
+      obj = read_object(real_object(GET_PROF_VNUM(ch, i)), REAL);
+      sprintf(buf, " %3d percent proficient with %s\r\n", (GET_PROF_PROF(ch, i) / 100), obj->short_description);
+      send_to_char(ch, buf);
+      some = TRUE;
+    }
+  }
+  if (!some) {
+    send_to_char(ch, "You have no proficiency with any weapon.\r\n");
+  }
+}
+
 ACMD(do_inventory)
 {
   send_to_char(ch, "You are carrying:\r\n");

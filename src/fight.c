@@ -26,6 +26,7 @@
 #include "shop.h"
 #include "quest.h"
 
+extern struct weapon_prof_data wprof[];
 
 /* locally defined global variables, used externally */
 /* head of l-list of fighting chars */
@@ -85,9 +86,14 @@ void appear(struct char_data *ch)
 int compute_armor_class(struct char_data *ch)
 {
   int armorclass = GET_AC(ch);
+  struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
 
   if (AWAKE(ch))
     armorclass += dex_app[GET_DEX(ch)].defensive * 10;
+
+  if (!IS_NPC(ch))
+    if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON)
+      armorclass += wprof[get_wprof(ch)].to_ac * 10;
 
   return (MAX(-100, armorclass));      /* -100 is lowest */
 }
@@ -796,6 +802,7 @@ static int compute_thaco(struct char_data *ch, struct char_data *victim)
     calc_thaco = 20;
   calc_thaco -= str_app[STRENGTH_APPLY_INDEX(ch)].tohit;
   calc_thaco -= GET_HITROLL(ch);
+  calc_thaco -= wprof[get_wprof(ch)].to_hit;
   calc_thaco -= (int) ((GET_INT(ch) - 13) / 1.5);	/* Intelligence helps! */
   calc_thaco -= (int) ((GET_WIS(ch) - 13) / 1.5);	/* So does wisdom */
 
@@ -806,6 +813,7 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
 {
   struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
   int w_type, victim_ac, calc_thaco, dam, diceroll;
+  int pdam;
 
   /* Check that the attacker and victim exist */
   if (!ch || !victim) return;
@@ -864,6 +872,8 @@ void hit(struct char_data *ch, struct char_data *victim, int type)
      * Start with the damage bonuses: the damroll and strength apply */
     dam = str_app[STRENGTH_APPLY_INDEX(ch)].todam;
     dam += GET_DAMROLL(ch);
+    pdam = (GET_LEVEL(ch) / (wprof[get_wprof(ch)].add_dam));
+    dam += pdam;
 
     /* Maybe holding arrow? */
     if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON) {
@@ -952,6 +962,15 @@ void perform_violence(void)
       
         do_assist(tch, GET_NAME(ch), 0, 0);				  
       }
+    }
+
+
+    if (!IS_NPC(ch)) {
+      add_wprof(ch);
+
+      /* outriders or kinfolk learn twice as quick */
+      if (IS_HUMAN(ch) || IS_OUTRIDER(ch))
+      add_wprof(ch);
     }
 
     hit(ch, FIGHTING(ch), TYPE_UNDEFINED);

@@ -40,10 +40,9 @@ load Broadmoor lamp posts~
 ~
 #1004
 eli fades 1003~
-0 t 100
+0 t 7
 ~
-wait until 08:00
-%purge% mob 1003
+%purge% self
 ~
 #1005
 load aetherist guildmaster 1004~
@@ -62,5 +61,15 @@ if %direction% == west
     %echoaround% %actor% %actor.name% tries to move toward the wagon, but then has second thoughts.
   end
 end
+~
+#1008
+new trigger~
+0 t 22
+~
+%echo% This trigger commandlist is not complete!
+if %time%
+%purge% self
+end
+%purge% mob 1003
 ~
 $~

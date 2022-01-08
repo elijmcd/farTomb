@@ -72,6 +72,13 @@ int get_race_by_name(char *racename);
 char * convert_from_tabs(char * string);
 int count_non_protocol_chars(char * str);
 
+/* for weapon profs */
+int get_wprof(struct char_data *ch);
+void add_wprof(struct char_data *ch);
+
+#define GET_PROF_VNUM(ch, i)  ((ch)->player_specials->profs[i].vnum)
+#define GET_PROF_PROF(ch, i)  ((ch)->player_specials->profs[i].prof)
+
 /* Public functions made available form weather.c */
 void weather_and_time(int mode);
 
