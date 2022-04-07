@@ -1,28 +1,26 @@
 Name: Ashram
 Pass: k1ller
-Titl: the OUTRIDER
+Titl: the Veteran
 Sex : 1
 Clas: 3
-Levl: 6
+Levl: 7
 Id  : 3
 Brth: 1649349706
-Plyd: 1454
-Last: 1649351650
+Plyd: 2933
+Last: 1649353346
 Lnew: 1649350423
 Host: 192.168.0.14
 Hite: 170
 Wate: 130
-Alin: 53
+Alin: 70
 Act : h 0 0 0
 Aff : 0 0 0 0
 Pref: efghno 0 0 0
-Room: 65535
-Lern: 12
-Hung: 5
-Thir: 5
-Hit : 83/83
+Room: 1000
+Lern: 14
+Hit : 96/96
 Mana: 100/100
-Move: 116/103
+Move: 121/107
 Str : 14/0
 Int : 10
 Wis : 12
@@ -30,8 +28,8 @@ Dex : 14
 Con : 15
 Cha : 7
 Ac  : 100
-Gold: 90120
-Exp : 57066
+Gold: 90360
+Exp : 39320
 Hrol: 20
 Olc : 0
 Skil:
@@ -41,8 +39,10 @@ Skil:
 0 0
 Affs:
 50 0 0 0 2048 0 0 0
-50 0 0 0 2048 0 0 0
 0 0 0 0 0 0 0 0
+Profs:
+508 244
+0 0
 Alis: 1
  gac
  get all all.corpse
