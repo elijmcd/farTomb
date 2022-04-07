@@ -1150,35 +1150,35 @@ static char *make_prompt(struct descriptor_data *d)
     if (PRF_FLAGGED(d->character, PRF_DISPAUTO) && len < sizeof(prompt)) {
       struct char_data *ch = d->character;
       if (GET_HIT(ch) << 2 < GET_MAX_HIT(ch) ) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "%dH ", GET_HIT(ch));
+        count = snprintf(prompt + len, sizeof(prompt) - len, "H{%d|%d} ", GET_HIT(ch), GET_MAX_HIT(ch));
         if (count >= 0)
           len += count;
       }
       if (GET_MANA(ch) << 2 < GET_MAX_MANA(ch) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "%dM ", GET_MANA(ch));
+        count = snprintf(prompt + len, sizeof(prompt) - len, "M{%d|%d} ", GET_MANA(ch), GET_MAX_HIT(ch));
         if (count >= 0)
           len += count;
       }
       if (GET_MOVE(ch) << 2 < GET_MAX_MOVE(ch) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "%dV ", GET_MOVE(ch));
+        count = snprintf(prompt + len, sizeof(prompt) - len, "V{%d|%d} ", GET_MOVE(ch), GET_MAX_HIT(ch));
         if (count >= 0)
           len += count;
       }
     } else { /* not auto prompt */
       if (PRF_FLAGGED(d->character, PRF_DISPHP) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "%dH ", GET_HIT(d->character));
+        count = snprintf(prompt + len, sizeof(prompt) - len, "%sO%s--%s}%s=[%sH%s][%s%d%s]=", CCYEL(d->character,1), CCWHT(d->character,1), CBWHT(d->character,1), CCWHT(d->character,1), CCRED(d->character,1), CCWHT(d->character,1), CBRED(d->character,1), GET_HIT(d->character), CCWHT(d->character,1));
         if (count >= 0)
           len += count;
       }
 
       if (PRF_FLAGGED(d->character, PRF_DISPMANA) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "%dM ", GET_MANA(d->character));
+        count = snprintf(prompt + len, sizeof(prompt) - len, "[%sM%s][%s%d%s]=", CCCYN(d->character,1), CCWHT(d->character,1), CBCYN(d->character,1), GET_MANA(d->character), CCWHT(d->character,1));
         if (count >= 0)
           len += count;
       }
 
       if (PRF_FLAGGED(d->character, PRF_DISPMOVE) && len < sizeof(prompt)) {
-        count = snprintf(prompt + len, sizeof(prompt) - len, "%dV ", GET_MOVE(d->character));
+        count = snprintf(prompt + len, sizeof(prompt) - len, "[%sV%s][%s%d%s]=", CCGRN(d->character,1), CCWHT(d->character,1), CBGRN(d->character,1), GET_MOVE(d->character), CCWHT(d->character,1));
         if (count >= 0)
           len += count;
       }
@@ -1203,12 +1203,12 @@ static char *make_prompt(struct descriptor_data *d)
          len += count;
      }
 
-     if (GET_LAST_MOTD(d->character) < motdmod)
-     {
-       count = snprintf(prompt + len, sizeof(prompt) - len, "(motd) ");
-       if (count >= 0)
-         len += count;
-     }
+    //  if (GET_LAST_MOTD(d->character) < motdmod)
+    //  {
+    //    count = snprintf(prompt + len, sizeof(prompt) - len, "(motd) ");
+    //    if (count >= 0)
+    //      len += count;
+    //  }
 
     if (len < sizeof(prompt))
       strncat(prompt, "> ", sizeof(prompt) - len - 1);	/* strncat: OK */

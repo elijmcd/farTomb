@@ -46,7 +46,6 @@ D8
 ~
 0 0 1000
 S
-T 1003
 #1002
 Eastern Coachlight~
 You are in an unfinished room.
@@ -61,7 +60,6 @@ D3
 ~
 0 0 1001
 S
-T 1003
 #1003
 Eastern Coachlight~
 You are in an unfinished room.
@@ -76,7 +74,6 @@ D3
 ~
 0 0 1002
 S
-T 1003
 #1004
 Eastern Coachlight~
 You are in an unfinished room.
@@ -91,7 +88,6 @@ D3
 ~
 0 0 1003
 S
-T 1003
 #1005
 Eastern Coachlight~
 You are in an unfinished room.
@@ -106,12 +102,15 @@ D3
 ~
 0 0 1004
 S
-T 1003
 #1006
 Eastern Coachlight at the Rivercut~
 You are in an unfinished room.
 ~
 10 0 0 0 0 1
+D0
+~
+~
+0 0 1072
 D3
 ~
 ~
@@ -125,7 +124,6 @@ D8
 ~
 0 0 1007
 S
-T 1003
 #1007
 Along the Rivercut~
 You are in an unfinished room.
@@ -185,7 +183,6 @@ D9
 ~
 0 0 1023
 S
-T 1002
 #1010
 The Riverbank~
 You are in an unfinished room.
@@ -592,7 +589,6 @@ D3
 ~
 0 0 1036
 S
-T 1003
 #1036
 Western Coachlight~
 You are in an unfinished room.
@@ -607,7 +603,6 @@ D3
 ~
 0 0 1037
 S
-T 1003
 #1037
 Western Coachlight~
 You are in an unfinished room.
@@ -630,7 +625,6 @@ D6
 ~
 0 0 1060
 S
-T 1003
 #1038
 Broadmoor Westgate~
 You are in an unfinished room.
@@ -924,17 +918,13 @@ In the center of the room is a thick table made of dark wood and covered with a 
 ~
 10 16 0 0 0 0
 D1
-As you gaze into the crystal it seems as if there are two reflections layered over and throughout each other.
-It gradually becomes more difficult to determine the nature of the light being exuded by the ball.
-Is it glowing?
-Is it glowing? or?
-...
+As you gaze into the crystal the light itself appears broken and shines back in on itself continually in a nearly imperceptible geometric pattern of refraction and reflection. You sense it beckoning you to enter its wilderness of mirrors...
 ~
 crystal~
 3 0 1059
 S
 #1056
-Armors~
+Harald's Hammersmythery~
 This unfinished room was created by Hobble.
 ~
 10 0 0 0 0 0
@@ -1150,5 +1140,141 @@ D3
 ~
 ~
 0 0 1070
+S
+#1072
+Before a Cemetery Gate~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D0
+~
+~
+0 0 1073
+D2
+~
+~
+0 0 1006
+S
+#1073
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D0
+~
+~
+0 0 1076
+D1
+~
+~
+0 0 1075
+D2
+~
+~
+0 0 1072
+D3
+~
+~
+0 0 1074
+S
+#1074
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1073
+S
+#1075
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D3
+~
+~
+0 0 1073
+S
+#1076
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D0
+~
+~
+0 0 1079
+D1
+~
+~
+0 0 1078
+D2
+~
+~
+0 0 1073
+D3
+~
+~
+0 0 1077
+S
+#1077
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1076
+S
+#1078
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D3
+~
+~
+0 0 1076
+S
+#1079
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1081
+D2
+~
+~
+0 0 1076
+D3
+~
+~
+0 0 1080
+S
+#1080
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1079
+S
+#1081
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D3
+~
+~
+0 0 1079
 S
 $~

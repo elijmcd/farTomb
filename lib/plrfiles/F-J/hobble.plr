@@ -2,19 +2,21 @@ Name: Hobble
 Pass: k1ller
 Titl: the Implementor
 Sex : 1
-Clas: 3
+Clas: 2
+Race: 1
 Levl: 34
-Id  : 1
-Brth: 1641612200
-Plyd: 205
-Last: 1641612434
-Host: hedgehugdilemma.mediacom.info
-Hite: 176
-Wate: 120
+Id  : 2
+Brth: 1644673764
+Plyd: 2614
+Last: 1649350992
+Lnew: 1644673777
+Host: 192.168.0.14
+Hite: 174
+Wate: 126
 Act : 0 0 0 0
 Aff : 0 0 0 0
-Pref: efghnoF 0 0 0
-Room: 1001
+Pref: efghinovF 0 0 0
+Room: 65535
 Hit : 500/500
 Mana: 100/100
 Move: 82/82
@@ -25,11 +27,6 @@ Dex : 25
 Con : 25
 Cha : 25
 Ac  : 100
+Gold: 1000000
 Exp : 7000000
 Olc : 0
-Page: 0
-Affs:
-50 -1 0 0 2048 0 0 0
-50 -1 0 0 2048 0 0 0
-0 0 0 0 0 0 0 0
-Prof:

@@ -1505,6 +1505,20 @@ char * convert_from_tabs(char * string)
   return(buf);
 }
 
+
+/* macros for a 'foreach'-type loop 
+foreach_list is to iterate over a list, foreach_array is to iterate over an array */
+#define foreach_list(item, list) \
+    for(T * item = list->head; item != NULL; item = item->next)
+
+#define foreach_array(item, array) \
+    for(int keep = 1, \
+            count = 0,\
+            size = sizeof (array) / sizeof *(array); \
+        keep && count != size; \
+        keep = !keep, count++) \
+      for(item = (array) + count; keep; keep = !keep)
+
 int get_wprof(struct char_data *ch)
 {
   int i, vnum = 0, prof = 0;

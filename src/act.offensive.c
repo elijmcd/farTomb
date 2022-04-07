@@ -714,7 +714,7 @@ ACMD(do_gouge)
         af.spell = SKILL_GOUGE;      
         af.location = APPLY_HITROLL;
         af.modifier = -3;
-        af.duration = PULSE_VIOLENCE * 4;
+        af.duration = 0.5;
         SET_BIT_AR(af.bitvector, AFF_BLIND);
         affect_to_char(vict, &af);
 
@@ -722,7 +722,7 @@ ACMD(do_gouge)
         af.spell = SKILL_GOUGE;
         af.location = APPLY_AC;
         af.modifier = 20;
-        af.duration = PULSE_VIOLENCE * 4;
+        af.duration = 0.5;
         SET_BIT_AR(af.bitvector, AFF_BLIND);
         affect_to_char(vict, &af);
 

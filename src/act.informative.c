@@ -271,7 +271,7 @@ static void look_at_char(struct char_data *i, struct char_data *ch)
 
   if (found) {
     send_to_char(ch, "\r\n");	/* act() does capitalization. */
-    act("$n is using:", FALSE, i, 0, ch, TO_VICT);
+    act("$n is wearing:", FALSE, i, 0, ch, TO_VICT);
     for (j = 0; j < NUM_WEARS; j++)
       if (GET_EQ(i, j) && CAN_SEE_OBJ(ch, GET_EQ(i, j))) {
 	send_to_char(ch, "%s", wear_where[j]);
@@ -279,7 +279,7 @@ static void look_at_char(struct char_data *i, struct char_data *ch)
       }
   }
   if (ch != i && (IS_DRIFTER(ch) || GET_LEVEL(ch) >= LVL_IMMORT)) {
-    act("\r\nYou attempt to peek at $s inventory:", FALSE, i, 0, ch, TO_VICT);
+    act("\r\nYou surreptitiously survey $s belongings:", FALSE, i, 0, ch, TO_VICT);
     list_obj_to_char(i->carrying, ch, SHOW_OBJ_SHORT, TRUE);
   }
 }

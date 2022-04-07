@@ -605,7 +605,7 @@
 #define PULSE_TIMESAVE	(30 * 60 RL_SEC)
 /* Variables for the output buffering system */
 #define MAX_SOCK_BUF       (24 * 1024) /**< Size of kernel's sock buf   */
-#define MAX_PROMPT_LENGTH  96          /**< Max length of prompt        */
+#define MAX_PROMPT_LENGTH  196          /**< Max length of prompt        */
 #define GARBAGE_SPACE      32          /**< Space for **OVERFLOW** etc  */
 #define SMALL_BUFSIZE      1024        /**< Static output buffer size   */
 /** Max amount of output that can be buffered */
@@ -1025,7 +1025,7 @@ struct mob_special_data
 struct affected_type
 {
   sh_int spell; /**< The spell that caused this */
-  sh_int duration; /**< For how long its effects will last      */
+  float duration; /**< For how long its effects will last      */
   sbyte modifier;  /**< Added/subtracted to/from apropriate ability     */
   byte location;   /**< Tells which ability to change(APPLY_XXX). */
   int bitvector[AF_ARRAY_MAX]; /**< Tells which bits to set (AFF_XXX). */

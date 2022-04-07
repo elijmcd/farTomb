@@ -1,5 +1,5 @@
 #1000
-eli's lament 1003~
+eli's response to love 1003~
 0 d 100
 love~
 wait 1 sec
@@ -12,13 +12,10 @@ wait 2 sec
 say ...and I must push my barrow all the day...
 ~
 #1001
-eli's lament random 1003~
-0 b 50
+eli's love lamentation random 1003~
+0 b 33
 ~
 emote laments quietly to himself, "Would I could afford to buy my 	mlove	n a fine gown...
-if %time% == 07:00
-%purge% %self%
-end
 ~
 #1002
 load eli at night 1003~
@@ -35,14 +32,14 @@ wait 1 sec
 load Broadmoor lamp posts~
 2 f 100
 ~
-%purge% obj 1001
-%load% obj 1001
+Nothing.
 ~
 #1004
 eli fades 1003~
 0 t 7
 ~
-%purge% self
+emote hums a sorrowful tune under his breath as he slowly dissipates into the morning mists.
+%purge% %self%
 ~
 #1005
 load aetherist guildmaster 1004~

@@ -515,6 +515,7 @@ void save_char(struct char_data * ch)
   char filename[40], buf[MAX_STRING_LENGTH], bits[127], bits2[127], bits3[127], bits4[127];
   int i, j, id, save_index = FALSE;
   struct affected_type *aff, tmp_aff[MAX_AFFECT];
+  struct wprof_data tmp_prof[MAX_PROFS];
   struct obj_data *char_eq[NUM_WEARS];
   trig_data *t;
 
@@ -691,8 +692,8 @@ void save_char(struct char_data * ch)
   if (GET_LEVEL(ch) < LVL_IMMORT) {
     fprintf(fl, "Skil:\n");
     for (i = 1; i <= MAX_SKILLS; i++) {
-     if (GET_SKILL(ch, i))
-	fprintf(fl, "%d %d\n", i, GET_SKILL(ch, i));
+      if (GET_SKILL(ch, i))
+	      fprintf(fl, "%d %d\n", i, GET_SKILL(ch, i));
     }
     fprintf(fl, "0 0\n");
   }
@@ -710,10 +711,13 @@ void save_char(struct char_data * ch)
   }
 
   /* save weapon profs */
-  fprintf(fl, "Prof:\n");
-  for (i = 0; i < MAX_PROFS; i++) {
-    if (GET_PROF_VNUM(ch, i) && GET_PROF_PROF(ch, i))
-      fprintf(fl, "%d %d\n", GET_PROF_VNUM(ch, i), GET_PROF_PROF(ch, i));
+  if (tmp_prof[0].vnum > 0) {
+    fprintf(fl, "Profs:\n");
+    for (i = 0; i <= MAX_PROFS; i++) {
+      if (GET_PROF_VNUM(ch, i) && GET_PROF_PROF(ch, i))
+        fprintf(fl, "%d %d\n", GET_PROF_VNUM(ch, i), GET_PROF_PROF(ch, i));
+    }
+    fprintf(fl, "0 0\n");
   }
 
   write_aliases_ascii(fl, ch);

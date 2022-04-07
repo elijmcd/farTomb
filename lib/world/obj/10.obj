@@ -52,13 +52,17 @@ A
 A
 4 2
 #1079
-crystal ball~
+eerie crystal ball~
 an eerie crystal ball~
-A crystal ball rests atop the table, somehow providing light to the room.~
+An eerie crystal ball rests atop the table, somehow providing light to the room.~
 ~
-0 a 0 0 0 0 0 0 0 0 0 0 0
+1 a 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0
-0 0 0 0 0
+1000 0 0 0 0
+E
+eerie crystal ball~
+As you gaze into the crystal the light itself appears to be broken and shining back in on itself continually, in a nearly imperceptible geometric pattern of refraction and reflection. You sense it beckoning you to enter its wilderness of mirrors...
+~
 #1099
 roasted rat food~
 a roasted rat with honey glaze~
