@@ -1560,7 +1560,7 @@ int get_wprof(struct char_data *ch)
 
 void add_wprof(struct char_data *ch)
 {
-  int done = FALSE, i, vnum =0;
+  int done = FALSE, i, vnum = 0, atk_type;
 
   if (IS_NPC(ch))
     return;
@@ -1570,7 +1570,7 @@ void add_wprof(struct char_data *ch)
 
   if (!vnum) /*no weapon */
     return;
-  
+
   for (i = 0; i < MAX_PROFS; i++) {
     if (vnum == GET_PROF_VNUM(ch, i)) {
       if (GET_PROF_PROF(ch, i) < 10000)

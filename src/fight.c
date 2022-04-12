@@ -968,9 +968,12 @@ void perform_violence(void)
     if (!IS_NPC(ch)) {
       add_wprof(ch);
 
-      /* outriders or kinfolk learn twice as quick */
+      /* outriders or kinfolk learn extra quick */
       if (IS_HUMAN(ch) || IS_OUTRIDER(ch))
       add_wprof(ch);
+
+      if (IS_OUTRIDER(ch))
+        add_wprof(ch);
     }
 
     hit(ch, FIGHTING(ch), TYPE_UNDEFINED);
