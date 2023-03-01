@@ -166,4 +166,50 @@ SavingPetri: 7
 SavingBreath: 7
 SavingSpell: 7
 E
+#1009
+shady man smug thayne~
+Thayne~
+A shady man with a smug smirk seems happy to see you.
+~
+This casually ragged man displays a confidence that turns your blood to ice. His demeanor suggests a friendly patience, but his eyes suggest malintent of the darkest order.
+~
+8 0 0 0 0 0 0 0 0 E
+22 13 -3 4d4+220 3d3+3
+220 48400
+8 8 1
+Str: 14
+Dex: 14
+Int: 14
+Wis: 14
+Con: 14
+Cha: 14
+SavingPara: 5
+SavingRod: 5
+SavingPetri: 5
+SavingBreath: 5
+SavingSpell: 5
+E
+#1066
+shady man smug thayne~
+Thayne~
+A shady man with a smug smirk seems happy to see you.
+~
+This casually ragged man displays a confidence that turns your blood to ice. His demeanor suggests a friendly patience, but his eyes betray malintent of the darkest order.
+~
+2078 0 0 0 1058816 0 0 0 -1000 E
+22 13 -3 4d4+220 3d3+3
+220 48400
+8 8 1
+Str: 14
+Dex: 14
+Int: 14
+Wis: 14
+Con: 14
+Cha: 14
+SavingPara: 5
+SavingRod: 5
+SavingPetri: 5
+SavingBreath: 5
+SavingSpell: 5
+E
 $

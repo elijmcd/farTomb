@@ -6,19 +6,18 @@ Clas: 3
 Levl: 7
 Id  : 3
 Brth: 1649349706
-Plyd: 3344
-Last: 1649774368
+Plyd: 5740
+Last: 1649778865
 Lnew: 1649350423
 Host: 192.168.0.14
 Hite: 170
 Wate: 130
-Alin: 78
-Act : h 0 0 0
+Alin: 85
+Act : gh 0 0 0
 Aff : 0 0 0 0
 Pref: efghnoF 0 0 0
-Room: 65535
+Room: 1000
 Lern: 14
-Hung: 7
 Hit : 96/96
 Mana: 100/100
 Move: 121/107
@@ -30,7 +29,7 @@ Con : 15
 Cha : 7
 Ac  : 100
 Gold: 87945
-Exp : 49251
+Exp : 61195
 Hrol: 20
 Olc : 0
 Skil:
@@ -40,8 +39,12 @@ Skil:
 0 0
 Affs:
 50 0 0 0 2048 0 0 0
-50 0 0 0 2048 0 0 0
 0 0 0 0 0 0 0 0
+Profs:
+508 111
+322 93
+320 141
+0 0
 Alis: 1
  gac
  get all all.corpse

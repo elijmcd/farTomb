@@ -122,7 +122,7 @@ rent_file_timeout = 30
 mortal_start_room = 1000
 
 * The virtual number of the room that immorts should enter at.
-immort_start_room = 1204
+immort_start_room = 1000
 
 * The virtual number of the room that frozen people should enter at.
 frozen_start_room = 1202
@@ -173,9 +173,9 @@ auto_save_olc = 1
 * The entrance/exit menu.
 MENU = 
 
-Welcome to tbaMUD!
-@(0@)) Exit from tbaMUD.
-@(1@)) Enter the game.
+Welcome to the Far Tomb!
+@(0@)) Exit the Far Tomb.
+@(1@)) Enter the realm.
 @(2@)) Enter description.
 @(3@)) Read the background story.
 @(4@)) Change password.
@@ -198,7 +198,7 @@ meeting people from around the world!
 ~
 
 * Should the medit OLC show the advanced stats menu (1) or not (0).
-medit_advanced_stats = 1
+medit_advanced_stats = 0
 
 * Should the idea, bug and typo commands autosave (1) or not (0).
 ibt_autosave = 1

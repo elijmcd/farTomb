@@ -16,4 +16,7 @@ lib/circle.exe.stackdump
 lib/etc/config
 lib/etc/last
 lib/etc/time
+lib/etc/*
+lib/plrfiles/*
+lib/plrobjs/*
 .gitignore

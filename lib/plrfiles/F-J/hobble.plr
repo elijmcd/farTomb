@@ -7,10 +7,11 @@ Race: 1
 Levl: 34
 Id  : 2
 Brth: 1644673764
-Plyd: 2888
-Last: 1649773834
+Plyd: 15206
+Last: 1676401461
+Lmot: 1659995799
 Lnew: 1644673777
-Host: 192.168.0.14
+Host: hedgehugdilemma.mediacom.info
 Hite: 174
 Wate: 126
 Alin: -4
@@ -28,6 +29,6 @@ Dex : 25
 Con : 25
 Cha : 25
 Ac  : 100
-Gold: 1000000
+Gold: 1000062
 Exp : 7000000
 Olc : 0

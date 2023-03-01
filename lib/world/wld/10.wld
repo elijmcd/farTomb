@@ -16,9 +16,7 @@ D9
 S
 #1001
 Broadmoor Central Square~
-The town square seems a bustling place, yet an eerie hollowness fills the atmosphere.
-Coachlight lane, the primary thoroughfare, sprawls widely to the East and West.
-By comparison, the North-South avenue of Meadowmere seems but a scraggly companion.
+The center of Broadmoor is an ornate mosaic of many-colored bricks, worn raw by the passage of years and the influence of the moorish mists. The artistry in the brickwork seems to promise some history of grandeur lying beneath the rather meager town that now presents itself. To the northwest there stands an enormous stone gate, being the main entry to the walled-off open-air marketplace that is Broadmoor's beating heart. Coachlight Lane extends westward toward the Westgate and eastward across the river an
 ~
 10 0 0 0 0 1
 D0
@@ -534,6 +532,10 @@ D3
 ~
 ~
 0 0 1023
+D7
+~
+~
+0 0 1082
 D9
 ~
 ~
@@ -1276,5 +1278,118 @@ D3
 ~
 ~
 0 0 1079
+S
+#1082
+A Narrow Side-Road~
+This narrow road forgoes the decorative cobblestones of Belcrest Way for a slightly more crude and uneven arrangement. 
+Combined with the upward-sloping aspect of the road, the chunky stonework makes movement slightly laborious. 
+~
+10 0 0 0 0 4
+D7
+~
+~
+0 0 1083
+D9
+~
+~
+0 0 1032
+S
+#1083
+The Narrow Road at the Base of the Hill~
+The uneven masonry of the path gradually degrades as the slope here suddenly becomes significantly more dramatic, leading upward into a way that is hard to determine from this perspective. An eerie quietness hangs heavily in the air, causing you to momentarily question the wisdom involved in climbing any further up the hill.
+~
+10 32 0 0 0 4
+D4
+~
+~
+0 0 1087
+D9
+~
+~
+0 0 1082
+S
+#1087
+A Path of Skulls~
+The road here is composed of countless skulls, providing a muted clacking sound when stepped on. The hollow eye sockets gaze out at any who pass this way, some whispering of misfortune and others of lives voluntarily forfeit, but for what? Memories of the past drip seamlessly into each other, demanding to be heard and providing an unquiet grave for peace. There is no stillness, only a gradual sinking, or falling in.
+~
+10 1 0 0 0 4
+D5
+~
+~
+0 0 1083
+D8
+~
+~
+0 0 1088
+S
+#1088
+A Bend in the Path~
+The road here is composed of countless skulls, providing a muted clacking sound when stepped on. The
+hollow eye sockets gaze out at any who pass this way, some whispering of misfortune and others of 
+lives voluntarily forfeit, but for what? Memories of the past drip seamlessly into each other, 
+demanding to be heard and providing an unquiet grave for peace. There is no stillness, only a 
+gradual sinking, or falling in.
+~
+10 0 0 0 0 4
+D1
+~
+~
+0 0 1089
+D6
+~
+~
+0 0 1087
+S
+#1089
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 4
+D3
+~
+~
+0 0 1088
+D8
+~
+~
+0 0 1090
+S
+#1090
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 4
+D4
+~
+~
+0 0 1091
+D6
+~
+~
+0 0 1089
+S
+#1091
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D1
+~
+~
+0 0 1092
+D5
+~
+~
+0 0 1090
+S
+#1092
+New BuildWalk Room~
+This unfinished room was created by Hobble.
+~
+10 0 0 0 0 0
+D3
+~
+~
+0 0 1091
 S
 $~

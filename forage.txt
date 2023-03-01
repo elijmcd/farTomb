@@ -1,0 +1,103 @@
+From: Chuck Carson (chuck@digmo.org)
+Subject: Forage skill for ranger type clases
+
+Well, I thought I share a simple skill since everyone seems
+to be in the holiday spirit with their code.. =)
+
+This is a skill that allows rangers to search the outdoors
+for food and other items that can be eaten for survival.
+
+I have several objects defined inthis procedure, just change
+the virtual numnbers to whatever objects you draw up.
+
+Also, I check the players move points and subtract 100 -
+GET_LEVEL so players can't just stock up on items.
+
+I also have it so that the object they find is random from
+a selection of about 7 items. (the more themerrier)
+
+Here it goes, you will have to add this skill to spels.h,
+spell_parser.c and interpreter.c (I think that's it..)
+
+I placed the skill itself in act.other.c
+
+*************** do_forage ************************
+
+
+ACMD(do_forage)
+{
+  struct obj_data *item_found = '\0';
+  int item_no = 10053; /* Initialize with first item poss. */
+  *buf = '\0';
+
+  if(GET_CLASS(ch) != CLASS_RANGER && GET_LEVEL(ch) <= 100)
+   {
+    send_to_char("You have no idea how to forage for survival!\r\n", ch);
+    return; }
+
+  if(GET_MOVE(ch) < 100)
+    {
+    send_to_char("You do not have enough energy right now.\r\n", ch);
+    return; }
+
+  if(SECT(ch->in_room) != SECT_FIELD && SECT(ch->in_room) != SECT_FOREST && SEC
+T(ch->in_room) != SECT_HILLS && SECT(ch->in_room) != SECT_MOUNTAIN  && SECT(ch-
+>in_room) != SECT_SWAMP)
+   {
+    send_to_char("You cannot forage on this type of terrain!\r\n", ch);
+    return; }
+
+   if(GET_SKILL(ch, SKILL_FORAGE) <= 0)
+     {
+     send_to_char("You have no idea how to forage!\r\n", ch);
+     return; }
+
+     send_to_char("You start searching the area for signs of food.\r\n", ch);
+     act("$n starts foraging the area for food.\r\n", FALSE, ch, 0, 0, TO_ROOM)
+;
+   if(number(1,101) > GET_SKILL(ch, SKILL_FORAGE))
+    {
+     WAIT_STATE(ch, PULSE_VIOLENCE * 2);
+     GET_MOVE(ch) -= (100 - GET_LEVEL(ch));
+     send_to_char("\r\nYou have no luck finding anything to eat.\r\n", ch);
+     return;
+    }
+   else
+    {
+    switch (number(1,7))
+     {
+     case 1:
+      item_no = 10053; break;  /*<--- Here are the objects you need to code */
+     case 2:                   /* Add more or remove some, just change the */
+      item_no = 10054; break;  /* switch(number(1, X) */
+     case 3:
+      item_no = 10055; break;
+     case 4:
+      item_no = 10056; break;
+     case 5:
+      item_no = 10057; break;
+     case 6:
+      item_no = 10058; break;
+     case 7:
+      item_no = 10059; break;
+     }
+   WAIT_STATE( ch, PULSE_VIOLENCE * 2);  /* Not really necessary */
+   GET_MOVE(ch) -= (150 - GET_LEVEL(ch));
+   item_found = read_object( item_no, VIRTUAL);
+   obj_to_char(item_found, ch);
+   sprintf(buf, "%sYou have found %s!\r\n", buf, item_found->short_description)
+;
+   send_to_char(buf, ch);
+   act("$n has found something in his forage attempt.\r\n", FALSE, ch, 0, 0, TO
+_ROOM);
+     return;
+     }
+}
+
+
+Sorry if this code is sloppy or hard to follow, I tried to clean it up a
+little.
+
+Enjoy,
+Chuck
+

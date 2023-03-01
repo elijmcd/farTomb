@@ -1,0 +1,95 @@
+Race Body Parts by Jon Barrett(mizzrym@hotmail.com)
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Original Race snippet by Brian Williams <bmw@efn.org>
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+This patch was intended for a stock Circlemud patch level 12
+
+What does this patch do?
+-=-=-=-=-=-=-=-=-=-=-=-=-
+It will:
+  1) Implement player races.
+     Human, Troll, Elf, Gnome, Half-Dragon, Minotaur
+  2) Implement race unique body parts
+  3) Add a few body parts:
+     Ears, Wings, Tail
+  4) Allow you to have unique races like Dragon, Centaur, and
+     even Thri-Kreen, each with different body parts...
+  5) You can now tell where to wear eq...ie: wear eq wristr, wear eq wristl
+  6) You can have spells that 'activate' body parts..such as
+     tentacles..
+
+How to install this patch.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-
+1) Place the racebody.diff file into your src directory
+2) Run patch < racebody.diff
+3) Update your makefile (I believe you run configure)
+4) Recompile
+
+This patch was tested on _stock_ CircleMud bp12 with no errors.  You may have
+to patch by hand if you have made modifications to your code.  It will 
+corrupt the player file.
+
+Adding races/body parts
+-=-=-=-=-=-=-=-=-=-=-=-=-
+Adding races:
+  A) stucts.h
+     1) add the race define, ie: #define RACE_DROW  7
+	 2) umpdate the NUM_RACES to the number of races
+  B) race.c
+     1) add the race abbreviation to race_abbrevs[] array
+	 2) add the race name to the pc_race_types[] array
+	 3) add the race to the race_menu[] variable..
+	 4) add another line to the race_data struct in this format:
+	    {RACE_XXX, BODY_XXX|BODY_XXX}
+	 5) add another case to the parse_race() and get_race_bitvector()
+	    functions(the letters used as the case in parse_race() should
+		be unique for each race, and should match the letter in brackets
+		in the race_menu[])
+  C) recompile
+
+Adding body parts:
+  A) structs.h
+     1) add the WEAR_XXX define, ie: #define WEAR_WIELD     16
+	 2) update the NUM_WEARS define
+	 3) add the BODY_XXX define(it should be the same number as the
+	    WEAR_XXX define), ie: #define BODY_WIELD     (1 << 16)
+  B) constants.c
+	 1) update the where[] and body[] array
+  C) race.c
+     1) add the new BODY_XXX to the appropriate race separated by the | operator
+  D) act.item.c
+     1) add another check in find_eq_pos() in the following format
+	    if (CAN_WEAR(obj, ITEM_WEAR_WINGS))       where = WEAR_WINGS;
+	 2) add the new ITEM_WEAR_XXX to the end of the wear_bitvectors[] variable
+	    in the perform_wear() function
+	 3) add the message to the end of the already_wearing[] variable
+	    in the perform_wear() function
+	 4) add the correct set of messages to the end of the wear_messages[] variable in
+	    the wear_message() function
+  D) recompile
+
+Making spells that affect race or body parts
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Poly spells...
+	Just make a spell that adds AFF_POLY, or AFF_DRAGON, however you prefer
+and hae it call the set_race(ch, race) funtion to change the race and body
+parts.  The trick is to have it change back when it wears off.  You might
+want to add a orig_race variable to player data so you know what to revert to.
+I didnt add this because it wasn't necessary for the race funtionality...
+
+Body part spell
+    First the intended body part must be installed.  Then make a spell that
+adds the affect and does a SET_BIT(GET_BODY(ch), BODY_XXX).  That will 'activate'
+that body part.  Then when the spell wears off, do a REMOVE_BIT(GET_BODY(ch), BODY_XXX)
+to remove the body part..
+
+
+
+-=-=-=-=-=-=-=-=-=-=-=-=
+If you find any errors in the code, please e-mail me...
+
+Jon Barrett
+mizzrym@hotmail.comm
+

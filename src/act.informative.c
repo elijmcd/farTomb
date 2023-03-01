@@ -943,25 +943,15 @@ ACMD(do_score)
 ACMD(do_prof)
 {
   struct obj_data *obj;
-  struct obj_data *wielded = GET_EQ(ch, WEAR_WIELD);
-
-  int i, w_type, some = FALSE;
+  int i, some =FALSE;
   char buf[MAX_STRING_LENGTH];
 
-  if (wielded && GET_OBJ_TYPE(wielded) == ITEM_WEAPON)
-    w_type = GET_OBJ_VAL(wielded, 3);
-  else {
-    if (IS_NPC(ch) && ch->mob_specials.attack_type != 0)
-      w_type = ch->mob_specials.attack_type;
-    else
-      w_type = TYPE_HIT;
-  }
 
   send_to_char(ch, "%s%s%s%s%s%s%s\r\n\r\n", CBCYN(ch, C_NRM), "{{ ", CCCYN(ch, 1), "weapon proficiencies", CBCYN(ch, C_NRM), " }}", CCNRM(ch, 1));
   for (i = 0; i < MAX_PROFS; i++) {
     if (GET_PROF_PROF(ch, i) / 100) {
       obj = read_object(real_object(GET_PROF_VNUM(ch, i)), REAL);
-      sprintf(buf, " %3d percent proficient with %s\r\n", (GET_PROF_PROF(ch, i) / 100), attack_hit_text[w_type].singular);
+      sprintf(buf, " %3d percent proficient with %s\r\n", (GET_PROF_PROF(ch, i) / 100), obj->short_description);
       send_to_char(ch, buf);
       some = TRUE;
     }

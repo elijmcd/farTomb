@@ -1,0 +1,186 @@
+: Skill/Position Fly
+
+Yawn, time for another silly, but appreciated skill/position.
+This will explain how to add a fly position and fly skill. You can
+add much more, this is, again, just to get the idea into your head.
+-----------------------------[ Step One ]-----------------------------
+> in file act.informative.c
+> search for const char *positions[] = {
+> add after " is standing here.",
+
+" is flying here."
+
+> search for case POS_STANDING:
+> add under break, above default:
+
+  case POS_FLYING:
+    strcat(buf, "You are flying.\r\n");
+    break;
+-----------------------------[ Step Two ]-----------------------------
+> in file act.movement.c
+> search for send_to_char("You need a boat to go there.\r\n", ch);
+> replace:
+   if (!has_boat(ch)) {
+     send_to_char("You need a boat to go there.\r\n", ch);
+     return (0); }
+
+> with:
+ if (GET_POS(ch) != POS_FLYING) {
+    if (!has_boat(ch)) {
+      send_to_char("You need a boat to go there.\r\n", ch);
+      return (0); }
+    }
+
+> search for /* Now we know we're allow to go into the room. */
+> replace the line:
+  if (GET_LEVEL(ch) < LVL_IMMORT && !IS_NPC(ch)
+
+> with:
+  if (GET_LEVEL(ch) < LVL_IMMORT && !IS_NPC(ch) && (GET_POS(ch) != POS_FLYING))
+
+> also replace:
+  if (!AFF_FLAGGED(ch, AFF_SNEAK)) {
+    sprintf(buf2, "$n leaves %s.", dirs[dir]);
+    act(buf2, TRUE, ch, 0, 0, TO_ROOM);
+  }
+
+> with:
+  if (GET_POS(ch) == POS_FLYING) {
+    sprintf(buf2, "$n flies away to the %s.", dirs[dir]);
+    act(buf2, TRUE, ch, 0, 0, TO_ROOM);
+} else
+  if (!AFF_FLAGGED(ch, AFF_SNEAK)) {
+    sprintf(buf2, "$n leaves %s.", dirs[dir]);
+    act(buf2, TRUE, ch, 0, 0, TO_ROOM);
+  }
+
+> search for act("$n has arrived.", TRUE, ch, 0, 0, TO_ROOM);
+> replace:
+  if (!AFF_FLAGGED(ch, AFF_SNEAK))
+    act("$n has arrived.", TRUE, ch, 0, 0, TO_ROOM);
+
+> with:
+  if (GET_POS(ch) == POS_FLYING)
+    act("$n flies into the room.", TRUE, ch, 0, 0, TO_ROOM);
+  else
+  if (!AFF_FLAGGED(ch, AFF_SNEAK))
+    act("$n has arrived.", TRUE, ch, 0, 0, TO_ROOM);
+
+> in do_stand
+> search for send_to_char("Do you not consider fighting as standing?\r\n", ch);
+> add after break;
+  case POS_FLYING:
+    send_to_char("You stop to fly, the earth seems to be closer to your feet.\r\n", ch);
+    act("$n seems to be more down to earth.", TRUE, ch, 0, 0, TO_ROOM);
+    GET_POS(ch) = POS_STANDING;
+    break;
+
+> in do_sit
+> search for send_to_char("Sit down while fighting? Are you MAD?\r\n", ch);
+> add under break;
+  case POS_FLYING:
+    send_to_char("You can't sit while flying.\r\n", ch);
+    break;
+
+> in do_rest
+> search for send_to_char("Rest while fighting?  Are you MAD?\r\n", ch);
+> add under break;
+  case POS_FLYING:
+    send_to_char("You can't rest while flying.\r\n", ch);
+    break;
+
+> in do_sleep
+> search for send_to_char("Sleep while fighting?  Are you MAD?\r\n", ch);
+> add under break;
+  case POS_FLYING:
+    send_to_char("You can't sleep while flying.\r\n", ch);
+    break;
+----------------------------[ Step Three ]----------------------------
+> in file act.offensive.c
+> in do_hit
+> add this above some other "else if"
+  else if ((GET_POS(ch) == POS_FLYING) && GET_LEVEL(ch) < LVL_IMMORT)
+    send_to_char("You can't attack while flying.\r\n", ch);
+----------------------------[ Step Four ]----------------------------
+> in file act.other.c
+> add this somewhere in the file
+
+ACMD(do_fly)
+{
+  int percent, prob;
+
+  if (IS_NPC(ch) || !GET_SKILL(ch, SKILL_FLY)) {
+    send_to_char("You have no idea how.\r\n", ch);
+    return; }
+
+  if (GET_POS(ch) == POS_FLYING) {
+    act("$n seems to be more down to earth.", TRUE, ch, 0, 0, TO_ROOM);
+    act("You stop to fly, the earth seems to be closer to your feet.", TRUE, ch, 0, 0, TO_CHAR);
+    GET_POS(ch) = POS_STANDING;
+  return; }
+
+  if (GET_MANA(ch) < (GET_LEVEL(ch)) || GET_MOVE(ch) < (GET_LEVEL(ch))) {
+    act("You don't have the energy required to fly.", TRUE, ch, 0, 0, TO_CHAR);
+  return; }
+
+  percent = number(1, 101);	/* 101% is a complete failure */
+  prob = GET_SKILL(ch, SKILL_FLY) / 2 + GET_INT(ch) * 2;
+
+  if (percent > prob) {
+    act("$n leeps into the air but quickly hit the ground, $e failed to fly.", TRUE, ch, 0, 0, TO_ROOM);
+    act("You leep into the air but unfortunately hit the ground as you fail to fly.", TRUE, ch, 0, 0, TO_CHAR);
+    GET_MANA(ch) -= (GET_LEVEL(ch));
+    GET_MOVE(ch) -= (GET_LEVEL(ch));
+    return;
+  } else {
+    GET_MANA(ch) -= (GET_LEVEL(ch));
+    GET_MOVE(ch) -= (GET_LEVEL(ch));
+    act("$n slowly raises towards the sky as $e starts to fly.", TRUE, ch, 0, 0, TO_ROOM);
+    act("You slowly raise towards the sky as you start to fly.", TRUE, ch, 0, 0, TO_CHAR);
+    GET_POS(ch) = POS_FLYING;
+    return; }}
+----------------------------[ Step Five ]-----------------------------
+> in file class.c
+> add to whatever class you want
+
+spell_level(SKILL_FLY, CLASS_WHATEVER, 1);
+----------------------------[ Step Six ]------------------------------
+> in file constants.c
+> in const char *position_types[] = {
+> search for "Standing",
+> add:
+
+  "Flying",
+---------------------------[ Step Seven ]-----------------------------
+> in file interpreter.c
+> add to the prototype list, after do_flee
+ACMD(do_fly);
+
+> search for { "flee"
+> add:
+  { "fly"      , POS_STANDING, do_fly      , 1, 0 },
+---------------------------[ Step Eight ]-----------------------------
+> in file spell_parser.c (optional)
+> in skillo list
+> search for skillo(SKILL_TRACK, "track");
+> add:
+  skillo(SKILL_FLY, "fly");
+---------------------------[ Step Nine ]------------------------------
+> in spells.h
+> search for #define SKILL_TRACK
+> add (change the number 141 to whatever suites your list)
+#define SKILL_FLY                   141
+---------------------------[ Step Ten ]-------------------------------
+> in file structs.h
+> in /* Positions */
+> search for #define POS_STANDING
+> add:
+#define POS_FLYING     9	/* flying		*/
+----------------------------------------------------------------------
+Do whatever you want with this piece of code.
+Enjoy it, hate it, smash it, remake it......
+
+If you decide to use it, please send me a mail, including the address
+to your mud. A line in your credit file is of course also appreciated
+
+/ Hugor (hugor@freebox.com)

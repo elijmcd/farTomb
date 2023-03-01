@@ -434,9 +434,9 @@ static void dam_message(int dam, struct char_data *ch, struct char_data *victim,
     },
 
     {
-      "$n tickles $N as $e #W $M.",	/* 1: 1..2  */
-      "You tickle $N as you #w $M.",
-      "$n tickles you as $e #W you."
+      "$n scratches $N as $e #W $M.",	/* 1: 1..2  */
+      "You scratch $N as you #w $M.",
+      "$n scratches you as $e #W you."
     },
 
     {
@@ -464,9 +464,9 @@ static void dam_message(int dam, struct char_data *ch, struct char_data *victim,
     },
 
     {
-      "$n #W $N extremely hard.",	/* 6: 15..19  */
-      "You #w $N extremely hard.",
-      "$n #W you extremely hard."
+      "$n #W $N extremely well.",	/* 6: 15..19  */
+      "You #w $N extremely well.",
+      "$n #W you extremely well."
     },
 
     {

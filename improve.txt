@@ -1,0 +1,41 @@
+From: Brian Williams - Nashak <bmw@efn.org>
+Subject: improve_skill function
+
+This code goes into fight.c, and in act.offensive.c, ensure you put a void
+improve_skill(etc).  Finally, where skills are successful, do
+improve_skill(ch, <skill name>).
+
+void improve_skill(struct char_data *ch, int skill)
+{
+  extern char *spells[];
+  int percent = GET_SKILL(ch, skill);
+  int newpercent;
+  char skillbuf[MAX_STRING_LENGTH];
+
+  if (number(1, 200) > GET_WIS(ch) + GET_INT(ch))
+     return;
+  if (percent >= 97 || percent <= 0)
+     return;
+  newpercent = number(1, 3);
+  percent += newpercent;
+  SET_SKILL(ch, skill, percent);
+  if (newpercent >= 4) {
+     sprintf(skillbuf, "You feel your skill in %s improving.", spells[skill]);
+     send_to_char(skillbuf, ch);
+  }
+}
+
+
+Before when your skill went up it would say "You feel your skill in 62
+improving" instead of "You feel your skill in <whatever 62 is>
+improving".. put the code in fight.c, then in act.offensive.c, put a
+"void improve_skill(struct char_data *ch, int skill);" at the top, then in
+anything you want to be improved on success.. <randomly> put a
+"improve_skill(ch, SKILL_x);" on the line below the
+successful part of the code.. i.e.
+in bash: "improve_skill(ch, SKILL_BASH);" and then when you got bash off,
+it would check the random, etc.. if you got it, it would set your skill
+1-3 points higher.. and say "You feel your skill in bash improving."
+
+- Nashak
+

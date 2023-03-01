@@ -1567,6 +1567,7 @@ void add_wprof(struct char_data *ch)
   
   if (GET_EQ(ch, WEAR_WIELD))
     vnum = GET_OBJ_VNUM(GET_EQ(ch, WEAR_WIELD));
+    /* CHANGE CODE HERE TO GET ATT_TYPE */
 
   if (!vnum) /*no weapon */
     return;

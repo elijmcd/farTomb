@@ -2,6 +2,11 @@
 Excelibur~
 BROADMOOR~
 1000 1099 15 2 d 0 0 0 1 33
+M 0 1066 1 1089 	(Thayne)
+R 0 1032 1001 -1 	(an ironwork lantern)
+O 1 1001 99 1032 	(an ironwork lantern)
+R 0 1034 1001 -1 	(an ironwork lantern)
+O 1 1001 99 1034 	(an ironwork lantern)
 R 0 1036 1001 -1 	(an ironwork lantern)
 O 1 1001 99 1036 	(an ironwork lantern)
 R 0 1035 1001 -1 	(an ironwork lantern)

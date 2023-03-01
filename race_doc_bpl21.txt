@@ -1,0 +1,988 @@
+There are a bunch of race snippets on the ftp site, but none of them
+are complete.  I've pieced them together here into one file, and added
+a few additional things on top of that.  It may still be missing
+things even so, so let me know if you find anything missing.  One
+thing that should be added in the future is languages.  But not for
+now :p
+
+
+ -ejg
+
+
+Snippets included were by:
+Carlos Myers <DHStranger@Hotmail.com>
+Brian Williams <bmw@efn.org>
+Henrik Stuart <hstuart@geocities.com>
+TOOIE <Zyrenthian@home.com>
+
+Additional credits to Brett Helgeson, Nick C. and Jon Barrett.
+
+
+ This distribution includes a patch file for a stock CircleMUD
+ 3.0bpl21. It is a code snippet with instructions on how to install
+ races by hand.  There is no patch, there are no drop in files, you're
+ simply going to have to do it by hand.  If you are serious about
+ being an imp, it is best you know what is going on and that means
+ looking at the code :p
+
+-------------------------------------------------------------------------------
+
+-=-=-=-=-=-=-=-=-=-
+     structs.h
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+#define CLASS_GIANT       5
+
+Below it, add:
+#define RACE_UNDEFINED   -1
+#define RACE_HUMAN        0
+#define RACE_ELF          1
+#define RACE_GNOME        2
+#define RACE_DWARF        3
+
+#define NUM_RACES         4
+
+
+Search for:
+#define CON_DELCNF2      16             /* Delete confirmation 2        */
+
+Below it, add:
+#define CON_QRACE        17             /* Race?                        */
+
+
+Search for:
+struct char_player_data {
+   char *name;         /* PC / NPC s name (kill ...  )         */
+   char *short_descr;  /* for NPC 'actions'                    */
+   char *long_descr;   /* for 'look'                           */
+   char *description;  /* Extra descriptions                   */
+   char *title;        /* PC / NPC's title                     */
+   byte sex;           /* PC / NPC's sex                       */
+   byte class;         /* PC / NPC's class                     */
+
+Below it, add:
+   byte race;          /* PC / NPC's race                      */
+
+
+Search for:
+struct char_file_u {
+   /* char_player_data */
+   char name[MAX_NAME_LENGTH+1];
+   char description[EXDSCR_LENGTH];
+   char title[MAX_TITLE_LENGTH+1];
+   byte sex;
+   byte class;
+
+Below it, add:
+   byte race;
+
+
+Search for:
+#define ITEM_NOSELL	   (1 << 16)	/* Shopkeepers won't touch it	*/
+
+Below it, add:
+#define ITEM_ANTI_HUMAN    (1 << 17)    /* Not usable by humans         */
+#define ITEM_ANTI_DWARF    (1 << 18)    /* Not usable by dwarves        */
+#define ITEM_ANTI_ELF      (1 << 19)    /* Not usable by elves          */
+#define ITEM_ANTI_GNOME    (1 << 20)    /* Not usable by gnomes         */
+
+
+Search for:
+#define APPLY_SAVING_SPELL     24	/* Apply to save throw: spells	*/
+
+Below it, add:
+#define APPLY_RACE             25       /* Apply to race                */
+
+
+-=-=-=-=-=-=-=-=-=-
+      utils.c
+-=-=-=-=-=-=-=-=-=-
+
+If you want your races to have different starting ages then the
+default 17, replace age() with:
+
+struct time_info_data *age(struct char_data *ch)
+{
+  static struct time_info_data player_age;
+
+  player_age = *mud_time_passed(time(0), ch->player.time.birth);
+  switch (GET_RACE(ch))
+  {
+	  case RACE_DWARF:
+		  player_age.year += 58;
+		  break;
+		  
+	  case RACE_ELF:
+		  player_age.year += 118;
+		  break;
+		  
+	  case RACE_GNOME:
+		  player_age.year += 80;
+		  break;
+		  
+	  case RACE_HUMAN:
+	  default:
+		  player_age.year += 18;
+		  break;
+  }
+  
+  return (&player_age);
+}
+
+
+-=-=-=-=-=-=-=-=-=-
+      utils.h
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+#define CLASS_ABBR(ch) (IS_NPC(ch) ? "--" : class_abbrevs[(int)GET_CLASS(ch)])
+
+Below it, add:
+#define RACE_ABBR(ch) (IS_NPC(ch) ? "--" : race_abbrevs[(int)GET_RACE(ch)])
+
+
+Search for:
+#define GET_CLASS(ch)   ((ch)->player.class)
+
+Below it, add:
+#define GET_RACE(ch)    ((ch)->player.race)
+
+
+Search for:
+#define IS_WARRIOR(ch)		(!IS_NPC(ch) && \
+				(GET_CLASS(ch) == CLASS_WARRIOR))
+
+Below it, add:
+#define IS_HUMAN(ch)		(!IS_NPC(ch) && \
+				(GET_RACE(ch) == RACE_HUMAN))
+#define IS_DWARF(ch)		(!IS_NPC(ch) && \
+				(GET_RACE(ch) == RACE_DWARF))
+#define IS_ELF(ch)		(!IS_NPC(ch) && \
+				(GET_RACE(ch) == RACE_ELF))
+#define IS_GNOME(ch)		(!IS_NPC(ch) && \
+				(GET_RACE(ch) == RACE_GNOME))
+
+
+-=-=-=-=-=-=-=-=-=-
+races.c(MAKE NEW FILE)
+-=-=-=-=-=-=-=-=-=-
+
+#include "conf.h"
+#include "sysdep.h"
+
+#include "structs.h"
+#include "utils.h"
+
+
+const char *race_abbrevs[] = {
+	"Hum",
+	"Elf",
+	"Gno",
+	"Dwa",
+	"\n"
+};
+
+const char *pc_race_types[] = {
+	"Human",
+	"Elf",
+	"Gnome",
+	"Dwarf",
+	"\n"
+};
+
+/* The menu for choosing a race in interpreter.c: */
+const char *race_menu =
+"\r\n"
+"Select a race:\r\n"
+"  [H]uman\r\n"
+"  [E]lf\r\n"
+"  [G]nome\r\n"
+"  [D]warf\r\n";
+
+/*
+ * The code to interpret a race letter (used in interpreter.c when a
+ * new character is selecting a race).
+ */
+int parse_race(char arg)
+{
+	arg = LOWER(arg);
+
+	switch (arg) {
+		case 'h': return RACE_HUMAN;
+		case 'e': return RACE_ELF;
+		case 'g': return RACE_GNOME;
+		case 'd': return RACE_DWARF;
+		default:
+			return RACE_UNDEFINED;
+	}
+}
+
+bitvector_t find_race_bitvector(const char *arg)
+{
+	size_t rpos, ret = 0;
+
+	for (rpos = 0; rpos < strlen(arg); rpos++)
+		ret |= (1 << parse_race(arg[rpos]));
+
+	return (ret);
+}
+
+void racial_ability_modifiers(struct char_data *ch)
+{
+	switch (GET_RACE(ch)) {
+
+		default:
+		case RACE_HUMAN:
+			break;
+
+		case RACE_ELF:
+			ch->real_abils.dex += 1;
+			ch->real_abils.con -= 1;
+			break;
+
+		case RACE_GNOME:
+			ch->real_abils.intel += 1;
+			ch->real_abils.wis -= 1;
+			break;
+
+		case RACE_DWARF:
+			ch->real_abils.con += 1;
+			ch->real_abils.cha -= 1;
+			break;
+   }
+}
+
+
+void set_height_by_race(struct char_data *ch)
+{
+	if (GET_SEX(ch) == SEX_MALE)
+	{
+		if (IS_DWARF(ch)) 
+			GET_HEIGHT(ch) = 43 + dice(1, 10);
+		else if (IS_ELF(ch))
+			GET_HEIGHT(ch) = 55 + dice(1, 10);
+		else if (IS_GNOME(ch))
+			GET_HEIGHT(ch) = 38 + dice(1, 6);
+		else /* if (IS_HUMAN(ch)) */
+			GET_HEIGHT(ch) = 60 + dice(2, 10);
+	} else /* if (IS_FEMALE(ch)) */ {
+		if (IS_DWARF(ch)) 
+			GET_HEIGHT(ch) = 41 + dice(1, 10);
+		else if (IS_ELF(ch))
+			GET_HEIGHT(ch) = 50 + dice(1, 10);
+		else if (IS_GNOME(ch))
+			GET_HEIGHT(ch) = 36 + dice(1, 6);
+		else /* if (IS_HUMAN(ch)) */
+			GET_HEIGHT(ch) = 59 + dice(2, 10);
+	}
+
+	return;
+}
+
+
+void set_weight_by_race(struct char_data *ch)
+{
+	if (GET_SEX(ch) == SEX_MALE)
+	{
+		if (IS_DWARF(ch)) 
+			GET_WEIGHT(ch) = 130 + dice(4, 10);
+		else if (IS_ELF(ch))
+			GET_WEIGHT(ch) = 90 + dice(3, 10);
+		else if (IS_GNOME(ch))
+			GET_WEIGHT(ch) = 72 + dice(5, 4);
+		else /* if (IS_HUMAN(ch)) */
+			GET_WEIGHT(ch) = 140 + dice(6, 10);
+	} else /* if (IS_FEMALE(ch)) */ {
+		if (IS_DWARF(ch)) 
+			GET_WEIGHT(ch) = 105 + dice(4, 10);
+		else if (IS_ELF(ch))
+			GET_WEIGHT(ch) = 70 + dice(3, 10);
+		else if (IS_GNOME(ch))
+			GET_WEIGHT(ch) = 68 + dice(5, 4);
+		else /* if (IS_HUMAN(ch)) */
+			GET_WEIGHT(ch) = 100 + dice(6, 10);
+	}
+
+	return;
+}
+
+
+int invalid_race(struct char_data *ch, struct obj_data *obj)
+{
+	if (GET_LEVEL(ch) >= LVL_IMMORT)
+		return FALSE;
+	
+	if (OBJ_FLAGGED(obj, ITEM_ANTI_HUMAN) && IS_HUMAN(ch))
+		return (TRUE);
+
+	if (OBJ_FLAGGED(obj, ITEM_ANTI_ELF) && IS_ELF(ch))
+		return (TRUE);
+
+	if (OBJ_FLAGGED(obj, ITEM_ANTI_DWARF) && IS_DWARF(ch))
+		return (TRUE);
+
+	if (OBJ_FLAGGED(obj, ITEM_ANTI_GNOME) && IS_GNOME(ch))
+		return (TRUE);
+
+  return (FALSE);
+}
+
+
+-=-=-=-=-=-=-=-=-=-
+     class.c
+-=-=-=-=-=-=-=-=-=-
+
+Search for: 
+  void snoop_check(struct char_data *ch);
+
+above it, add:
+  extern void racial_ability_modifiers(struct char_data *ch);
+  extern void set_height_by_race(struct char_data *ch);
+  extern void set_weight_by_race(struct char_data *ch);
+
+
+In roll_real_abils(), search for:
+  case CLASS_WARRIOR:
+    ch->real_abils.str = table[0];
+    ch->real_abils.dex = table[1];
+    ch->real_abils.con = table[2];
+    ch->real_abils.wis = table[3];
+    ch->real_abils.intel = table[4];
+    ch->real_abils.cha = table[5];
+    if (ch->real_abils.str == 18)
+      ch->real_abils.str_add = number(0, 100);
+    break;
+  }
+
+Below it, add:
+	racial_ability_modifiers(ch);
+	set_height_by_race(ch);
+	set_weight_by_race(ch);
+
+
+-=-=-=-=-=-=-=-=-=-
+    constants.h
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+extern const struct dex_skill_type dex_app_skill[];
+
+Below it, add:
+extern const struct dex_skill_type race_app_skill[NUM_RACES];
+
+
+-=-=-=-=-=-=-=-=-=-
+    constants.c
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+  "Self-Delete 2",
+
+Below it, add:
+  "Select race",
+
+
+Search for:
+  "NOSELL",
+
+Below it, add:
+  "ANTI_HUMAN",
+  "ANTI_DWARF",
+  "ANTI_ELF",
+  "ANTI_GNOME",
+
+  
+Search for:
+   "SAVING_SPELL",
+
+Below it, add:
+   "RACE",
+
+
+Search for:
+/* [dex] skill apply (thieves only) */
+cpp_extern const struct dex_skill_type dex_app_skill[] = {
+  {-99, -99, -90, -99, -60, 0},	/* dex = 0 */
+  {-90, -90, -60, -90, -50, 0},	/* dex = 1 */
+  {-80, -80, -40, -80, -45, 0},
+  {-70, -70, -30, -70, -40, 0},
+  {-60, -60, -30, -60, -35, 0},
+  {-50, -50, -20, -50, -30, 0},	/* dex = 5 */
+  {-40, -40, -20, -40, -25, 0},
+  {-30, -30, -15, -30, -20, 0},
+  {-20, -20, -15, -20, -15, 0},
+  {-15, -10, -10, -20, -10, 0},
+  {-10,  -5, -10, -15,  -5, 0},	/* dex = 10 */
+  {-5,    0,  -5, -10,   0, 0},
+  {  0,   0,   0,  -5,   0, 0},
+  {  0,   0,   0,   0,   0, 0},
+  {  0,   0,   0,   0,   0, 0},
+  {  0,   0,   0,   0,   0, 0},		/* dex = 15 */
+  {  0,   5,   0,   0,   0, 0},
+  {  5,  10,   0,   5,   5, 0},
+  { 10,  15,   5,  10,  10, 0},		/* dex = 18 */
+  { 15,  20,  10,  15,  15, 0},
+  { 15,  20,  10,  15,  15, 0},		/* dex = 20 */
+  { 20,  25,  15,  20,  20, 0},
+  { 20,  25,  15,  20,  20, 0},
+  { 25,  30,  20,  25,  25, 0},
+  { 25,  35,  20,  25,  25, 0},
+  { 30,  35,  25,  30,  30, 0}		/* dex = 25 */
+};
+
+Below it, add:
+cpp_extern const struct dex_skill_type race_app_skill[NUM_RACES] =
+{
+	{ 0,  0,  0,  0,  0, }, /* HUMAN     */
+	{ 5, -5,  0,  5, 10, }, /* ELF       */
+	{ 0,  5, 10,  5,  5, }, /* GNOME     */
+	{ 0, 10, 15,  0,  0, }, /* DWARF     */
+};
+
+
+-=-=-=-=-=-=-=-=-=-
+       db.c
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+	GET_CLASS(mob_proto + i) = 0;
+
+Below it, add:
+	GET_RACE(mob_proto + i) = 0;
+
+
+Search for:
+  GET_CLASS(ch) = st->class;
+
+Below it, add:
+  GET_RACE(ch) = st->race;
+
+
+Search for:
+  st->class = GET_CLASS(ch);
+
+Below it, add:
+  st->race = GET_RACE(ch);
+
+
+-=-=-=-=-=-=-=-=-=-
+   interpreter.c
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+  extern const char *class_menu;
+
+Below it, add:
+  extern const char *race_menu;
+
+
+Search for:
+  int parse_class(char arg);
+
+Below it, add:
+  int parse_race(char arg);
+
+
+Search for:
+  SEND_TO_Q(class_menu, d);
+  SEND_TO_Q("Class: ", d);
+  STATE(d) = CON_QCLASS;
+  break;
+
+Change it to:
+	write_to_output(d, "%s\r\nRace: ", race_menu);
+	STATE(d) = CON_QRACE;
+	break;
+
+
+Below it, add:
+	case CON_QRACE:
+		load_result = parse_race(*arg);
+		if (load_result == RACE_UNDEFINED) {
+			write_to_output(d, "\r\nThat's not a race.\r\nRace: ");
+			return;
+		} else
+			GET_RACE(d->character) = load_result;
+
+		write_to_output(d, "%s\r\nClass: ", class_menu);
+		STATE(d) = CON_QCLASS;
+		break;
+
+
+-=-=-=-=-=-=-=-=-=-
+   act.wizard.c
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+  extern char *class_abbrevs[];
+
+Below it, add:
+  extern char *race_abbrevs[];
+
+
+Search for:
+  extern const char *pc_class_types[];
+
+Below it, add:
+  extern const char *pc_race_types[];
+
+
+Search for:
+  int parse_class(char arg);
+
+Below it, add:
+  int parse_race(char arg);
+
+
+In do_stat_character(), search for:
+  sprinttype(k->player.chclass, IS_NPC(k) ? npc_class_types : pc_class_types, buf, sizeof(buf));
+  send_to_char(ch, "%sClass: %s, Lev: [%s%2d%s], XP: [%s%7d%s], Align: [%4d]\r\n",
+	IS_NPC(k) ? "Monster " : "", buf, CCYEL(ch, C_NRM), GET_LEVEL(k), CCNRM(ch, C_NRM),
+	CCYEL(ch, C_NRM), GET_EXP(k), CCNRM(ch, C_NRM), GET_ALIGNMENT(k));
+
+Replace it with:
+	sprinttype(k->player.chclass, IS_NPC(k) ? npc_class_types : pc_class_types, buf, sizeof(buf));
+	sprinttype(k->player.race, pc_race_types, buf2, sizeof(buf2));
+	send_to_char(ch, 
+					 "%sClass: %s, Race: %s, Lev: [%s%2d%s], XP: [%s%7d%s], "
+					 "Align: [%4d]\r\n", IS_NPC(k) ? "Monster " : "", buf, buf2, 
+					 CCYEL(ch, C_NRM), GET_LEVEL(k), CCNRM(ch, C_NRM),
+					 CCYEL(ch, C_NRM), GET_EXP(k), CCNRM(ch, C_NRM), 
+					 GET_ALIGNMENT(k));
+
+
+
+In do_last(), search for:
+  send_to_char(ch, "[%5ld] [%2d %s] %-12s : %-18s : %-20s\r\n",
+	  chdata.char_specials_saved.idnum, chdata.level,
+	  class_abbrevs[(int) chdata.chclass], chdata.name, chdata.host,
+	  ctime(&chdata.last_logon));
+
+Replace it with:
+  send_to_char(ch, "[%5ld] [%2d %s %s] %-12s : %-18s : %-20s\r\n",
+	  chdata.char_specials_saved.idnum, chdata.level,
+	  race_abbrevs[(int) chdata.race], class_abbrevs[(int)  chdata.chclass], 
+	  chdata.name, chdata.host, ctime(&chdata.last_logon));
+
+
+In do_show(), search for:
+	 send_to_char(ch, "Player: %-12s (%s) [%2d %s]\r\n", vbuf.name,
+	genders[(int) vbuf.sex], vbuf.level, class_abbrevs[(int) vbuf.chclass]);
+
+Replace it with:
+	 send_to_char(ch, "Player: %-12s (%s) [%2d %s %s]\r\n", vbuf.name,
+	genders[(int) vbuf.sex], vbuf.level, race_abbrevs[(int) vbuf.race],
+	class_abbrevs[(int) vbuf.chclass]);
+
+
+In do_set(), search for:
+   { "weight",		LVL_GOD,	BOTH,	NUMBER },  /* 50 */
+
+Below it, add:
+   { "race",            LVL_GRGOD,      PC,     MISC },
+
+
+Search for:
+  case 50:
+    GET_WEIGHT(vict) = value;
+    affect_total(vict);
+    break;
+
+Below it, add:
+  case 51:
+    if ((i = parse_race(*val_arg)) == RACE_UNDEFINED) {
+      send_to_char("That is not a race.\r\n", ch);
+      return;
+    }
+    GET_RACE(vict) = i;
+    break;
+
+
+-=-=-=-=-=-=-=-=-=-
+     handler.c     
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+  int invalid_class(struct char_data *ch, struct obj_data *obj);
+
+Below it, add:
+  int invalid_race(struct char_data *ch, struct obj_data *obj);
+
+
+Search for:
+  case APPLY_SAVING_SPELL:
+     GET_SAVE(ch, SAVING_SPELL) += mod;
+     break;
+
+Below it, add:
+   case APPLY_RACE:
+     /* ??? GET_RACE(ch) += mod; */
+     break;
+
+
+Search for:
+   if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(ch)) ||
+       (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch)) ||
+       (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch)) ||
+       invalid_class(ch, obj)) {
+
+Replace it with:
+   if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(ch)) ||
+       (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch)) ||
+       (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch)) ||
+       invalid_class(ch, obj) || invalid_race(ch, obj)) {
+
+
+-=-=-=-=-=-=-=-=-=-
+      shop.c
+-=-=-=-=-=-=-=-=-=-
+
+Search in for trade_letters[]:
+        "Magic User",           /* Then the class based ones */
+        "Cleric",
+        "Thief",
+        "Warrior",
+
+Below it, add:
+	"Human",                /* And finally the race based ones */
+	"Dwarf",
+	"Elf",
+	"Gnome",
+
+
+Search for:
+    snprintf(buf, sizeof(buf), "%s %s", GET_NAME(ch), MSG_NO_SELL_CLASS);
+    do_tell(keeper, buf, cmd_tell, 0);
+    return (FALSE);
+  }
+
+Below it, add:
+   if ((IS_HUMAN(ch) && NOTRADE_HUMAN(shop_nr)) ||
+       (IS_DWARF(ch) && NOTRADE_DWARF(shop_nr)) ||
+       (IS_ELF(ch) && NOTRADE_ELF(shop_nr)) ||
+       (IS_GNOME(ch) && NOTRADE_GNOME(shop_nr))) {
+     snprintf(buf, sizeof(buf), "%s %s", GET_NAME(ch), MSG_NO_SELL_RACE);
+     do_tell(keeper, buf, cmd_tell, 0);
+     return (FALSE);
+   }
+
+
+-=-=-=-=-=-=-=-=-=-
+      shop.h
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+#define TRADE_NOWARRIOR		(1 << 6)
+
+Below it, add:
+#define TRADE_NOHUMAN		(1 << 7)
+#define TRADE_NODWARF		(1 << 8)
+#define TRADE_NOELF		(1 << 9)
+#define TRADE_NOGNOME		(1 << 10)
+
+
+Search for:
+#define NOTRADE_WARRIOR(i)	(IS_SET(SHOP_TRADE_WITH((i)), TRADE_NOWARRIOR))
+
+Below it, add:
+#define NOTRADE_HUMAN(i)	(IS_SET(SHOP_TRADE_WITH((i)), TRADE_NOHUMAN))
+#define NOTRADE_DWARF(i)	(IS_SET(SHOP_TRADE_WITH((i)), TRADE_NODWARF))
+#define NOTRADE_ELF(i)		(IS_SET(SHOP_TRADE_WITH((i)), TRADE_NOELF))
+#define NOTRADE_GNOME(i)	(IS_SET(SHOP_TRADE_WITH((i)), TRADE_NOGNOME))
+
+
+Search for:
+#define MSG_NO_SELL_CLASS	"We don't serve your kind here!"
+
+Below it, add:
+#define MSG_NO_SELL_RACE	"Get lost! We don't serve you kind here!"
+
+
+-=-=-=-=-=-=-=-=-=-
+ act.informative.c
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+extern char *class_abbrevs[];
+
+Below it, add:
+extern char *race_abbrevs[];
+
+
+Search for:
+long find_class_bitvector(char arg);
+
+Below it, add:
+long find_race_bitvector(char arg);
+
+
+Search for:
+"format: who [minlev[-maxlev]] [-n name] [-c classlist] [-s] [-o] [-q] [-r] [-z]\r\n"
+
+Replace it with:
+"format: who [minlev[-maxlev]] [-n name] [-c classlist] [-d racelist] [-s] [-o] [-q] [-r] [-z]\r\n"
+
+
+Search for:
+  int who_room = 0;
+
+Replace it with:
+  int who_room = 0, showrace = 0;
+
+
+Search for:
+      case 'c':
+	half_chop(buf1, arg, buf);
+	showclass = find_class_bitvector(arg);
+	break;
+
+Below it, add:
+      case 'd':
+	half_chop(buf1, arg, buf);
+	showrace = find_race_bitvector(arg);
+	break;
+
+
+Search for:
+     if (showclass && !(showclass & (1 << GET_CLASS(tch))))
+       continue; 
+
+Below it, add:
+     if (showrace && !(showrace & (1 << GET_RACE(tch))))
+       continue;
+
+
+Search for:
+    if (short_list) {
+      send_to_char(ch, "%s[%2d %s] %-12.12s%s%s",
+	      (GET_LEVEL(tch) >= LVL_IMMORT ? CCYEL(ch, C_SPR) : ""),
+	      GET_LEVEL(tch), CLASS_ABBR(tch), GET_NAME(tch),
+	      (GET_LEVEL(tch) >= LVL_IMMORT ? CCNRM(ch, C_SPR) : ""),
+	      ((!(++num_can_see % 4)) ? "\r\n" : ""));
+
+Replace it with:
+    if (short_list) {
+      send_to_char(ch, "%s[%2d %s %s] %-12.12s%s%s",
+	      (GET_LEVEL(tch) >= LVL_IMMORT ? CCYEL(ch, C_SPR) : ""),
+	      GET_LEVEL(tch), RACE_ABBR(tch), CLASS_ABBR(tch), GET_NAME(tch),
+	      (GET_LEVEL(tch) >= LVL_IMMORT ? CCNRM(ch, C_SPR) : ""),
+	      ((!(++num_can_see % 4)) ? "\r\n" : ""));
+
+
+Search for:
+    } else {
+      num_can_see++;
+      send_to_char(ch, "%s[%2d %s] %s %s",
+	      (GET_LEVEL(tch) >= LVL_IMMORT ? CCYEL(ch, C_SPR) : ""),
+	      GET_LEVEL(tch), CLASS_ABBR(tch), GET_NAME(tch),
+	      GET_TITLE(tch));
+
+Replace it with:
+    } else {
+      num_can_see++;
+      send_to_char(ch, "%s[%2d %s %s] %s %s",
+	      (GET_LEVEL(tch) >= LVL_IMMORT ? CCYEL(ch, C_SPR) : ""),
+	      GET_LEVEL(tch), RACE_ABBR(tch), CLASS_ABBR(tch), GET_NAME(tch),
+	      GET_TITLE(tch));
+
+
+Search for:
+"format: users [-l minlevel[-maxlevel]] [-n name] [-h host] [-c classlist] [-o] [-p]\r\n"
+
+Replace it with:
+"format: users [-l minlevel[-maxlevel]] [-n name] [-h host] [-c classlist] [-r racelist] [-o] [-p]\r\n"
+
+
+Search for:
+   int showclass = 0, outlaws = 0, playing = 0, deadweight = 0;
+
+Below it, add:
+   int showrace = 0;
+
+
+Search for:
+      case 'c':
+	playing = 1;
+	half_chop(buf1, arg, buf);
+	showclass = find_class_bitvector(arg);
+	break;
+
+Below it, add:
+      case 'r':
+	playing = 1;
+	half_chop(buf1, arg, buf);
+	showrace = find_race_bitvector(arg);
+	break;
+
+Search for:
+  send_to_char(ch,
+	 "Num Class   Name         State          Idl Login@   Site\r\n"
+	 "--- ------- ------------ -------------- --- -------- ------------------------\r\n");
+
+Replace it with:
+  send_to_char(ch,
+	 "Num Class       Name         State          Idl Login@   Site\r\n"
+	 "--- ----------- ------------ -------------- --- -------- ------------------------\r\n");
+
+
+Search for:
+      if (showclass && !(showclass & (1 << GET_CLASS(tch))))
+        continue;
+
+Below it, add:
+      if (showrace && !(showrace & (1 << GET_RACE(tch))))
+        continue;
+
+
+Search for:
+      if (d->original)
+	sprintf(classname, "[%2d %s]", GET_LEVEL(d->original),
+		CLASS_ABBR(d->original));
+
+Replace it with:
+      if (d->original)
+	sprintf(classname, "[%2d %s %s]", GET_LEVEL(d->original),
+		RACE_ABBR(d->original), CLASS_ABBR(d->original));
+
+
+Search for:
+      else
+	sprintf(classname, "[%2d %s]", GET_LEVEL(d->character),
+		CLASS_ABBR(d->character));
+
+Replace it with:
+      else
+	sprintf(classname, "[%2d %s %s]", GET_LEVEL(d->character),
+		RACE_ABBR(d->character), CLASS_ABBR(d->character));
+
+
+-=-=-=-=-=-=-=-=-=-
+  act.movement.c
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+    else if (percent > GET_SKILL(ch, SKILL_PICK_LOCK))
+
+Replace it with:
+    else if (percent > (GET_SKILL(ch, SKILL_PICK_LOCK) + dex_app_skill[GET_DEX(ch)].p_locks + race_app_skill[GET_RACE(ch)].p_locks))
+
+
+-=-=-=-=-=-=-=-=-=-
+   act.other.c
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+extern char *class_abbrevs[];
+
+Below it, add:
+extern char *race_abbrevs[];
+
+
+In print_group(), search for:
+      snprintf(buf, sizeof(buf), "     [%3dH %3dM %3dV] [%2d %s] $N (Head of group)",
+	      GET_HIT(k), GET_MANA(k), GET_MOVE(k), GET_LEVEL(k), CLASS_ABBR(k));
+
+Replace it with:
+      snprintf(buf, sizeof(buf), "     [%3dH %3dM %3dV] [%2d %s %s] $N (Head of group)",
+	      GET_HIT(k), GET_MANA(k), GET_MOVE(k), GET_LEVEL(k),
+      RACE_ABBR(k), CLASS_ABBR(k));
+
+
+Search for:
+      snprintf(buf, sizeof(buf), "     [%3dH %3dM %3dV] [%2d %s] $N", GET_HIT(f->follower),
+	      GET_MANA(f->follower), GET_MOVE(f->follower),
+	      GET_LEVEL(f->follower), CLASS_ABBR(f->follower));
+
+Replace it with:
+      snprintf(buf, sizeof(buf), "     [%3dH %3dM %3dV] [%2d %s %s] $N", GET_HIT(f->follower),
+	      GET_MANA(f->follower), GET_MOVE(f->follower),
+	      GET_LEVEL(f->follower), RACE_ABBR(f->follower), CLASS_ABBR(f->follower));
+
+
+Search for:
+  if (percent > GET_SKILL(ch, SKILL_HIDE) + dex_app_skill[GET_DEX(ch)].hide)
+
+Replace it with:
+  if (percent > GET_SKILL(ch, SKILL_HIDE) + dex_app_skill[GET_DEX(ch)].hide + race_app_skill[GET_RACE(ch)].hide)
+
+
+Search for:
+  if (percent > GET_SKILL(ch, SKILL_SNEAK) + dex_app_skill[GET_DEX(ch)].sneak)
+
+Replace it with:
+  if (percent > GET_SKILL(ch, SKILL_SNEAK) + dex_app_skill[GET_DEX(ch)].sneak + race_app_skill[GET_RACE(ch)].sneak)
+
+
+Search for:
+      if (percent > GET_SKILL(ch, SKILL_STEAL)) {
+
+Replace it with:
+      if (percent > (GET_SKILL(ch, SKILL_STEAL) + dex_app_skill[GET_DEX(ch)].p_pcket + race_app_skill[GET_RACE(ch)].p_pocket)) {
+
+
+Search for:
+    if (AWAKE(vict) && (percent > GET_SKILL(ch, SKILL_STEAL))) {
+
+Repleace it with:
+    if (AWAKE(vict) && (percent > (GET_SKILL(ch, SKILL_STEAL) + dex_app_skill[GET_GET(ch)].p_pocket + race_app_skill[GET_RACE(ch)].p_pocket))) {
+
+
+-=-=-=-=-=-=-=-=-=-
+     spells.c
+-=-=-=-=-=-=-=-=-=-
+
+For an example of a racial bonus, here is how I did the elven
+resistance to charm spells.  In spells.c in spell_charm(), 
+Search for:
+	else if (!pk_allowed && !IS_NPC(victim))
+		send_to_char(ch, "You fail - shouldn't be doing it anyway.\r\n");
+
+Below it, add:
+	else if (IS_ELF(victim) && rand_number(1, 100) <= 90)
+		send_to_char(ch, "Your victim resists!\r\n");
+
+
+-=-=-=-=-=-=-=-=-=-
+     magic.c
+-=-=-=-=-=-=-=-=-=-
+
+In mag_savingthrows(), search for: 
+	save = saving_throws(class_sav, type, GET_LEVEL(ch));
+	save += GET_SAVE(ch, type);
+	save += modifier;
+
+Below it, add:
+	/* Dwarves and gnomes get intrinsic saves vs. magic */
+	if ((type == SAVING_SPELL || type == SAVING_ROD) &&
+		 (IS_DWARF(ch) || IS_GNOME(ch)))
+		save += (-5 * (GET_CON(ch) / 3.5));
+
+
+-=-=-=-=-=-=-=-=-=-
+     Makefile
+-=-=-=-=-=-=-=-=-=-
+
+Search for:
+
+objsave.o olc.o shop.o spec_assign.o spec_procs.o spell_parser.o \
+
+Change it to:
+
+objsave.o olc.o races.o shop.o spec_assign.o spec_procs.o \
+
+spell_parser.o \
+
+Search for:
+random.o: random.c
+
+$(CC) -c $(CFLAGS) random.c
+
+Below it, add:
+races.o: races.c sysdep.h conf.h structs.h interpreter.h utils.h
+
+$(CC) -c $(CFLAGS) races.c
+
+^^^^^^^^
+***MAKE SURE THIS IS A <TAB> OR ELSE THE MAKEFILE WILL PRODUCE ERRORS!!!!!***
+
